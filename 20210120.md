@@ -1,5 +1,5 @@
 ---
-title: "Conditional Projection of Covid-19 in Japan: Weekly Update"
+title: "Covid-19 and Output in Japan: Weekly Update"
 keywords: sample homepage
 tags: [getting_started]
 sidebar: mydoc_sidebar

@@ -2,7 +2,7 @@
 
 entries:
 - title: sidebar
-  product: Conditional Projection of Covid-19 in Japan Weekly Update
+  product: Covid-19 and Output in Japan Weekly Update
   version:
   folders:
 
@@ -19,7 +19,7 @@ entries:
       output: pdf
       type: frontmatter
 
-  - title: Conditional Projection of Covid-19 in Japan
+  - title: Covid-19 and Output in Japan
     output: web, pdf
     folderitems:
 
