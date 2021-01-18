@@ -75,7 +75,7 @@ defaults:
       # if you don't want to use Commento.io and just hide comments, change true to false wherever you see the comments property
       search: true
       sidebar: home_sidebar
-      topnav: topnav_my
+      topnav: topnav
   -
     scope:
       path: ""
@@ -101,12 +101,11 @@ defaults:
 
 sidebars:
 - home_sidebar
-- mydoc_sidebar
 - product1_sidebar
 - product2_sidebar
 - other
 
-description: "Intended as a documentation theme based on Jekyll for technical writers documenting software and other technical products, this theme has all the elements you would need to handle multiple products with both multi-level sidebar navigation, tags, and other documentation features."
+description: "TBW"
 # the description is used in the feed.xml file
 
 # needed for sitemap.xml file only
