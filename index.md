@@ -1,28 +1,48 @@
 ---
 title: "Covid-19 and Output in Japan"
 keywords: sample homepage
-tags: [getting_started]
-sidebar: mydoc_sidebar
+tags: [nationwide]
+sidebar: home_sidebar
 permalink: index.html
 summary:
 ---
 
-## Update on January 20, 2021
+## Updated weekly (Last update on January 20, 2021)
+
+The codes and datafiles to generate the figures and tables are available [here](https://github.com/Covid19OutputJapan/Covid19OutputJapan.github.io/tree/main/_archives/).
 
 ### 1. Conditional Projections of Covid-19
 
-![Projection](./images/20210120/VariablesProjection.png)
+{: align="center"}
+|![Projection](./images/20210113/VariablesProjection.png)|
+| Source: Authors’ calculation. |
 
-### 2. Forecast Errors
+### 2. Projected relationship between Covid-19 and output
 
 {: align="center"}
-|    | Actual |  Projection<br> from last week |
-| ---- | ---- | ---- |
-| New Cases |  8000  |  7000  |
-| New Deaths |  150  |  200  |
+|![Tradeoff](./images/20210113/LaggedTradeoff-resize40.png)|![TradeoffUB](./images/20210113/BaselineTradeoffUB-resize40.png)|
 
-### 3. Projected relationship between Covid-19 and output
+Source: Authors’ calculation.<br> Note: The vertical axis shows the number of cumulative deaths by the end of the next 12 months. The horizontal dashed line indicates the total number of Covid-19 deaths during 2020.
 
-![Projection](./images/20210120/BaselineTradeoff.png)
+### 3. Forecast Errors
 
-The code to generate the figures and tables are available at [./codes/]
+{: align="center"}
+|![ForecastErrorsD](./images/20210113/ForecastErrorsD.png)<br>![ForecastErrorsN](./images/20210113/ForecastErrorsN.png)|
+
+#### i. One-week horizon
+
+{: align="center"}
+|    | Actual | Forecast<br> from last week | Forecast Error |
+| ---- | ---- | ---- | ---- |
+| **New Cases** |  42882  |  24646  | <span style="color: red; ">-18236</span> |
+| **New Deaths** |  347  |  314  | <span style="color: red; ">-33</span> |
+
+#### ii. Four-week horizon
+
+{: align="center"}
+|    | Actual | Forecast<br> from 4 weeks ago | Forecast Error |
+| ---- | ---- | ---- | ---- |
+| **New Cases** |  106619  |  82444  | <span style="color: red; ">-24175</span> |
+| **New Deaths** |  1264  |  998  | <span style="color: red; ">-266</span> |
+
+Source: Authors’ calculation.

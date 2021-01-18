@@ -2,7 +2,7 @@
 
 entries:
 - title: sidebar
-  product: Covid-19 and Output in Japan Weekly Update
+  product: Covid-19 and Output in Japan
   version:
   folders:
 
@@ -19,7 +19,7 @@ entries:
       output: pdf
       type: frontmatter
 
-  - title: Covid-19 and Output in Japan
+  - title: Nationwide
     output: web, pdf
     folderitems:
 
@@ -32,10 +32,6 @@ entries:
       url: /20210113.html
       output: web, pdf
 
-    - title: Week of January 6, 2021
-      url: /20210106.html
-      output: web, pdf
-
   - title: Tokyo
     output: web, pdf
     folderitems:
@@ -46,4 +42,16 @@ entries:
 
     - title: Last week
       url: /last_tokyo.html
+      output: web, pdf
+
+  - title: Others
+    output: web, pdf
+    folderitems:
+
+    - title: Resources
+      url: /resources.html
+      output: web, pdf
+
+    - title: Disclaimer
+      url: /disclaimer.html
       output: web, pdf
