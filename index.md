@@ -1,5 +1,5 @@
 ---
-title: "Covid-19 and Output in Japan: Weekly Update"
+title: "Covid-19 and Output in Japan"
 keywords: sample homepage
 tags: [getting_started]
 sidebar: mydoc_sidebar
