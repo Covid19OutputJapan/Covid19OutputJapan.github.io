@@ -1,0 +1,49 @@
+# This is your sidebar TOC. The sidebar code loops through sections here and provides the appropriate formatting.
+
+entries:
+- title: sidebar
+  product: Conditional Projection of Covid-19 in Japan Weekly Update
+  version:
+  folders:
+
+  - title:
+    output: pdf
+    type: frontmatter
+    folderitems:
+    - title:
+      url: /titlepage.html
+      output: pdf
+      type: frontmatter
+    - title:
+      url: /tocpage.html
+      output: pdf
+      type: frontmatter
+
+  - title: Conditional Projection of Covid-19 in Japan
+    output: web, pdf
+    folderitems:
+
+    - title: Latest
+      url: /20210120.html
+      output: web, pdf
+      type: homepage
+
+    - title: Last week
+      url: /20210113.html
+      output: web, pdf
+
+    - title: Week of January 6, 2021
+      url: /20210106.html
+      output: web, pdf
+
+  - title: Tokyo
+    output: web, pdf
+    folderitems:
+
+    - title: Latest
+      url: /latest_tokyo.html
+      output: web, pdf
+
+    - title: Last week
+      url: /last_tokyo.html
+      output: web, pdf
