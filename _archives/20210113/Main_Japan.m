@@ -4,10 +4,10 @@
 
 clear variables
 close all
-home = '/home/takeki/Dropbox/covid19outputjapan/code/';
-% home = pwd;
+%home = '/home/takeki/Dropbox/covid19outputjapan/Covid19OutputJapan.github.io/_archives/20210113/';
+home = strcat(pwd,'/');
 %====================== Program parameter values ======================%
-figure_save = 0;    % 0 = figures won't be saved, 1 = they will be saved
+figure_save = 1;    % 0 = figures won't be saved, 1 = they will be saved
 % in the "Figure" folder
 fs = 16;            % common font size for many figures
 xlim_tradeoff = [2,5];
@@ -65,24 +65,24 @@ referenceGDP = potentialGDP.*(1+0.0166);
 referenceGDP(1:2) = [];
 
 
-%--- Plot mobility data ---%
-figure(2)
-yyaxis left
-plot(M,'k','LineWidth',1.5)
-ylabel('Mobility')
-yyaxis right
-plot(GDP,'b-.','LineWidth',1.5)
-ylabel('GDP')
-xlim([1 Tdata])
-xticks(xtick1)
-xticklabels(Month(xtick1))
-legend('Mobility (left axis)','GDP (right axis)','FontSize',16,'Location','north');
-ax = gca;
-ax.YAxis(1).Color = 'k';
-ax.YAxis(2).Color = 'b';
-ax.YAxis(1).FontSize = fs;
-ax.YAxis(2).FontSize = fs;
-ax.XAxis.FontSize = fs;
+% %--- Plot mobility data ---%
+% figure(2)
+% yyaxis left
+% plot(M,'k','LineWidth',1.5)
+% ylabel('Mobility')
+% yyaxis right
+% plot(GDP,'b-.','LineWidth',1.5)
+% ylabel('GDP')
+% xlim([1 Tdata])
+% xticks(xtick1)
+% xticklabels(Month(xtick1))
+% legend('Mobility (left axis)','GDP (right axis)','FontSize',16,'Location','north');
+% ax = gca;
+% ax.YAxis(1).Color = 'k';
+% ax.YAxis(2).Color = 'b';
+% ax.YAxis(1).FontSize = fs;
+% ax.YAxis(2).FontSize = fs;
+% ax.XAxis.FontSize = fs;
 
 
 %--- Regress mobility on alpha to estimate the elasticity h ---%
@@ -107,16 +107,16 @@ elseif hconstant == 1
     h = -(XC2'*XC2)\XC2'*Y2;
 end
 
-figure(100)
-scatter(X,Y,60,'filled')
-hold on
-plot(X,reg,'LineWidth',1.5)
-xlabel('Output loss (%)');
-ylabel('Mobility');
-aa = gca;
-aa.YAxis.FontSize = fs;
-aa.XAxis.FontSize = fs;
-hold off
+% figure(100)
+% scatter(X,Y,60,'filled')
+% hold on
+% plot(X,reg,'LineWidth',1.5)
+% xlabel('Output loss (%)');
+% ylabel('Mobility');
+% aa = gca;
+% aa.YAxis.FontSize = fs;
+% aa.XAxis.FontSize = fs;
+% hold off
 
 
 %--- Compute the history of S, I, R, D in the data period ---%
@@ -155,63 +155,63 @@ elseif hconstant == 1
     beta = beta_tilde./(1-0.01*h(1)-h(2)*alpha).^k;          
 end
 
-%--- Plot varabiles in the data period ---%
-figure(1)
-plot(N,'k','LineWidth',2)
-xlim([1 Tdata])
-xticks(xtick1)
-yticks([0 10000 20000 30000 40000])
-xticklabels(Month(xtick1))
-xtickangle(45)
-ax = gca;
-ax.YAxis.FontSize = 16;
-ax.XAxis.FontSize = 16;
-ax.YAxis.Exponent = 0;
-ytickformat('%,6.0f')
+% %--- Plot varabiles in the data period ---%
+% figure(1)
+% plot(N,'k','LineWidth',2)
+% xlim([1 Tdata])
+% xticks(xtick1)
+% yticks([0 10000 20000 30000 40000])
+% xticklabels(Month(xtick1))
+% xtickangle(45)
+% ax = gca;
+% ax.YAxis.FontSize = 16;
+% ax.XAxis.FontSize = 16;
+% ax.YAxis.Exponent = 0;
+% ytickformat('%,6.0f')
 
 
-VarList = ["S","I","R","D","N","GDP"];
-VarName = ["S","I","R","D","N","Y"];
-
-for i = 1:length(VarList)
-    figure(4)
-    subplot(2,3,i)
-    plot(eval(VarList(i)),'k','LineWidth',2)
-    xlim([1 Tdata])
-    title(VarName(i),'FontWeight','normal')
-    xticks(xtick1)
-    xticklabels(Month(xtick1))
-    xtickangle(45)
-    if i == 5
-        ax = gca;
-        ax.YAxis.Exponent = 0;
-        ytickformat('%,6.0f')
-    end
-    if i == length(VarList)
-        hold on 
-        plot(referenceGDP,'k--','LineWidth',2)
-    end
-end
-
-
- %--- Plot parameters in the data period ---%
-ParamList = ["alpha","ERN","beta","delta"];
-ParamName = ["$\alpha$ (decline in Y)","Effective reproduction number",...
-    "$\beta$ (raw infection rate)","$\delta$ (death rate)"];
-for i = 1:4
-    figure(3)
-    subplot(2,2,i)
-    plot(eval(ParamList(i)),'k','LineWidth',2)
-    xlim([1 Tdata])
-    title(ParamName(i),'Interpreter','latex','FontSize',14,'FontWeight','normal')
-    xticks(xtick1)
-    xticklabels(Month(xtick1))
-    xtickangle(45)
-    if i == 2
-        ylim([0 3]);
-        yline(1);
-    end
-end
+% VarList = ["S","I","R","D","N","GDP"];
+% VarName = ["S","I","R","D","N","Y"];
+% 
+% for i = 1:length(VarList)
+%     figure(4)
+%     subplot(2,3,i)
+%     plot(eval(VarList(i)),'k','LineWidth',2)
+%     xlim([1 Tdata])
+%     title(VarName(i),'FontWeight','normal')
+%     xticks(xtick1)
+%     xticklabels(Month(xtick1))
+%     xtickangle(45)
+%     if i == 5
+%         ax = gca;
+%         ax.YAxis.Exponent = 0;
+%         ytickformat('%,6.0f')
+%     end
+%     if i == length(VarList)
+%         hold on 
+%         plot(referenceGDP,'k--','LineWidth',2)
+%     end
+% end
+% 
+% 
+%  %--- Plot parameters in the data period ---%
+% ParamList = ["alpha","ERN","beta","delta"];
+% ParamName = ["$\alpha$ (decline in Y)","Effective reproduction number",...
+%     "$\beta$ (raw infection rate)","$\delta$ (death rate)"];
+% for i = 1:4
+%     figure(3)
+%     subplot(2,2,i)
+%     plot(eval(ParamList(i)),'k','LineWidth',2)
+%     xlim([1 Tdata])
+%     title(ParamName(i),'Interpreter','latex','FontSize',14,'FontWeight','normal')
+%     xticks(xtick1)
+%     xticklabels(Month(xtick1))
+%     xtickangle(45)
+%     if i == 2
+%         ylim([0 3]);
+%         yline(1);
+%     end
+% end
 
 %%%%%%%%%%%%%%%%% Projection starts here %%%%%%%%%%%%%%%%%
 
@@ -265,36 +265,38 @@ for i = 1:length(TargetAlpha)
         deltaL = mean(delta(end-RetroPeriod+1-wlag:end-wlag))*ones(SimPeriod,1);
         [LagResults(1,i,j),LagResults(2,i,j)]=Covid_projection(InitialValuesL,alphaT,betaL,gammaT,deltaL,V,h,k,POP0,hconstant);
     end
-        
-    %%% Beta sensitivity %%%
-    for j = 1:length(BetaVals)
-        betaS = BetaVals(j)*ones(SimPeriod,1);
-        [SA(j,i,1)]=Covid_projection(InitialValues,alphaT,betaS,gammaT,deltaT,V,h,k,POP0,hconstant);
-    end
-    %%% h sensitivity %%%
-    for j = 1:length(HVals)
-        HS = HVals(j);
-        [SA(j,i,2)]=Covid_projection(InitialValues,alphaT,betaT,gammaT,deltaT,V,HS,k,POP0,hconstant);
-    end
-    %%% k sensitivity %%%
-    for j = 1:length(KVals)
-        kS = KVals(j);
-        [SA(j,i,3)]=Covid_projection(InitialValues,alphaT,betaT,gammaT,deltaT,V,h,kS,POP0,hconstant);
-    end
-    %%% VacStart sensitivity %%%
-    for j = 1:length(VacStartVals)
-        VacStartS = VacStartVals(j);
-        VS = zeros(SimPeriod,1);
-        VS(VacStartS:end) = VacPace;
-        [SA(j,i,4)]=Covid_projection(InitialValues,alphaT,betaT,gammaT,deltaT,VS,h,k,POP0,hconstant);
-    end
+
+    %% sensitivity checks are currently shut down
+%     %%% Beta sensitivity %%%
+%     for j = 1:length(BetaVals)
+%         betaS = BetaVals(j)*ones(SimPeriod,1);
+%         [SA(j,i,1)]=Covid_projection(InitialValues,alphaT,betaS,gammaT,deltaT,V,h,k,POP0,hconstant);
+%     end
+%     %%% h sensitivity %%%
+%     for j = 1:length(HVals)
+%         HS = HVals(j);
+%         [SA(j,i,2)]=Covid_projection(InitialValues,alphaT,betaT,gammaT,deltaT,V,HS,k,POP0,hconstant);
+%     end
+%     %%% k sensitivity %%%
+%     for j = 1:length(KVals)
+%         kS = KVals(j);
+%         [SA(j,i,3)]=Covid_projection(InitialValues,alphaT,betaT,gammaT,deltaT,V,h,kS,POP0,hconstant);
+%     end
+%     %%% VacStart sensitivity %%%
+%     for j = 1:length(VacStartVals)
+%         VacStartS = VacStartVals(j);
+%         VS = zeros(SimPeriod,1);
+%         VS(VacStartS:end) = VacPace;
+%         [SA(j,i,4)]=Covid_projection(InitialValues,alphaT,betaT,gammaT,deltaT,VS,h,k,POP0,hconstant);
+%     end
 end
 
 %%% Time series figures (variables and parameters) %%%
 
 Past = [N,GDP,ERN,zeros(Tdata,1)];
 VarList2 = ["N","GDP","ERN","V"];
-VarName2 = ["N","Y","Effective reproduction number","Newly vaccinated persons"];
+VarName21 = ["Newly Infected","Output","Effective Reproduction","Newly Vaccinated"];
+VarName22 = ["Persons",       "",      "Number",                "Persons"];
 for i = 1:length(AlphaIndex)
     alphaT = flip(0:0.01*AlphaIndex(i)*2/(SimPeriod-1):(0.01*AlphaIndex(i)*2))';
     %     alphaT = 0.01*AlphaIndex(i)*ones(SimPeriod,1);
@@ -310,10 +312,12 @@ for i = 1:length(AlphaIndex)
         subplot(2,2,j)
         plot(CombinedData(:,j),'k','LineWidth',2)
         xlim([1 Tdata+SimPeriod])
-        title(VarName2(j),'FontWeight','normal')
+        title({VarName21(j);VarName22(j)},'FontWeight','normal')
         xline(Tdata);
         xticks([1 27 53 79 98])
-        xticklabels( {'Jan-20','Jul-20','Jan-21','Jul-21','Dec-21'} )
+        xticklabels({'Jan-20','Jul-20','Jan-21','Jul-21','Dec-21'})
+        ax = gca;
+        ax.XAxis.FontSize = 8; %10
         xtickangle(45)
         if j == 3
         ylim([0 3]);
@@ -322,50 +326,57 @@ for i = 1:length(AlphaIndex)
         hold on
     end
     
-    alpha2 = [alpha;alphaT];
-    beta2 = [beta;betaT];
-    beta_tildeT = ((1 - h*alphaT).^k).*betaT;
-    beta_tilde2 = [beta_tilde;beta_tildeT];
-    ERN2 = [ERN;ERNT];
-    delta2 = [delta;deltaT];
-    V2 = [zeros(Tdata,1);V];
-    figure(101)
-    %set(gcf,'Position',[100,100,800,500])
-    for j = 1:length(ParamList2)
-        subplot(2,2,j)
-        plot(eval(ParamList2(j)),'k','LineWidth',2)
-        xlim([1 Tdata+SimPeriod])
-        title(ParamName(j),'Interpreter','latex','FontSize',11,'FontWeight','normal')
-        xline(Tdata);
-        xticks([1 27 53 79 98])
-        xticklabels( {'Jan-20','Jul-20','Jan-21','Jul-21','Dec-21'} )
-        xtickangle(45)
-        hold on
-    end
+%     alpha2 = [alpha;alphaT];
+%     beta2 = [beta;betaT];
+%     beta_tildeT = ((1 - h*alphaT).^k).*betaT;
+%     beta_tilde2 = [beta_tilde;beta_tildeT];
+%     ERN2 = [ERN;ERNT];
+%     delta2 = [delta;deltaT];
+%     V2 = [zeros(Tdata,1);V];
+%     figure(101)
+%     %set(gcf,'Position',[100,100,800,500])
+%     for j = 1:length(ParamList2)
+%         subplot(2,2,j)
+%         plot(eval(ParamList2(j)),'k','LineWidth',2)
+%         xlim([1 Tdata+SimPeriod])
+%         title(ParamName(j),'Interpreter','latex','FontSize',11,'FontWeight','normal')
+%         xline(Tdata);
+%         xticks([1 27 53 79 98])
+%         xticklabels( {'Jan-20','Jul-20','Jan-21','Jul-21','Dec-21'} )
+%         xtickangle(45)
+%         hold on
+%     end
 end
 
-%--- Trade-off figure (baseline) ---%
-figure(102)
-plot(100*AverageAlpha,CumD,'k','LineWidth',2)
-xlabel('Output Loss (%)','FontSize',fs)
-ylabel('Cumlative Deaths','FontSize',fs)
-xlim(xlim_tradeoff);
-yline(D(end),'r--','LineWidth',1.5);
-grid on
-ax = gca;
-ax.YAxis.FontSize = fs;
-ax.XAxis.FontSize = fs;
-ax.YAxis.Exponent = 0;
-ytickformat('%,6.0f')
+% %--- Trade-off figure (baseline) ---%
+% figure(102)
+% plot(100*AverageAlpha,CumD,'k','LineWidth',2)
+% xlabel('Output Loss (%)','FontSize',fs)
+% ylabel('Cumlative Deaths','FontSize',fs)
+% xlim(xlim_tradeoff);
+% yline(D(end),'r--','LineWidth',1.5);
+% grid on
+% ax = gca;
+% ax.YAxis.FontSize = fs;
+% ax.XAxis.FontSize = fs;
+% ax.YAxis.Exponent = 0;
+% ytickformat('%,6.0f')
 
 %--- Trade-off figure (lag) ---%
+%figure;
 figure(8)
-plot(100*AverageAlpha,CumD,'k','LineWidth',2,'DisplayName','baseline')
-legend('baseline')
+plot(100*AverageAlpha,CumD,'k','LineWidth',2,'DisplayName','This week')
+%plot(100*AverageAlpha,CumD,'k','LineWidth',2,'DisplayName','baseline')
+legend('This week')
 hold on
 for i = 1:length(wl)
     wlag = wl(i);
-    plot(100*LagResults(2,:,i),LagResults(1,:,i),'LineWidth',2,'DisplayName',sprintf('%.0f weeks ago',wlag))
+    if wlag==1
+            plot(100*LagResults(2,:,i),LagResults(1,:,i),'r','LineWidth',2,'DisplayName',sprintf('%.0f week ago',wlag))
+        else
+            plot(100*LagResults(2,:,i),LagResults(1,:,i),'b','LineWidth',2,'DisplayName',sprintf('%.0f weeks ago',wlag))
+    end
+%     plot(100*LagResults(2,:,i),LagResults(1,:,i),'LineWidth',2,'DisplayName',sprintf('%.0f weeks ago',wlag))
     hold on
 end
 hold off
@@ -382,64 +393,65 @@ lgd.NumColumns = 1;
 lgd.FontSize = 15;
 grid on
 
+% %--- Trade-off figures with sensitivity analysis ---%
+% SensitivityTitle = ["\beta","h","k","Vaccine pace"];
+% SensitivitySaveTitle = ["beta","h","k","VacPace"];
+% SensitivityLegend = {["5% higher","baseline","5% lower"], ["20% lower", "baseline", "20% higher"], ["1.5","2 (baseline)","2.5"], ...
+%    ["0.5*baseline","baseline","2*baseline"]};
+% for i = 1:length(SensitivityTitle)
+%     figure(7)
+%     set(gcf,'Position',[100,100,600,500])
+%     subplot(2,2,i)
+%     for j = 1:3
+%         if j == 1
+%             plot(TargetAlpha,SA(j,:,i),'b--','LineWidth',1.5)
+%         elseif j == 2
+%             plot(TargetAlpha,SA(j,:,i),'k-','LineWidth',1.5)
+%         elseif j == 3
+%             plot(TargetAlpha,SA(j,:,i),'r-.','LineWidth',1.5)
+%         end
+%         hold on
+%     end
+%     xlabel('Output Loss (%)','FontSize',14)
+%     ylabel('Cumlative Deaths','FontSize',14)
+%     ax = gca;
+%     ax.YAxis.FontSize = 14;
+%     ax.XAxis.FontSize = 14;
+%     ax.YAxis.Exponent = 0;
+%     ytickformat('%,6.0f')
+%     xlim(xlim_tradeoff);
+%     legend(SensitivityLegend{i},'FontSize',13)
+%     title(SensitivityTitle(i),'FontSize',fs,'FontWeight','normal')
+%     grid on
+%     %saveas(figure(10+i),[home 'Figures/Paper/' char(SensitivitySaveTitle(i)) 'Sensitivity.png']);
+%     hold off;
+% end
 
-%--- Trade-off figures with sensitivity analysis ---%
-SensitivityTitle = ["\beta","h","k","Vaccine pace"];
-SensitivitySaveTitle = ["beta","h","k","VacPace"];
-SensitivityLegend = {["5% higher","baseline","5% lower"], ["20% lower", "baseline", "20% higher"], ["1.5","2 (baseline)","2.5"], ...
-   ["0.5*baseline","baseline","2*baseline"]};
-for i = 1:length(SensitivityTitle)
-    figure(7)
-    set(gcf,'Position',[100,100,600,500])
-    subplot(2,2,i)
-    for j = 1:3
-        if j == 1
-            plot(TargetAlpha,SA(j,:,i),'b--','LineWidth',1.5)
-        elseif j == 2
-            plot(TargetAlpha,SA(j,:,i),'k-','LineWidth',1.5)
-        elseif j == 3
-            plot(TargetAlpha,SA(j,:,i),'r-.','LineWidth',1.5)
-        end
-        hold on
-    end
-    xlabel('Output Loss (%)','FontSize',14)
-    ylabel('Cumlative Deaths','FontSize',14)
-    ax = gca;
-    ax.YAxis.FontSize = 14;
-    ax.XAxis.FontSize = 14;
-    ax.YAxis.Exponent = 0;
-    ytickformat('%,6.0f')
-    xlim(xlim_tradeoff);
-    legend(SensitivityLegend{i},'FontSize',13)
-    title(SensitivityTitle(i),'FontSize',fs,'FontWeight','normal')
-    grid on
-    %saveas(figure(10+i),[home 'Figures/Paper/' char(SensitivitySaveTitle(i)) 'Sensitivity.png']);
-    hold off;
-end
+% %--- Counterfactual analysis for 2020 (multiplicative deviation of alpha)---%
+% sw = 2;
+% IV_CF = [S(sw),I(sw),R(sw),D(sw)];
+% AlphaDeviation2 = 0.5:0.01:1.3;
+% CF2 = zeros(2,length(AlphaDeviation2));
+% for i = 1:length(AlphaDeviation2)
+%     alpha_CF2 = alpha(sw:end-1)*AlphaDeviation2(i);
+%     [CF2(1,i),CF2(2,i)]=Covid_projection(IV_CF,alpha_CF2,beta(sw:end-1),gamma*ones(Tdata-sw,1),delta(sw:end-1),zeros(Tdata-sw,1),h,k,POP0,hconstant);
+% end
+% figure(9)
+% plot(100*CF2(2,:),CF2(1,:),'-ok','LineWidth',2,'MarkerIndices',find(AlphaDeviation2==1),'MarkerSize',15,'MarkerFaceColor','red','MarkerEdgeColor','none')
+% xlabel('Output Loss (%)','FontSize',18)
+% ylabel('Cumlative Deaths','FontSize',18)
+% xlim([3.5,5]);
+% grid on
+% ax = gca;
+% ax.YAxis.FontSize = 18;
+% ax.XAxis.FontSize = 18;
+% ax.YAxis.Exponent = 0;
+% ytickformat('%,6.0f')
+% 
+% slope = mean([(CF2(1,51)-CF2(1,50))/(100*(CF2(2,51)-CF2(2,50))),(CF2(1,52)-CF2(1,51))/(100*(CF2(2,52)-CF2(2,51)))]);
+% SVL = (POP0/slope)/100;
 
-%--- Counterfactual analysis for 2020 (multiplicative deviation of alpha)---%
-sw = 2;
-IV_CF = [S(sw),I(sw),R(sw),D(sw)];
-AlphaDeviation2 = 0.5:0.01:1.3;
-CF2 = zeros(2,length(AlphaDeviation2));
-for i = 1:length(AlphaDeviation2)
-    alpha_CF2 = alpha(sw:end-1)*AlphaDeviation2(i);
-    [CF2(1,i),CF2(2,i)]=Covid_projection(IV_CF,alpha_CF2,beta(sw:end-1),gamma*ones(Tdata-sw,1),delta(sw:end-1),zeros(Tdata-sw,1),h,k,POP0,hconstant);
-end
-figure(9)
-plot(100*CF2(2,:),CF2(1,:),'-ok','LineWidth',2,'MarkerIndices',find(AlphaDeviation2==1),'MarkerSize',15,'MarkerFaceColor','red','MarkerEdgeColor','none')
-xlabel('Output Loss (%)','FontSize',18)
-ylabel('Cumlative Deaths','FontSize',18)
-xlim([3.5,5]);
-grid on
-ax = gca;
-ax.YAxis.FontSize = 18;
-ax.XAxis.FontSize = 18;
-ax.YAxis.Exponent = 0;
-ytickformat('%,6.0f')
-
-slope = mean([(CF2(1,51)-CF2(1,50))/(100*(CF2(2,51)-CF2(2,50))),(CF2(1,52)-CF2(1,51))/(100*(CF2(2,52)-CF2(2,51)))]);
-SVL = (POP0/slope)/100;
+save Main_Japan_allbutforecastUB.mat
 
 %%%%%%%%%%%%%%%%% Forecasting accuracy analysis %%%%%%%%%%%%%%%%%
 StartDateF  = 33;
@@ -512,7 +524,9 @@ xtick1_F=[StartDateF+4:8:Tdata Tdata];
 xtick4_F=[StartDateF+4:8:Tdata Tdata];
 fs_F=10;
 fs_legend_F=10;
-fs_title=12;
+fs_title=10;
+%fs_title=12;
+%figure
 figure(10)
 subplot(2,2,1)
 plot(StartDateF:(Tdata),dNForecast(StartDateF:Tdata,1),'r',StartDateF:(Tdata),dNActual(StartDateF:Tdata,1),'k','LineWidth',1.5)  
@@ -563,6 +577,7 @@ ax.XAxis.FontSize = fs_F;
 ax.YAxis.Exponent = 0;
 ytickformat('%,6.0f')
 
+%figure;
 figure(11)
 subplot(2,2,1)
 plot(StartDateF:(Tdata),dDForecast(StartDateF:Tdata,1),'r',StartDateF:(Tdata),dDActual(StartDateF:Tdata,1),'k','LineWidth',1.5)  
@@ -613,6 +628,8 @@ ax.XAxis.FontSize = fs_F;
 ax.YAxis.Exponent = 0;
 ytickformat('%,6.0f')
 
+save Main_Japan_allbutUB.mat
+
 %%%%%%%%%%%%%%%%% Uncertainty band for the tradeoff curve %%%%%%%%%%%%%%%%%
 
 %--- Uncertainty-band parameters ---%
@@ -643,6 +660,7 @@ for iUB=2:9
 end
 
 %--- Trade-off figure with UB (baseline) ---%
+%figure;
 figure(6)
 AreaUB=area(X1UB,Y1UB,0);
 set(AreaUB(1),'FaceColor',[1 1 1])
@@ -672,22 +690,24 @@ ytickformat('%,6.0f')
 
 %--- Save all figures ---%
 if figure_save == 1
-    saveas(figure(1),[home 'Figures/NewCases.png']);
-    saveas(figure(2),[home 'Figures/MobilityGDPLine.png']);
-    saveas(figure(3),[home 'Figures/Parameters.png']);
-    saveas(figure(4),[home 'Figures/Variables.png']);
+%     saveas(figure(1),[home 'Figures/NewCases.png']);
+%     saveas(figure(2),[home 'Figures/MobilityGDPLine.png']);
+%     saveas(figure(3),[home 'Figures/Parameters.png']);
+%     saveas(figure(4),[home 'Figures/Variables.png']);
     saveas(figure(5),[home 'Figures/VariablesProjection.png']);
     saveas(figure(6),[home 'Figures/BaselineTradeoffUB.png']);
-    saveas(figure(7),[home 'Figures/Sensitivity.png']);
+%     saveas(figure(7),[home 'Figures/Sensitivity.png']);
     saveas(figure(8),[home 'Figures/LaggedTradeoff.png']);
-    saveas(figure(9),[home 'Figures/CF_multiplicative.png']);
+%     saveas(figure(9),[home 'Figures/CF_multiplicative.png']);
     saveas(figure(10),[home 'Figures/ForecastErrorsN.png']);
     saveas(figure(11),[home 'Figures/ForecastErrorsD.png']);
     
-    saveas(figure(100),[home 'Figures/MobilityGDPScatter.png']);
-    saveas(figure(101),[home 'Figures/ParametersProjection.png']);
-    saveas(figure(102),[home 'Figures/BaselineTradeoff.png']);
+%     saveas(figure(100),[home 'Figures/MobilityGDPScatter.png']);
+%     saveas(figure(101),[home 'Figures/ParametersProjection.png']);
+%     saveas(figure(102),[home 'Figures/BaselineTradeoff.png']);
 end
+
+save Main_Japan_all.mat
 
 
 

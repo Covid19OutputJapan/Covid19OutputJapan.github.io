@@ -27,8 +27,15 @@ Source: Authors’ calculation.<br> Note: The vertical axis shows the number of 
 
 ### 3. Conditional Forecast Errors
 
+#### New Deaths
+
 {: align="center"}
-|![ForecastErrorsD](./images/20210113/ForecastErrorsD.png)<br>![ForecastErrorsN](./images/20210113/ForecastErrorsN.png)|
+|![ForecastErrorsD](./images/20210113/ForecastErrorsD.png)|
+
+#### New Cases
+
+{: align="center"}
+|![ForecastErrorsN](./images/20210113/ForecastErrorsN.png)|
 
 #### i. One-week horizon
 
