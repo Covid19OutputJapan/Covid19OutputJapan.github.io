@@ -23,40 +23,39 @@ entries:
   - title: Nationwide
     output: web, pdf
     folderitems:
-
     - title: Latest
       url: /20210120.html
       output: web, pdf
       type: homepage
-
     - title: Last week
       url: /20210113.html
       output: web, pdf
 
-  - title: Tokyo
+  - title: Prefecture
     output: web, pdf
     folderitems:
-
-    - title: Latest
-      url: /latest_tokyo.html
+    - title: Tokyo
       output: web, pdf
-
-    - title: Last week
-      url: /last_tokyo.html
+      folderitems: # does not work
+      - title: Latest
+        url: /latest_tokyo.html
+        output: web, pdf
+      - title: Last week
+        url: /last_tokyo.html
+        output: web, pdf
+    - title: Osaka
       output: web, pdf
+      folderitems:
 
-  - title: Others
+  - title: Information
     output: web, pdf
     folderitems:
-
     - title: History
       url: /history.html
       output: web, pdf
-
     - title: Resource
       url: /resource.html
       output: web, pdf
-
     - title: Disclaimer
       url: /disclaimer.html
       output: web, pdf
