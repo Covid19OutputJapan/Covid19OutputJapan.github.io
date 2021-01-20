@@ -39,11 +39,14 @@ entries:
   - title: Information
     output: web, pdf
     folderitems:
+    - title: Team
+      url: /team.html
+      output: web, pdf
     - title: History
       url: /history.html
       output: web, pdf
-    - title: Resource
-      url: /resource.html
+    - title: History
+      url: /history.html
       output: web, pdf
     - title: Disclaimer
       url: /disclaimer.html

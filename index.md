@@ -7,9 +7,9 @@ permalink: index.html
 summary:
 ---
 
-## Last update on January 20, 2021
+## Last update on January 21, 2021
 
-The codes and datafiles to generate the figures and tables are available [here](https://github.com/Covid19OutputJapan/Covid19OutputJapan.github.io/tree/main/_archives/).
+Replications files are are available [here](https://github.com/Covid19OutputJapan/Covid19OutputJapan.github.io/tree/main/_archives/).
 
 ### 1. Conditional Projections of Covid-19
 
