@@ -24,12 +24,9 @@ entries:
     output: web, pdf
     folderitems:
     - title: Latest
-      url: /20210120.html
+      url: /index.html
       output: web, pdf
       type: homepage
-    - title: Last week
-      url: /20210113.html
-      output: web, pdf
 
   - title: Prefecture
     output: web, pdf
