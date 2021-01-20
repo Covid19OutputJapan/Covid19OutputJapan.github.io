@@ -42,8 +42,8 @@ entries:
     - title: Team
       url: /team.html
       output: web, pdf
-    - title: Resource
-      url: /resource.html
+    - title: Resources
+      url: /resources.html
       output: web, pdf
     - title: History
       url: /history.html

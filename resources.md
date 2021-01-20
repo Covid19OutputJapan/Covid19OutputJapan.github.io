@@ -3,7 +3,7 @@ title: "Resource"
 keywords: sample homepage
 tags: [others]
 sidebar: home_sidebar
-permalink: resource.html
+permalink: resources.html
 summary:
 ---
 
