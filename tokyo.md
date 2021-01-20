@@ -7,7 +7,7 @@ permalink: tokyo.html
 summary:
 ---
 
-## Last update on January 20, 2021
+## Last update on January 21, 2021
 
 The codes and datafiles to generate the figures and tables are available [here](https://github.com/Covid19OutputJapan/Covid19OutputJapan.github.io/tree/main/_archives/).
 
