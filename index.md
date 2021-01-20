@@ -21,9 +21,9 @@ Source: Authors’ calculation.
 ### 2. Projected relationship between Covid-19 and output
 
 {: align="center"}
----|![TradeoffUB](./images/20210120/BaselineTradeoffUB.png)<br>![Tradeoff](./images/20210113/LaggedTradeoff.png)|
-
 |![TradeoffUB](./images/20210120/BaselineTradeoffUB.png) ![Tradeoff](./images/20210113/LaggedTradeoff.png)|
+
+![TradeoffUB](./images/20210120/BaselineTradeoffUB.png) ![Tradeoff](./images/20210113/LaggedTradeoff.png)
 
 Source: Authors’ calculation.<br> Note: The vertical axis shows the number of cumulative deaths by the end of the next 12 months. The horizontal dashed line indicates the total number of Covid-19 deaths during 2020.
 
