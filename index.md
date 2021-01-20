@@ -42,15 +42,15 @@ Source: Authors’ calculation.<br> Note: The vertical axis shows the number of 
 {: align="center"}
 |    | Actual | Conditional Forecast<br> from last week | Forecast Error |
 | ---- | ---- | ---- | ---- |
-| **New Cases** |  42,882  |  24,646  | <span style="color: red; ">-18,236</span> |
-| **New Deaths** |  347  |  314  | <span style="color: red; ">-33</span> |
+| **New Cases** |  41,290  |  53,088  | <span style="color: red; ">11,7983</span> |
+| **New Deaths** |  445  |  723  | <span style="color: red; ">278</span> |
 
 #### ii. Four-week horizon
 
 {: align="center"}
 |    | Actual | Conditional Forecast<br> from 4 weeks ago | Forecast Error |
 | ---- | ---- | ---- | ---- |
-| **New Cases** |  106,619  |  82,444  | <span style="color: red; ">-24,175</span> |
-| **New Deaths** |  1,264  |  998  | <span style="color: red; ">-266</span> |
+| **New Cases** |  129,454  |  83,138  | <span style="color: red; ">-46,315</span> |
+| **New Deaths** |  1,459  |    1.004  | <span style="color: red; ">- 454</span> |
 
 Source: Authors’ calculation.
