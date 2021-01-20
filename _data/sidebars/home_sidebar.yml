@@ -33,7 +33,7 @@ entries:
     folderitems:
     - title: Tokyo
       output: web, pdf
-      url: /latest_tokyo.html
+      url: /tokyo.html
       type: homepage
     - title: Osaka
       output: web, pdf
