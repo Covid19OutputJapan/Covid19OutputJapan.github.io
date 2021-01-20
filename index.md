@@ -42,7 +42,7 @@ Source: Authors’ calculation.<br> Note: The vertical axis shows the number of 
 #### i. One-week horizon
 
 {: align="center"}
-|    | Actual | Forecast<br> from last week | Forecast Error |
+|    | Actual | Conditional Forecast<br> from last week | Forecast Error |
 | ---- | ---- | ---- | ---- |
 | **New Cases** |  42,882  |  24,646  | <span style="color: red; ">-18,236</span> |
 | **New Deaths** |  347  |  314  | <span style="color: red; ">-33</span> |
@@ -50,7 +50,7 @@ Source: Authors’ calculation.<br> Note: The vertical axis shows the number of 
 #### ii. Four-week horizon
 
 {: align="center"}
-|    | Actual | Forecast<br> from 4 weeks ago | Forecast Error |
+|    | Actual | Conditional Forecast<br> from 4 weeks ago | Forecast Error |
 | ---- | ---- | ---- | ---- |
 | **New Cases** |  106,619  |  82,444  | <span style="color: red; ">-24,175</span> |
 | **New Deaths** |  1,264  |  998  | <span style="color: red; ">-266</span> |
