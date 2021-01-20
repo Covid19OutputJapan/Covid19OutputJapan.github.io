@@ -35,9 +35,6 @@ entries:
       output: web, pdf
       url: /tokyo.html
       type: homepage
-    - title: Osaka
-      output: web, pdf
-      folderitems:
 
   - title: Information
     output: web, pdf
