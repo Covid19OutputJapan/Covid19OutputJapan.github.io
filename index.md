@@ -54,3 +54,8 @@ Source: Authors’ calculation.<br> Note: The vertical axis shows the number of 
 | **New Deaths** |  1,459  |    1.004  | <span style="color: red; ">- 454</span> |
 
 Source: Authors’ calculation.
+
+### 5. Chart of the Week
+
+{: align="center"}
+|![TradeoffUB](./images/20210120/ChartOfTheWeek.png)|
