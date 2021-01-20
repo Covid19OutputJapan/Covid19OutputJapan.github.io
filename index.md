@@ -14,16 +14,14 @@ The codes and datafiles to generate the figures and tables are available [here](
 ### 1. Conditional Projections of Covid-19
 
 {: align="center"}
-|![Projection](./images/20210113/VariablesProjection.png)|
+|![Projection](./images/20210120/VariablesProjection.png)|
 
 Source: Authors’ calculation.
 
 ### 2. Projected relationship between Covid-19 and output
 
 {: align="center"}
-|![TradeoffUB](./images/20210120/BaselineTradeoffUB.png) ![Tradeoff](./images/20210113/LaggedTradeoff.png)|
-
-![TradeoffUB](./images/20210120/BaselineTradeoffUB.png) ![Tradeoff](./images/20210113/LaggedTradeoff.png)
+|![TradeoffUB](./images/20210120/BaselineTradeoffUB.png)|
 
 Source: Authors’ calculation.<br> Note: The vertical axis shows the number of cumulative deaths by the end of the next 12 months. The horizontal dashed line indicates the total number of Covid-19 deaths during 2020.
 
@@ -32,12 +30,12 @@ Source: Authors’ calculation.<br> Note: The vertical axis shows the number of 
 #### New Deaths
 
 {: align="center"}
-|![ForecastErrorsD](./images/20210113/ForecastErrorsD.png)|
+|![ForecastErrorsD](./images/20210120/ForecastErrorsD.png)|
 
 #### New Cases
 
 {: align="center"}
-|![ForecastErrorsN](./images/20210113/ForecastErrorsN.png)|
+|![ForecastErrorsN](./images/20210120/ForecastErrorsN.png)|
 
 #### i. One-week horizon
 
