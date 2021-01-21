@@ -63,7 +63,7 @@ Source: Authors’ calculation.
 
 Source: Authors’ calculation.
 
-### 5. Chart of the Week
+### 4. Chart of the Week
 
 {: align="center"}
 |![TradeoffUB](./images/20210120/ChartOfTheWeek.png)|
