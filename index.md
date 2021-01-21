@@ -23,7 +23,7 @@ Source: Authors’ calculation.
 {: align="center"}
 |![TradeoffUB](./images/20210120/BaselineTradeoffUBp.png)|
 
-Source: Authors’ calculation.<br> Note: The vertical axis shows the number of cumulative deaths by the end of the next 12 months. The horizontal dashed line indicates the total number of Covid-19 deaths during 2020.
+Source: Authors’ calculation.<br> Note: The vertical axis shows the number of cumulative deaths by the end of the next 12 months. The horizontal axis shows the average output loss over the next twelve months. The horizontal dashed line indicates the total number of Covid-19 deaths during 2020.
 
 ### 3. Conditional Forecast Errors
 
@@ -32,10 +32,14 @@ Source: Authors’ calculation.<br> Note: The vertical axis shows the number of 
 {: align="center"}
 |![ForecastErrorsD](./images/20210120/ForecastErrorsD.png)|
 
+Source: Authors’ calculation.
+
 #### New Cases
 
 {: align="center"}
 |![ForecastErrorsN](./images/20210120/ForecastErrorsN.png)|
+
+Source: Authors’ calculation.
 
 #### i. One-week horizon
 
@@ -44,6 +48,8 @@ Source: Authors’ calculation.<br> Note: The vertical axis shows the number of 
 | ---- | ---- | ---- | ---- |
 | **New Cases** |  41,290  |  53,088  | <span style="color: red; ">11,7983</span> |
 | **New Deaths** |  445  |  723  | <span style="color: red; ">278</span> |
+
+Source: Authors’ calculation.
 
 #### ii. Four-week horizon
 
@@ -59,3 +65,5 @@ Source: Authors’ calculation.
 
 {: align="center"}
 |![TradeoffUB](./images/20210120/ChartOfTheWeek.png)|
+
+Source: Authors’ calculation.
