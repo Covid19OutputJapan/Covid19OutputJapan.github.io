@@ -59,7 +59,7 @@ Source: Authors’ calculation.
 |    | Conditional forecast<br> from 4 weeks ago | <br>Actual | Conditional<br>forecast error |
 | ---- | ---- | ---- | ---- |
 | **New Cases** |  83,138  |  129,454  | <span style="color: red; ">-46,315</span> |
-| **New Deaths** |   1.004  |    1,459 | <span style="color: red; ">- 454</span> |
+| **New Deaths** |   1,004  |    1,459 | <span style="color: red; ">-454</span> |
 
 Source: Authors’ calculation.
 
