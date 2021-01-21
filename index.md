@@ -27,17 +27,17 @@ Source: Authors’ calculation.<br> Note: The vertical axis shows the number of 
 
 ### 3. Conditional Forecast Errors
 
-#### New Deaths
-
-{: align="center"}
-|![ForecastErrorsD](./images/20210120/ForecastErrorsD.png)|
-
-Source: Authors’ calculation.
-
 #### New Cases
 
 {: align="center"}
 |![ForecastErrorsN](./images/20210120/ForecastErrorsN.png)|
+
+Source: Authors’ calculation.
+
+#### New Deaths
+
+{: align="center"}
+|![ForecastErrorsD](./images/20210120/ForecastErrorsD.png)|
 
 Source: Authors’ calculation.
 
