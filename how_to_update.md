@@ -2,7 +2,16 @@
 
 ### English version
 
-- `https://github.com/Covid19OutputJapan/Covid19OutputJapan.github.io/`以下のファイルを（`git clone`などで）ダウンロードしておく
+- (Windowsの場合)git for windowsをダウンロードする。インストールはたとえば[ここ](https://qiita.com/elu_jaune/items/280b4773a3a66c7956fe)を参照。ここで、9.の改行コードの自動変換指定は、"checkout as-is, commit unix-style line endings"を選択。あとはすべてデフォルトでよい
+
+- `https://github.com/Covid19OutputJapan/Covid19OutputJapan.github.io/`以下のファイルを
+
+  ```
+  git clone https://github.com/Covid19OutputJapan/Covid19OutputJapan.github.io/
+  ```
+  などとしてダウンロードしておく
+
+- 文字コードは、utf-8, ja-JP
 
 - 以下、今週の更新日付を`2021XXXX`、先週の更新日付を`2021YYYY`とする（ファイル、フォルダ名に使用）
 
@@ -65,7 +74,7 @@
 3. `/_data/sidebars/home_sidebar.yml`の23行目以降を次のように変更
 
   - `Latest`と`Last week`のリンクを変更し、2週前のリンクを加える
-  
+
   - たとえば、`XXXX=0120`,`YYYY=0113`,`ZZZZ=0106`のとき
   ```
   - title: Nationwide
@@ -94,7 +103,7 @@ git push
 
 - `https://github.com/Covid19OutputJapan/Covid19OutputJapan.github.io/JP/`以下のファイルを（`git clone`などで）ダウンロードしておく
   - English versionと同じ構造になっています
-  
+
 0. 英語版サイトにある画像ファイルフォルダ`/Covid19OutputJapan.github.io/image/2021XXXX`を、日本語版サイト`/Covid19OutputJapan.github.io/JP/image/2021XXXX`に移動
 
 1-4. 英語版サイトと同様の作業を行う
