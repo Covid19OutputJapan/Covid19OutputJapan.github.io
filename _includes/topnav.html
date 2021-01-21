@@ -39,7 +39,8 @@
                     <ul class="dropdown-menu">
                         {% for folderitem in folder.folderitems %}
                         {% if folderitem.external_url %}
-                        <li><a href="{{folderitem.external_url}}">{{folderitem.title}}</a></li>
+						<li><a href="https://covid19outputjapan.github.io/JP/">日本語</a></li>
+                        <!--li><a href="{{folderitem.external_url}}">{{folderitem.title}}</a></li-->
                         {% elsif page.url contains folderitem.url %}
                         <li class="dropdownActive"><a href="{{folderitem.url |  remove: "/"}}">{{folderitem.title}}</a></li>
                         {% else %}
