@@ -11,4 +11,4 @@ summary:
 
 - Taisuke Nakata: [link](https://sites.google.com/site/taisukenakata/)
 
-- Takakei Sunakawa: [link](https://tkksnk.github.io/)
+- Takakei Sunakawa (Technical Support): [link](https://tkksnk.github.io/)
