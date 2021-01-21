@@ -6,7 +6,7 @@
 clear variables
 close all
 home = '/Users/Daisuke/Desktop/Dropbox/Research/fujii_nakata/Covid19_Output_New/';
-% home = pwd
+% home = pwd　
 %====================== Program parameter values ======================%
 figure_save = 1;    % 0 = figures won't be saved, 1 = they will be saved
 % in the "Figure" folder
