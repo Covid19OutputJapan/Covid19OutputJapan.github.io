@@ -32,7 +32,7 @@ Note: Black line:the most recent week. Red line:one week earlier. Blue line:two 
 #### i. One-week horizon
 
 {: align="center"}
-|    | "Conditional"<br>forecast<br>from last week | <br>Actual | "Conditional"<br>forecast error |
+|    | "Conditional"<br>forecast<br>from last week | <br><br>Actual | <br>"Conditional"<br>forecast error |
 | ---- | ---- | ---- | ---- |
 | **New Cases** | 53,088   |  41,290  | <span style="color: black; ">11,798</span> |
 | **New Deaths** |   723  | 445  | <span style="color: black; ">278</span> |
@@ -43,7 +43,7 @@ Note: Our model provides projections of Covid-19 conditional on paths of output 
 #### ii. Four-week horizon
 
 {: align="center"}
-|    | "Conditional"<br>forecast<br>from 4 weeks ago | <br>Actual | "Conditional"<br>forecast error |
+|    | "Conditional"<br>forecast<br>from 4 weeks ago | <br><br>Actual | <br>"Conditional"<br>forecast error |
 | ---- | ---- | ---- | ---- |
 | **New Cases** |  83,138  |  129,454  | <span style="color: red; ">-46,315</span> |
 | **New Deaths** |   1,004  |    1,459 | <span style="color: red; ">-454</span> |
