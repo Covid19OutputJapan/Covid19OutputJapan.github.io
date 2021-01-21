@@ -16,25 +16,29 @@ The codes and datafiles to generate the figures and tables are available [here](
 {: align="center"}
 |![Baseline](./images/20210120/Tokyo/BaselineDecline.png)|
 
-Source: Authors’ calculation.
+Source: Authors’ calculation.<br>
+Note:	See Fujii and Nakata (2021) for a detailed discussion of the scenario.
 
 ### 2. Rapid-decline scenario
 
 {: align="center"}
 |![Rapid](./images/20210120/Tokyo/RapidDecline.png)|
 
-Source: Authors’ calculation
+Source: Authors’ calculation.<br>
+Note:	See Fujii and Nakata (2021) for a detailed discussion of the scenario.
 
 ### 3. Gradual-decline scenario
 
 {: align="center"}
 |![Gradual](./images/20210120/Tokyo/GradualDecline.png)|
 
-Source: Authors’ calculation
+Source: Authors’ calculation.<br>
+Note:	See Fujii and Nakata (2021) for a detailed discussion of the scenario.
 
 ### 4. All cases together
 
 {: align="center"}
 |![All](./images/20210120/Tokyo/ThreeScenariosDecline.png)|
 
-Source: Authors’ calculation
+Source: Authors’ calculation.<br>
+Note:	See Fujii and Nakata (2021) for a detailed discussion of the scenario.

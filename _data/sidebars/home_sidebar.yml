@@ -42,12 +42,16 @@ entries:
     - title: Team
       url: /team.html
       output: web, pdf
+      type: homepage
     - title: Resources
       url: /resources.html
       output: web, pdf
+      type: homepage
     - title: History
       url: /history.html
       output: web, pdf
+      type: homepage
     - title: Disclaimer
       url: /disclaimer.html
       output: web, pdf
+      type: homepage

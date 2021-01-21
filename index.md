@@ -16,14 +16,16 @@ Replications files are are available [here](https://github.com/Covid19OutputJapa
 {: align="center"}
 |![Projection](./images/20210120/VariablesProjection.png)|
 
-Source: Authors’ calculation.
+Source: Authors’ calculation.<br>
+Note: Red line: Average output loss = 1.6%. Black line: Average output loss = 2%. Blue line: Average output loss = 3%.	
 
 ### 2. Projected relationship between Covid-19 and output
 
 {: align="center"}
 |![TradeoffUB](./images/20210120/BaselineTradeoffUBp.png)|
 
-Source: Authors’ calculation.<br> Note: The vertical axis shows the number of cumulative deaths by the end of the next 12 months. The horizontal axis shows the average output loss over the next twelve months. The horizontal dashed line indicates the total number of Covid-19 deaths during 2020.
+Source: Authors’ calculation.<br>
+Note: The vertical axis shows the number of cumulative deaths by the end of the next 12 months. The horizontal axis shows the average output loss over the next twelve months. The horizontal dashed line indicates the total number of Covid-19 deaths during 2020.
 
 ### 3. Conditional Forecast Errors
 
@@ -44,20 +46,20 @@ Source: Authors’ calculation.
 #### i. One-week horizon
 
 {: align="center"}
-|    | <br>Actual | Conditional forecast<br> from last week | Conditional<br>forecast error |
+|    | Conditional forecast<br> from last week | <br>Actual | Conditional<br>forecast error |
 | ---- | ---- | ---- | ---- |
-| **New Cases** |  41,290  |  53,088  | <span style="color: red; ">11,7983</span> |
-| **New Deaths** |  445  |  723  | <span style="color: red; ">278</span> |
+| **New Cases** | 53,088   |  41,290  | <span style="color: black; ">11,798</span> |
+| **New Deaths** |   723  | 445  | <span style="color: black; ">278</span> |
 
 Source: Authors’ calculation.
 
 #### ii. Four-week horizon
 
 {: align="center"}
-|    | <br>Actual | Conditional forecast<br> from 4 weeks ago | Conditional<br>forecast error |
+|    | Conditional forecast<br> from 4 weeks ago | <br>Actual | Conditional<br>forecast error |
 | ---- | ---- | ---- | ---- |
-| **New Cases** |  129,454  |  83,138  | <span style="color: red; ">-46,315</span> |
-| **New Deaths** |  1,459  |    1.004  | <span style="color: red; ">- 454</span> |
+| **New Cases** |  83,138  |  129,454  | <span style="color: red; ">-46,315</span> |
+| **New Deaths** |   1.004  |    1,459 | <span style="color: red; ">- 454</span> |
 
 Source: Authors’ calculation.
 
@@ -67,3 +69,4 @@ Source: Authors’ calculation.
 |![TradeoffUB](./images/20210120/ChartOfTheWeek.png)|
 
 Source: Authors’ calculation.
+Note: The solid black line and grey fan chart are the same as in Chart 2. The red line is the relationship between the output loss and the number of and cumulative deaths if the pace of vaccine distribution is twice as fast as in the baseline case.
