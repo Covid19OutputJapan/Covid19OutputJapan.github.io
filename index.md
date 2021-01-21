@@ -17,7 +17,7 @@ Replications files are are available [here](https://github.com/Covid19OutputJapa
 |![Projection](./images/20210120/VariablesProjection.png)|
 
 Source: Authors’ calculation.<br>
-Note: Red line:　Average output loss=1.6%. Black line:　Average output loss=2%. Blue line:　Average output loss=3%.	
+Note: Red line:　Average output loss=1.6%. Black line:　Average output loss=2%. Blue line:　Average output loss=3%.　Weekly frequency.
 
 ### 2. Projected relationship between Covid-19 and output
 
