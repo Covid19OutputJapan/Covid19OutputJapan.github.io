@@ -44,7 +44,7 @@ Source: Authors’ calculation.
 #### i. One-week horizon
 
 {: align="center"}
-|    | Actual | Conditional forecast<br> from last week | Conditional<br>forecast Error |
+|    | <br>Actual | Conditional forecast<br> from last week | Conditional<br>forecast error |
 | ---- | ---- | ---- | ---- |
 | **New Cases** |  41,290  |  53,088  | <span style="color: red; ">11,7983</span> |
 | **New Deaths** |  445  |  723  | <span style="color: red; ">278</span> |
@@ -54,7 +54,7 @@ Source: Authors’ calculation.
 #### ii. Four-week horizon
 
 {: align="center"}
-|    | Actual | Conditional forecast<br> from 4 weeks ago | Conditional<br>forecast Error |
+|    | <br>Actual | Conditional forecast<br> from 4 weeks ago | Conditional<br>forecast error |
 | ---- | ---- | ---- | ---- |
 | **New Cases** |  129,454  |  83,138  | <span style="color: red; ">-46,315</span> |
 | **New Deaths** |  1,459  |    1.004  | <span style="color: red; ">- 454</span> |
