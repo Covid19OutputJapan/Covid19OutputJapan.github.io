@@ -27,21 +27,7 @@ Note: Red line:　Average output loss=1.6%. Black line:　Average output loss=2%
 Source: Authors’ calculation.<br>
 Note: Black line:　The most recent week. Red line:　One week earlier. Blue line:　Two weeks earlier. The vertical axis shows the number of cumulative deaths by the end of the next 12 months. The horizontal axis shows the average output loss over the next twelve months. The horizontal dashed line indicates the total number of Covid-19 deaths during 2020. The darkest and the second darkest grey areas indicate 20- and 40-percent confidence sets, respectively. The second lightest and the lightest grey areas indicated 60- and 80-percent confidence sets, respectively. 
 
-### 3. Conditional Forecast Errors
-
-#### New Cases
-
-{: align="center"}
-|![ForecastErrorsN](./images/20210120/ForecastErrorsN.png)|
-
-Source: Authors’ calculation.
-
-#### New Deaths
-
-{: align="center"}
-|![ForecastErrorsD](./images/20210120/ForecastErrorsD.png)|
-
-Source: Authors’ calculation.
+### 3. Forecast Errors
 
 #### i. One-week horizon
 
@@ -63,7 +49,25 @@ Source: Authors’ calculation.
 
 Source: Authors’ calculation.
 
-### 4. Chart of the Week
+### 4. Real-time Evaluation of the Model's Forecasting Performance
+
+#### New Cases
+
+{: align="center"}
+|![ForecastErrorsN](./images/20210120/ForecastErrorsN.png)|
+
+Source: Authors’ calculation.
+Note: The red lines---"Forecast"---are what the model would have predicted given the data available up to that point.
+
+#### New Deaths
+
+{: align="center"}
+|![ForecastErrorsD](./images/20210120/ForecastErrorsD.png)|
+
+Source: Authors’ calculation.
+Note: The red lines---"Forecast"---are what the model would have predicted given the data available up to that point.
+
+### 5. Chart of the Week
 
 {: align="center"}
 |![TradeoffUB](./images/20210120/ChartOfTheWeek.png)|
