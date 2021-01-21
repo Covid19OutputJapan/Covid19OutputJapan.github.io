@@ -17,7 +17,7 @@ Replications files are are available [here](https://github.com/Covid19OutputJapa
 |![Projection](./images/20210120/VariablesProjection.png)|
 
 Source: Authors’ calculation.<br>
-Note: Red line: Average output loss = 1.6%. Black line: Average output loss = 2%. Blue line: Average output loss = 3%.	
+Note: Red line:Average output loss = 1.6%. Black line:Average output loss = 2%. Blue line:Average output loss = 3%.	
 
 ### 2. Projected relationship between Covid-19 and output
 
@@ -25,7 +25,7 @@ Note: Red line: Average output loss = 1.6%. Black line: Average output loss = 2%
 |![TradeoffUB](./images/20210120/BaselineTradeoffUBp.png)|
 
 Source: Authors’ calculation.<br>
-Note: The vertical axis shows the number of cumulative deaths by the end of the next 12 months. The horizontal axis shows the average output loss over the next twelve months. The horizontal dashed line indicates the total number of Covid-19 deaths during 2020.
+Note: Black line:The most recent week. Red line:One week earlier. Blue line:Two weeks earlier. The vertical axis shows the number of cumulative deaths by the end of the next 12 months. The horizontal axis shows the average output loss over the next twelve months. The horizontal dashed line indicates the total number of Covid-19 deaths during 2020. The darkest and the second darkest grey areas indicate 20- and 40-percent confidence sets, respectively. The second lightest and the lightest grey areas indicated 60- and 80-percent confidence sets, respectively. 
 
 ### 3. Conditional Forecast Errors
 
