@@ -74,11 +74,11 @@ Last updated: January 22, 2021
   ## Updated on January 20, 2021
   ```
 
-  - 図へのリンクをそれぞれ変更
-    - たとえば、
-    ```
-    |![Projection](./images/2021XXXX/VariablesProjection.png)|
-    ```
+  - 図へのリンクをそれぞれ変更。たとえば、
+  ```
+  |![Projection](./images/2021XXXX/VariablesProjection.png)|
+  ```
+  
   - 表の数値をそれぞれ変更(`Main_Japan.m`の結果を書き留めておく)
 
 #### 4. 
