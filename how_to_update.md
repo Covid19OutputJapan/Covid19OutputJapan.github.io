@@ -4,7 +4,7 @@ Last updated: January 22, 2021
 
 ### English version
 
-#### 0. 必要なソフトウェアのインストールなど
+#### 0. 必要なソフトウェアのインストール、その他注意点
 
 - (Windowsの場合)git for windowsを[ここ](https://gitforwindows.org/)からダウンロードする。ここで、改行コードの自動変換指定は、"checkout as-is, commit unix-style line endings"を選択。あとはすべてデフォルトでよい
 
@@ -27,11 +27,9 @@ Last updated: January 22, 2021
 
 - マークダウンファイル(.mdファイル)を編集する際、文字コードは`utf-8, ja-JP`とすること。特にWindowsの場合に注意。
 
-- 以下、今週の更新日付を`2021XXXX`、先週の更新日付を`2021YYYY`とする（ファイル、フォルダ名に使用）
+- 以下の説明で、今週の更新日付を`2021XXXX`、先週の更新日付を`2021YYYY`とする（ファイル、フォルダ名に使用）。また、ファイルおよびフォルダ名はダウンロードしたフォルダからの相対パス（たとえば、`/_archives/2021XXXX/`は、`(ダウンロードしたフォルダ名)/Covid19OutputJapan.github.io/_archives/2021XXXX/`）
 
-- 以下の説明にあるファイルおよびフォルダ名はダウンロードしたフォルダからの相対パス（たとえば、`/_archives/2021XXXX/`は、`(ダウンロードしたフォルダ名)/Covid19OutputJapan.github.io/_archives/2021XXXX/`）
-
-#### 1. 
+#### 1. MATLABを実行してFigureを作成
 
 - `/_archives/2021XXXX/Main_Japan.m`をMATLABで実行して、Figure(.pngファイル)を`/image/2021XXXX`以下に保存
 
@@ -39,7 +37,7 @@ Last updated: January 22, 2021
 
 <!--  - `/_archives/2021XXXX/Figure_JP.m`をMATLABで実行して、Figure(.pngファイル)を`/image/2021XXXX`以下に保存（日本語版サイトに使用） -->
 
-#### 2.
+#### 2. 先週のトップページ(`index.md`)を`2021XXXX.md`として保存
 
 - `/2021XXXX.md`を`/index.md`からコピーして作成し、以下のように変更
 
@@ -65,11 +63,11 @@ Last updated: January 22, 2021
   に変更
 -->
 
-#### 3. 
+#### 3. 今週の`index.md`を作成
 
 - `/index.md`を以下のように変更
 
-  - （たとえば、`XXXX=0120`のとき）10行目を以下のように変更
+  - （たとえば、`XXXX=0120`のとき）10行目?を以下のように変更
   ```
   ## Updated on January 20, 2021
   ```
@@ -79,11 +77,20 @@ Last updated: January 22, 2021
   |![Projection](./images/2021XXXX/VariablesProjection.png)|
   ```
   
-  - 表の数値をそれぞれ変更(`Main_Japan.m`の結果を書き留めておく)
+  - 表の数値をそれぞれ変更(`Main_Japan.m`の結果を書き留めておく)。たとえば、
+  ```
+  | **New Cases** | 53,088   |  41,290  | <span style="color: black; ">11,798</span> |
+  | **New Deaths** |   723  | 445  | <span style="color: black; ">278</span> |
+  ```
+  ```
+  | **New Cases** |  83,138  |  129,454  | <span style="color: red; ">-46,315</span> |
+  | **New Deaths** |   1,004  |    1,459 | <span style="color: red; ">-454</span> |
+  ```
+    - 予測誤差がマイナスの場合は、フォントの色を赤にする
+    
+#### 4. サイドバー(`/_data/sidebars/home_sidebar.yml`)の更新
 
-#### 4. 
-
-- `/_data/sidebars/home_sidebar.yml`の23行目以降を次のように変更
+- `/_data/sidebars/home_sidebar.yml`の23行目?以降を次のように変更
 
   - `Latest`と`Last week`のリンクを変更し、2週前のリンクを加える
 
@@ -104,7 +111,7 @@ Last updated: January 22, 2021
       output: web, pdf
   ```
 
-#### 5. 
+#### 5. アップロード
 
 - 以下のgitコマンドを実行
 ```
