@@ -1,6 +1,6 @@
 ## How to update the website
 
-Last updated: January 22, 2021
+Last updated: January 22, 2021, written by Takeki Sunakawa
 
 ### English version
 
