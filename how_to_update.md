@@ -6,7 +6,7 @@ Last updated: January 22, 2021
 
 #### 0. 必要なソフトウェアのインストールなど
 
-- (Windowsの場合)git for windowsを[ここ](https://gitforwindows.org/)からダウンロードする。ここで、9.の改行コードの自動変換指定は、"checkout as-is, commit unix-style line endings"を選択。あとはすべてデフォルトでよい
+- (Windowsの場合)git for windowsを[ここ](https://gitforwindows.org/)からダウンロードする。ここで、改行コードの自動変換指定は、"checkout as-is, commit unix-style line endings"を選択。あとはすべてデフォルトでよい
 
 - (Macの場合)ターミナルから`git --version`でインストールされているか確認
 
@@ -53,6 +53,7 @@ Last updated: January 22, 2021
   ```
   に変更
 
+<!--
   - （たとえば、`YYYY=0113`のとき）10行目の
   ```
   ## Updated weekly (Last update on January 13, 2021)
@@ -62,6 +63,7 @@ Last updated: January 22, 2021
   ## Updated on January 20, 2021
   ```
   に変更
+-->
 
 #### 3. 
 
@@ -69,7 +71,7 @@ Last updated: January 22, 2021
 
   - （たとえば、`XXXX=0120`のとき）10行目を以下のように変更
   ```
-  ## Updated weekly (Last update on January 20, 2021)
+  ## Updated on January 20, 2021
   ```
 
   - 図へのリンクをそれぞれ変更
@@ -117,10 +119,13 @@ git push
 
 ### Japanese version
 
+#### 0.
 - `https://github.com/Covid19OutputJapan/Covid19OutputJapan.github.io/JP/`以下のファイルを（`git clone`などで）ダウンロードしておく
   - English versionと同じ構造になっています
 
-1. 英語版サイトにある画像ファイルフォルダ`/Covid19OutputJapan.github.io/image/2021XXXX`を、日本語版サイト`/Covid19OutputJapan.github.io/JP/image/2021XXXX`に移動またはコピー
+#### 1. 
+- 英語版サイトにある画像ファイルフォルダ`/Covid19OutputJapan.github.io/image/2021XXXX`を、日本語版サイト`/Covid19OutputJapan.github.io/JP/image/2021XXXX`に移動またはコピー
 
-2-5. 英語版サイトと同様の作業を行う
+#### 2-5. 
+- 英語版サイトと同様の作業を行う
   - English versionのフォルダと混同しないように注意
