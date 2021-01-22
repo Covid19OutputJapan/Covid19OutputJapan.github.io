@@ -1,5 +1,7 @@
 ## How to update the website
 
+Last updated: January 22, 2021
+
 ### English version
 
 #### 0. 必要なソフトウェアのインストールなど
