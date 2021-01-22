@@ -37,9 +37,9 @@ Last updated: January 22, 2021
 
 <!--  - `/_archives/2021XXXX/Figure_JP.m`をMATLABで実行して、Figure(.pngファイル)を`/image/2021XXXX`以下に保存（日本語版サイトに使用） -->
 
-#### 2. 先週のトップページ(`index.md`)を`2021XXXX.md`としてコピー、編集して保存
+#### 2. 先週のトップページ(`index.md`)を`2021YYYY.md`としてコピー、編集して保存
 
-- `/2021XXXX.md`を`/index.md`からコピーして作成し、以下のように変更
+- `/2021YYYY.md`を`/index.md`からコピーして作成し、以下のように変更
 
   - 6行目の
   ```
@@ -47,21 +47,9 @@ Last updated: January 22, 2021
   ```
   を
   ```
-  permalink: 2021XXXX.html
+  permalink: 2021YYYY.html
   ```
   に変更
-
-<!--
-  - （たとえば、`YYYY=0113`のとき）10行目の
-  ```
-  ## Updated weekly (Last update on January 13, 2021)
-  ```
-  を
-  ```
-  ## Updated on January 20, 2021
-  ```
-  に変更
--->
 
 #### 3. 今週の`index.md`を作成
 
@@ -94,20 +82,20 @@ Last updated: January 22, 2021
 
   - `Latest`と`Last week`のリンクを変更し、2週前のリンクを加える
 
-  - たとえば、`XXXX=0120`,`YYYY=0113`,`ZZZZ=0106`のとき
+  - たとえば、`XXXX=0120`, `YYYY=0113`, `ZZZZ=0106`のとき
   ```
   - title: Nationwide
     output: web, pdf
     folderitems:
     - title: Latest
-      url: /2021XXXX.html
+      url: /20210120.html
       output: web, pdf
       type: homepage
     - title: Last week
-      url: /2021YYYY.html
+      url: /20210113.html
       output: web, pdf
     - title: January 6, 2021
-      url: /2021ZZZZ.html
+      url: /20210106.html
       output: web, pdf
   ```
 
