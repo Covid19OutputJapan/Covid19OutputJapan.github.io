@@ -2,7 +2,7 @@
 
 ### English version
 
-0. 必要なソフトウェアのインストールなど
+#### 0. 必要なソフトウェアのインストールなど
 
 - (Windowsの場合)git for windowsを[ここ](https://gitforwindows.org/)からダウンロードする。ここで、9.の改行コードの自動変換指定は、"checkout as-is, commit unix-style line endings"を選択。あとはすべてデフォルトでよい
 
@@ -29,13 +29,17 @@
 
 - 以下の説明にあるファイルおよびフォルダ名はダウンロードしたフォルダからの相対パス（たとえば、`/_archives/2021XXXX/`は、`(ダウンロードしたフォルダ名)/Covid19OutputJapan.github.io/_archives/2021XXXX/`）
 
-1. `/_archives/2021XXXX/Main_Japan.m`をMATLABで実行して、Figure(.pngファイル)を`/image/2021XXXX`以下に保存
+#### 1. 
 
-  - コードやデータはすべて`/_archives/2021XXXX`に保存
+- `/_archives/2021XXXX/Main_Japan.m`をMATLABで実行して、Figure(.pngファイル)を`/image/2021XXXX`以下に保存
+
+- コードやデータはすべて`/_archives/2021XXXX`に保存
 
 <!--  - `/_archives/2021XXXX/Figure_JP.m`をMATLABで実行して、Figure(.pngファイル)を`/image/2021XXXX`以下に保存（日本語版サイトに使用） -->
 
-2. `./2021XXXX.md`を`/index.md`からコピーして作成し、以下のように変更
+#### 2.
+
+- `./2021XXXX.md`を`/index.md`からコピーして作成し、以下のように変更
 
   - 6行目の
   ```
@@ -57,7 +61,9 @@
   ```
   に変更
 
-3. `/index.md`を以下のように変更
+#### 3. 
+
+- `/index.md`を以下のように変更
 
   - （たとえば、`XXXX=0120`のとき）10行目を以下のように変更
   ```
@@ -71,7 +77,9 @@
     ```
   - 表の数値をそれぞれ変更(`Main_Japan.m`の結果を書き留めておく)
 
-4. `/_data/sidebars/home_sidebar.yml`の23行目以降を次のように変更
+#### 4. 
+
+- `/_data/sidebars/home_sidebar.yml`の23行目以降を次のように変更
 
   - `Latest`と`Last week`のリンクを変更し、2週前のリンクを加える
 
@@ -92,16 +100,18 @@
       output: web, pdf
   ```
 
-5. 以下のgitコマンドを実行
+#### 5. 
+
+- 以下のgitコマンドを実行
 ```
 git add -A
 git commit -m "update on 2021XXXX"
 git push
 ```
 
-  - （特にWindowsの場合）`git add -A`で時間がかかる場合、`git add (更新したファイル)`とする
+- （特にWindowsの場合）`git add -A`で時間がかかる場合、`git add (更新したファイル)`とする
 
-  - 初回の`git push`で、githubのCovid19OutputJapanアカウントで認証手続きが必要な場合がある
+- 初回の`git push`で、githubのCovid19OutputJapanアカウントで認証手続きが必要な場合がある
 
 ### Japanese version
 
