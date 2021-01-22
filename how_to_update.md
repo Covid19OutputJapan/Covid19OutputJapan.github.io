@@ -4,9 +4,9 @@ Last updated: January 22, 2021
 
 ### English version
 
-#### 0. 必要なソフトウェアのインストール、その他注意点
+#### 0. 必要なソフトウェアのインストール、その他の注意点
 
-- (Windowsの場合)git for windowsを[ここ](https://gitforwindows.org/)からダウンロードする。ここで、改行コードの自動変換指定は、"checkout as-is, commit unix-style line endings"を選択。あとはすべてデフォルトでよい
+- (Windowsの場合)git for windowsを[ここ](https://gitforwindows.org/)からダウンロードする。インストールするとき、改行コードの自動変換指定は"checkout as-is, commit unix-style line endings"を選択。あとはすべてデフォルトでよい
 
 - (Macの場合)ターミナルから`git --version`でインストールされているか確認
 
@@ -37,7 +37,7 @@ Last updated: January 22, 2021
 
 <!--  - `/_archives/2021XXXX/Figure_JP.m`をMATLABで実行して、Figure(.pngファイル)を`/image/2021XXXX`以下に保存（日本語版サイトに使用） -->
 
-#### 2. 先週のトップページ(`index.md`)を`2021XXXX.md`として保存
+#### 2. 先週のトップページ(`index.md`)を`2021XXXX.md`としてコピー、編集して保存
 
 - `/2021XXXX.md`を`/index.md`からコピーして作成し、以下のように変更
 
