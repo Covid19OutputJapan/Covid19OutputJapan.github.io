@@ -13,4 +13,6 @@ summary:
 
 - An analysis on strategies for ending the state of emergency in Tokyo (submitted to the Covid-19 subcommittee of the Ministry of Health, Labor, and Welfare, in Japanese) [link](./files/Slides_緊急事態宣言解除基準_0115.pdf)
 
-- Replications files for our updates are available [here](https://github.com/Covid19OutputJapan/Covid19OutputJapan.github.io/tree/main/_archives/).
+<!--
+- Replications files for our updates are available [here](https://github.com/Covid19OutputJapan/Covid19OutputJapan.github.io/tree/main/archives/).
+-->

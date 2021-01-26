@@ -11,7 +11,7 @@ summary:
 
 ## Last update on January 26, 2021
 
-Replications files are available [here](https://github.com/Covid19OutputJapan/Covid19OutputJapan.github.io/tree/main/_archives/).
+Replications files are available [here](https://github.com/Covid19OutputJapan/Covid19OutputJapan.github.io/tree/main/archives/).
 
 <!--
 Link to other Osaka pages:
