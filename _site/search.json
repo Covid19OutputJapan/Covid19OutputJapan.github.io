@@ -23,6 +23,28 @@
 
 
 
+{
+"title": "Covid-19 and Output in Japan",
+"tags": "nationwide",
+"keywords": "sample homepage",
+"url": "20210121.html",
+"summary": ""
+}
+,
+
+
+
+
+
+{
+"title": "Covid-19 and Output in Japan: Chiba",
+"tags": "chiba",
+"keywords": "sample homepage",
+"url": "chiba.html",
+"summary": ""
+}
+,
+
 
 
 {
@@ -61,6 +83,17 @@
 
 
 {
+"title": "Covid-19 and Output in Japan: Kanagawa",
+"tags": "kanagawa",
+"keywords": "sample homepage",
+"url": "kanagawa.html",
+"summary": ""
+}
+,
+
+
+
+{
 "title": "News",
 "tags": "",
 "keywords": "news, blog, updates, release notes, announcements",
@@ -76,6 +109,17 @@
 "tags": "",
 "keywords": "news, blog, updates, release notes, announcements",
 "url": "news_archive.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Covid-19 and Output in Japan: Osaka",
+"tags": "osaka",
+"keywords": "sample homepage",
+"url": "osaka.html",
 "summary": ""
 }
 ,
@@ -341,7 +385,18 @@
 "title": "Resource",
 "tags": "others",
 "keywords": "sample homepage",
-"url": "resource.html",
+"url": "resources.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Covid-19 and Output in Japan: Saitama",
+"tags": "saitama",
+"keywords": "sample homepage",
+"url": "saitama.html",
 "summary": ""
 }
 ,
@@ -374,7 +429,40 @@
 
 
 
+{
+"title": "Team",
+"tags": "others",
+"keywords": "sample homepage",
+"url": "team.html",
+"summary": ""
+}
+,
 
+
+
+
+
+
+
+{
+"title": "Covid-19 and Output in Japan: Tokyo",
+"tags": "tokyo",
+"keywords": "sample homepage",
+"url": "tokyo.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Covid-19 and Output in Japan: Tokyo",
+"tags": "tokyo",
+"keywords": "sample homepage",
+"url": "tokyo_20210121.html",
+"summary": ""
+}
+,
 
 
 
@@ -387,6 +475,17 @@
 "tags": "",
 "keywords": "",
 "url": "assetscssstyle.css",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "How to update the website",
+"tags": "",
+"keywords": "",
+"url": "how_to_update.html",
 "summary": ""
 }
 ,

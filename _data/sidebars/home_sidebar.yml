@@ -27,6 +27,10 @@ entries:
       url: /index.html
       output: web, pdf
       type: homepage
+    - title: Last week
+      url: /20210121.html
+      output: web, pdf
+      type: homepage
 
   - title: Prefectures
     output: web, pdf
@@ -34,6 +38,22 @@ entries:
     - title: Tokyo
       output: web, pdf
       url: /tokyo.html
+      type: homepage
+    - title: Osaka
+      output: web, pdf
+      url: /osaka.html
+      type: homepage
+    - title: Kanagawa
+      output: web, pdf
+      url: /kanagawa.html
+      type: homepage
+    - title: Chiba
+      output: web, pdf
+      url: /chiba.html
+      type: homepage
+    - title: Saitama
+      output: web, pdf
+      url: /saitama.html
       type: homepage
 
   - title: Information

@@ -7,38 +7,65 @@ permalink: tokyo.html
 summary:
 ---
 
-## Last update on January 21, 2021
+{% assign fig_loc = "./archives/20210126/Figures/Tokyo/" %}
 
-The codes and datafiles to generate the figures and tables are available [here](https://github.com/Covid19OutputJapan/Covid19OutputJapan.github.io/tree/main/_archives/).
+## Last update on January 26, 2021
+
+Replications files are available [here](https://github.com/Covid19OutputJapan/Covid19OutputJapan.github.io/tree/main/_archives/).
+
+Link to other Tokyo pages:
+<table>
+<tr>
+{% assign cnt = 0 %}
+{% for page1 in site.pages %}
+    {% for tag1 in page1.tags %}
+        {% if tag1 == "tokyo" and page1.name != page.name %}
+            <td><a href="{{page1.url | remove: "/" }}">{{page1.permalink}}</a></td>
+            {% assign cnt = cnt | plus:1 %}
+        {% endif %}
+<!--
+        {% if cnt == 1 %}
+            <td>here</td>
+            {% assign cnt = 0 %}
+        {% endif %}
+-->
+    {% endfor %}
+{% endfor %}
+</tr>
+</table>
 
 ### 1. Baseline scenario
 
 {: align="center"}
-|![Baseline](./images/20210120/Tokyo/BaselineDecline.png)|
+|![Baseline]({{ fig_loc }}BaselineDecline.png)|
 
 Source: Authors’ calculation.<br>
 Note:	See Fujii and Nakata (2021) for a detailed discussion of the scenario.
 
+<!--
 ### 2. Rapid-decline scenario
 
 {: align="center"}
-|![Rapid](./images/20210120/Tokyo/RapidDecline.png)|
+|![Rapid]({{ fig_loc }}RapidDecline.png)|
 
 Source: Authors’ calculation.<br>
 Note:	See Fujii and Nakata (2021) for a detailed discussion of the scenario.
+-->
 
-### 3. Gradual-decline scenario
+### 2. Gradual-decline scenario
 
 {: align="center"}
-|![Gradual](./images/20210120/Tokyo/GradualDecline.png)|
+|![Gradual]({{ fig_loc }}GradualDecline.png)|
 
 Source: Authors’ calculation.<br>
 Note:	See Fujii and Nakata (2021) for a detailed discussion of the scenario.
 
+<!--
 ### 4. All cases together
 
 {: align="center"}
-|![All](./images/20210120/Tokyo/ThreeScenariosDecline.png)|
+|![All]({{ fig_loc }}ThreeScenariosDecline.png)|
 
 Source: Authors’ calculation.<br>
 Note:	See Fujii and Nakata (2021) for a detailed discussion of the scenario.
+-->
