@@ -36,6 +36,7 @@ Note: Black line:the most recent week. Red line:one week earlier. Blue line:two 
 
 #### i. One-week horizon
 
+<!--
 {: align="center"}
 <table>
   {% for row in datafile_oneweek %}
@@ -64,17 +65,18 @@ Note: Black line:the most recent week. Red line:one week earlier. Blue line:two 
     </tr>
   {% endfor %}
 </table>
-<!--
+-->
+
 {: align="center"}
 |    | "Conditional"<br>forecast<br>from last week | <br><br>Actual | <br>"Conditional"<br>forecast error |
 | ---- | ---- | ---- | ---- |
-| **New Cases** | 53,088   |  41,290  | <span style="color: black; ">11,798</span> |
-| **New Deaths** |   723  | 445  | <span style="color: black; ">278</span> |
--->
+| **New Cases** | 37,437   |  34,897  | <span style="color: black; ">2,640</span> |
+| **New Deaths** |   527  | 583  | <span style="color: red; ">-56</span> |
 
 Source: Authors' calculation.<br>
 Note: Our model provides projections of Covid-19 conditional on paths of output but does not provide the projection of output. Thus, we compare the actual Covid-19 outcomes with the projection of them if the model had known the realized path of output.  
 
+<!--
 #### ii. Four-week horizon
 
 {: align="center"}
@@ -105,20 +107,28 @@ Note: Our model provides projections of Covid-19 conditional on paths of output 
     </tr>
   {% endfor %}
 </table>
-<!--
+
 {: align="center"}
 |    | "Conditional"<br>forecast<br>from 4 weeks ago | <br><br>Actual | <br>"Conditional"<br>forecast error |
 | ---- | ---- | ---- | ---- |
 | **New Cases** |  83,138  |  129,454  | <span style="color: red; ">-46,315</span> |
 | **New Deaths** |   1,004  |    1,459 | <span style="color: red; ">-454</span> |
--->
 
 Source: Authors' calculation.<br>
 Note: Our model provides projections of Covid-19 conditional on paths of output but does not provide the projection of output. Thus, we compare the actual Covid-19 outcomes with the projection of them if the model had known the realized path of output.  
+-->
 
-<!--
 ### 4. Real-time Evaluation of the Model's Forecasting Performance
 
+#### i. One-week horizon
+
+{: align="center"}
+|![ForecaseErrors]({{ fig_loc }}ForecaseErrors.png)|
+
+Source: Authors' calculation.<br>
+Note: The red lines---"Forecast"---are what the model would have predicted given the data available up to that point.
+
+<!--
 #### New Cases
 
 {: align="center"}
@@ -136,7 +146,7 @@ Source: Authors' calculation.<br>
 Note: The red lines---"Forecast"---are what the model would have predicted given the data available up to that point.
 -->
 
-### 4. Chart of the Week
+### 5. Chart of the Week
 
 {: align="center"}
 |![TradeoffUB]({{ fig_loc }}ChartOfTheWeek.png)|

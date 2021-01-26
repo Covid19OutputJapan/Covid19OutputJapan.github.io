@@ -13,6 +13,7 @@ summary:
 
 Replications files are available [here](https://github.com/Covid19OutputJapan/Covid19OutputJapan.github.io/tree/main/_archives/).
 
+<!--
 Link to other Kanagawa pages:
 <table>
 <tr>
@@ -23,13 +24,16 @@ Link to other Kanagawa pages:
             <td><a href="{{page1.url | remove: "/" }}">{{page1.permalink}}</a></td>
             {% assign cnt = cnt | plus:1 %}
         {% endif %}
-<!--
-        {% if cnt == 1 %}
-            <td>here</td>
-            {% assign cnt = 0 %}
-        {% endif %}
--->
     {% endfor %}
 {% endfor %}
 </tr>
 </table>
+-->
+
+### 1. Baseline scenario
+
+{: align="center"}
+|![Baseline]({{ fig_loc }}BaselineDecline.png)|
+
+Source: Authors’ calculation.<br>
+Note:	See Fujii and Nakata (2021) for a detailed discussion of the scenario.

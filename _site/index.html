@@ -332,13 +332,15 @@ Note: Black line:the most recent week. Red line:one week earlier. Blue line:two 
 
 <h4 id="i-one-week-horizon">i. One-week horizon</h4>
 
-<table align="center">
+<!--
+{: align="center"}
+<table>
   
     
       <tr><th></th>
-      <th> "Conditional"<br />forecast<br />from last week </th>
-      <th> <br /><br />Actual </th>
-      <th> <br />"Conditional"<br />forecast error </th>
+      <th> "Conditional"<br>forecast<br>from last week </th>
+      <th> <br><br>Actual </th>
+      <th> <br>"Conditional"<br>forecast error </th>
       </tr>
     
     <tr>
@@ -417,26 +419,47 @@ Note: Black line:the most recent week. Red line:one week earlier. Blue line:two 
     </tr>
   
 </table>
-<!--
-{: align="center"}
-|    | "Conditional"<br>forecast<br>from last week | <br><br>Actual | <br>"Conditional"<br>forecast error |
-| ---- | ---- | ---- | ---- |
-| **New Cases** | 53,088   |  41,290  | <span style="color: black; ">11,798</span> |
-| **New Deaths** |   723  | 445  | <span style="color: black; ">278</span> |
 -->
+
+<table align="center">
+  <thead>
+    <tr>
+      <th> </th>
+      <th>“Conditional”<br />forecast<br />from last week</th>
+      <th><br /><br />Actual</th>
+      <th><br />“Conditional”<br />forecast error</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>New Cases</strong></td>
+      <td>37,437</td>
+      <td>34,897</td>
+      <td><span style="color: black; ">2,640</span></td>
+    </tr>
+    <tr>
+      <td><strong>New Deaths</strong></td>
+      <td>527</td>
+      <td>583</td>
+      <td><span style="color: red; ">-56</span></td>
+    </tr>
+  </tbody>
+</table>
 
 <p>Source: Authors’ calculation.<br />
 Note: Our model provides projections of Covid-19 conditional on paths of output but does not provide the projection of output. Thus, we compare the actual Covid-19 outcomes with the projection of them if the model had known the realized path of output.</p>
 
-<h4 id="ii-four-week-horizon">ii. Four-week horizon</h4>
+<!--
+#### ii. Four-week horizon
 
-<table align="center">
+{: align="center"}
+<table>
   
     
     <tr><th></th>
-    <th> "Conditional"<br />forecast<br />from 4 weeks ago </th>
-    <th> <br /><br />Actual </th>
-    <th> <br />"Conditional"<br />forecast error </th>
+    <th> "Conditional"<br>forecast<br>from 4 weeks ago </th>
+    <th> <br><br>Actual </th>
+    <th> <br>"Conditional"<br>forecast error </th>
     </tr>
     
     <tr>
@@ -515,20 +538,33 @@ Note: Our model provides projections of Covid-19 conditional on paths of output 
     </tr>
   
 </table>
-<!--
+
 {: align="center"}
 |    | "Conditional"<br>forecast<br>from 4 weeks ago | <br><br>Actual | <br>"Conditional"<br>forecast error |
 | ---- | ---- | ---- | ---- |
 | **New Cases** |  83,138  |  129,454  | <span style="color: red; ">-46,315</span> |
 | **New Deaths** |   1,004  |    1,459 | <span style="color: red; ">-454</span> |
+
+Source: Authors' calculation.<br>
+Note: Our model provides projections of Covid-19 conditional on paths of output but does not provide the projection of output. Thus, we compare the actual Covid-19 outcomes with the projection of them if the model had known the realized path of output.  
 -->
 
+<h3 id="4-real-time-evaluation-of-the-models-forecasting-performance">4. Real-time Evaluation of the Model’s Forecasting Performance</h3>
+
+<h4 id="i-one-week-horizon-1">i. One-week horizon</h4>
+
+<table align="center">
+  <tbody>
+    <tr>
+      <td><img src="./archives/20210126/Figures/ForecaseErrors.png" alt="ForecaseErrors" /></td>
+    </tr>
+  </tbody>
+</table>
+
 <p>Source: Authors’ calculation.<br />
-Note: Our model provides projections of Covid-19 conditional on paths of output but does not provide the projection of output. Thus, we compare the actual Covid-19 outcomes with the projection of them if the model had known the realized path of output.</p>
+Note: The red lines—“Forecast”—are what the model would have predicted given the data available up to that point.</p>
 
 <!--
-### 4. Real-time Evaluation of the Model's Forecasting Performance
-
 #### New Cases
 
 {: align="center"}
@@ -546,7 +582,7 @@ Source: Authors' calculation.<br>
 Note: The red lines---"Forecast"---are what the model would have predicted given the data available up to that point.
 -->
 
-<h3 id="4-chart-of-the-week">4. Chart of the Week</h3>
+<h3 id="5-chart-of-the-week">5. Chart of the Week</h3>
 
 <table align="center">
   <tbody>
@@ -571,7 +607,7 @@ Note: The solid black line and grey fan chart are the same as in Chart 2. The re
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2021 Daisuke Fujii and Taisuke Nakata. All rights reserved. <br />
- Site last generated: 2021-01-26 19:21 <br />
+ Site last generated: 2021-01-26 20:00 <br />
                 </div>
             </div>
 </footer>
