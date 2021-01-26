@@ -50,9 +50,8 @@ Note:	See Fujii and Nakata (2021) for a detailed discussion of the scenario.
 
 Source: Authors’ calculation.<br>
 Note:	See Fujii and Nakata (2021) for a detailed discussion of the scenario.
--->
 
-### 2. Gradual-decline scenario
+### 3. Gradual-decline scenario
 
 {: align="center"}
 |![Gradual]({{ fig_loc }}GradualDecline.png)|
@@ -60,7 +59,6 @@ Note:	See Fujii and Nakata (2021) for a detailed discussion of the scenario.
 Source: Authors’ calculation.<br>
 Note:	See Fujii and Nakata (2021) for a detailed discussion of the scenario.
 
-<!--
 ### 4. All cases together
 
 {: align="center"}
