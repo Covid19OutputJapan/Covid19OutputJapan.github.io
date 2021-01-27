@@ -3,12 +3,13 @@
 % "Covid-19 and Output in Japan" by Daisuke Fujii and Taisuke
 % Nakata
 
+
 clear variables
 close all
 home = '/Users/Daisuke/Desktop/Dropbox/Research/fujii_nakata/Website/Codes/';
 %home = pwd;
 %====================== Program parameter values ======================%
-figure_save = 0;    % 0 = figures won't be saved, 1 = they will be saved
+figure_save = 1;    % 0 = figures won't be saved, 1 = they will be saved
 iPC=0;              % 1 if PC, 0 if Mac (or "home=pwd" does not work)
 % in the "Figure" folder
 fs = 16;            % common font size for many figures

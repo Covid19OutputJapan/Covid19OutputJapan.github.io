@@ -626,7 +626,7 @@ for l = 1:2
             xlabel('Output Loss (%)','FontSize',20)
             ylabel('Cumlative Death','FontSize',20)
             title('Relationsihp between Covid-19 and output','FontSize',20,'FontWeight','normal')
-        elseif l == 2
+         elseif l == 2
             xlabel('???? (%)','FontSize',20)
             ylabel('??????','FontSize',20)
             title('???????????','FontSize',20,'FontWeight','normal')
