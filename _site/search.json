@@ -34,13 +34,35 @@
 
 
 
+{
+"title": "Covid-19 and Output in Japan",
+"tags": "nationwide",
+"keywords": "sample homepage",
+"url": "20210126.html",
+"summary": ""
+}
+,
+
+
+
 
 
 {
 "title": "Covid-19 and Output in Japan: Chiba",
 "tags": "chiba",
 "keywords": "sample homepage",
-"url": "chiba.html",
+"url": "chiba_20210126.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Covid-19 and Output in Japan: Chiba",
+"tags": "chiba",
+"keywords": "sample homepage",
+"url": "chiba_latest.html",
 "summary": ""
 }
 ,
@@ -86,7 +108,18 @@
 "title": "Covid-19 and Output in Japan: Kanagawa",
 "tags": "kanagawa",
 "keywords": "sample homepage",
-"url": "kanagawa.html",
+"url": "kanagawa_20210126.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Covid-19 and Output in Japan: Kanagawa",
+"tags": "kanagawa",
+"keywords": "sample homepage",
+"url": "kanagawa_latest.html",
 "summary": ""
 }
 ,
@@ -119,7 +152,18 @@
 "title": "Covid-19 and Output in Japan: Osaka",
 "tags": "osaka",
 "keywords": "sample homepage",
-"url": "osaka.html",
+"url": "osaka_20210126.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Covid-19 and Output in Japan: Osaka",
+"tags": "osaka",
+"keywords": "sample homepage",
+"url": "osaka_latest.html",
 "summary": ""
 }
 ,
@@ -396,7 +440,18 @@
 "title": "Covid-19 and Output in Japan: Saitama",
 "tags": "saitama",
 "keywords": "sample homepage",
-"url": "saitama.html",
+"url": "saitama_20210126.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Covid-19 and Output in Japan: Saitama",
+"tags": "saitama",
+"keywords": "sample homepage",
+"url": "saitama_latest.html",
 "summary": ""
 }
 ,
@@ -448,7 +503,7 @@
 "title": "Covid-19 and Output in Japan: Tokyo",
 "tags": "tokyo",
 "keywords": "sample homepage",
-"url": "tokyo.html",
+"url": "tokyo_20210121.html",
 "summary": ""
 }
 ,
@@ -459,7 +514,18 @@
 "title": "Covid-19 and Output in Japan: Tokyo",
 "tags": "tokyo",
 "keywords": "sample homepage",
-"url": "tokyo_20210121.html",
+"url": "tokyo_20210126.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Covid-19 and Output in Japan: Tokyo",
+"tags": "tokyo",
+"keywords": "sample homepage",
+"url": "tokyo_latest.html",
 "summary": ""
 }
 ,

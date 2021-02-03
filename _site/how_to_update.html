@@ -41,7 +41,7 @@
 <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
 
-<link rel="alternate" type="application/rss+xml" title="Covid19OutputJapan.github.io" href="http://localhost:4000/feed.xml">
+<link rel="alternate" type="application/rss+xml" title="Covid19OutputJapan.github.io" href="http://0.0.0.0:4000/feed.xml">
 
     <script>
         $(document).ready(function() {
@@ -173,7 +173,14 @@
           
           
           
-          <li><a title="Last week" href="20210121.html">Last week</a></li>
+          <li><a title="Last week" href="20210126.html">Last week</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="January 21, 2021" href="20210121.html">January 21, 2021</a></li>
           
           
           
@@ -189,35 +196,35 @@
           
           
           
-          <li><a title="Tokyo" href="tokyo.html">Tokyo</a></li>
+          <li><a title="Tokyo" href="tokyo_latest.html">Tokyo</a></li>
           
           
           
           
           
           
-          <li><a title="Osaka" href="osaka.html">Osaka</a></li>
+          <li><a title="Osaka" href="osaka_latest.html">Osaka</a></li>
           
           
           
           
           
           
-          <li><a title="Kanagawa" href="kanagawa.html">Kanagawa</a></li>
+          <li><a title="Kanagawa" href="kanagawa_latest.html">Kanagawa</a></li>
           
           
           
           
           
           
-          <li><a title="Chiba" href="chiba.html">Chiba</a></li>
+          <li><a title="Chiba" href="chiba_latest.html">Chiba</a></li>
           
           
           
           
           
           
-          <li><a title="Saitama" href="saitama.html">Saitama</a></li>
+          <li><a title="Saitama" href="saitama_latest.html">Saitama</a></li>
           
           
           
@@ -308,28 +315,28 @@
     <p>(Windowsの場合)git for windowsを<a href="https://gitforwindows.org/">ここ</a>からダウンロードする。インストールするとき、改行コードの自動変換指定は”checkout as-is, commit unix-style line endings”を選択。あとはすべてデフォルトでよい</p>
   </li>
   <li>
-    <p>(Macの場合)ターミナルから<code class="highlighter-rouge">git --version</code>でインストールされているか確認</p>
+    <p>(Macの場合)ターミナルから<code class="language-plaintext highlighter-rouge">git --version</code>でインストールされているか確認</p>
   </li>
   <li>
     <p>初めてgitを使う場合、</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git config --global user.name "FIRST_NAME LAST_NAME"
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git config --global user.name "FIRST_NAME LAST_NAME"
 git config --global user.email "MY_NAME@example.com"
 </code></pre></div>    </div>
     <p>として名前、メールアドレスを設定</p>
   </li>
   <li>
-    <p><code class="highlighter-rouge">https://github.com/Covid19OutputJapan/Covid19OutputJapan.github.io/</code>以下のファイルを</p>
+    <p><code class="language-plaintext highlighter-rouge">https://github.com/Covid19OutputJapan/Covid19OutputJapan.github.io/</code>以下のファイルを</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/Covid19OutputJapan/Covid19OutputJapan.github.io/
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/Covid19OutputJapan/Covid19OutputJapan.github.io/
 </code></pre></div>    </div>
     <p>などとしてダウンロードしておく</p>
   </li>
   <li>
-    <p>マークダウンファイル(.mdファイル)を編集する際、文字コードは<code class="highlighter-rouge">utf-8, ja-JP</code>とすること。特にWindowsの場合に注意。</p>
+    <p>マークダウンファイル(.mdファイル)を編集する際、文字コードは<code class="language-plaintext highlighter-rouge">utf-8, ja-JP</code>とすること。特にWindowsの場合に注意。</p>
   </li>
   <li>
-    <p>以下の説明で、今週の更新日付を<code class="highlighter-rouge">2021XXXX</code>、先週の更新日付を<code class="highlighter-rouge">2021YYYY</code>とする（ファイル、フォルダ名に使用）。また、ファイルおよびフォルダ名はダウンロードしたフォルダからの相対パス（たとえば、<code class="highlighter-rouge">/_archives/2021XXXX/</code>は、<code class="highlighter-rouge">(ダウンロードしたフォルダ名)/Covid19OutputJapan.github.io/_archives/2021XXXX/</code>）</p>
+    <p>以下の説明で、今週の更新日付を<code class="language-plaintext highlighter-rouge">2021XXXX</code>、先週の更新日付を<code class="language-plaintext highlighter-rouge">2021YYYY</code>とする（ファイル、フォルダ名に使用）。また、ファイルおよびフォルダ名はダウンロードしたフォルダからの相対パス（たとえば、<code class="language-plaintext highlighter-rouge">/_archives/2021XXXX/</code>は、<code class="language-plaintext highlighter-rouge">(ダウンロードしたフォルダ名)/Covid19OutputJapan.github.io/_archives/2021XXXX/</code>）</p>
   </li>
 </ul>
 
@@ -337,27 +344,27 @@ git config --global user.email "MY_NAME@example.com"
 
 <ul>
   <li>
-    <p><code class="highlighter-rouge">/_archives/2021XXXX/Main_Japan.m</code>をMATLABで実行して、Figure(.pngファイル)を<code class="highlighter-rouge">/image/2021XXXX</code>以下に保存</p>
+    <p><code class="language-plaintext highlighter-rouge">/_archives/2021XXXX/Main_Japan.m</code>をMATLABで実行して、Figure(.pngファイル)を<code class="language-plaintext highlighter-rouge">/image/2021XXXX</code>以下に保存</p>
   </li>
   <li>
-    <p>コードやデータはすべて<code class="highlighter-rouge">/_archives/2021XXXX</code>に保存</p>
+    <p>コードやデータはすべて<code class="language-plaintext highlighter-rouge">/_archives/2021XXXX</code>に保存</p>
   </li>
 </ul>
 
 <!--  - `/_archives/2021XXXX/Figure_JP.m`をMATLABで実行して、Figure(.pngファイル)を`/image/2021XXXX`以下に保存（日本語版サイトに使用） -->
 
-<h4 id="2-先週のトップページindexmdを2021yyyymdとしてコピー編集して保存">2. 先週のトップページ(<code class="highlighter-rouge">index.md</code>)を<code class="highlighter-rouge">2021YYYY.md</code>としてコピー、編集して保存</h4>
+<h4 id="2-先週のトップページindexmdを2021yyyymdとしてコピー編集して保存">2. 先週のトップページ(<code class="language-plaintext highlighter-rouge">index.md</code>)を<code class="language-plaintext highlighter-rouge">2021YYYY.md</code>としてコピー、編集して保存</h4>
 
 <ul>
   <li>
-    <p><code class="highlighter-rouge">/2021YYYY.md</code>を<code class="highlighter-rouge">/index.md</code>からコピーして作成し、以下のように変更</p>
+    <p><code class="language-plaintext highlighter-rouge">/2021YYYY.md</code>を<code class="language-plaintext highlighter-rouge">/index.md</code>からコピーして作成し、以下のように変更</p>
 
     <ul>
       <li>6行目の
-        <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>permalink: index.html
+        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>permalink: index.html
 </code></pre></div>        </div>
         <p>を</p>
-        <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>permalink: 2021YYYY.html
+        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>permalink: 2021YYYY.html
 </code></pre></div>        </div>
         <p>に変更</p>
       </li>
@@ -365,26 +372,26 @@ git config --global user.email "MY_NAME@example.com"
   </li>
 </ul>
 
-<h4 id="3-今週のindexmdを作成">3. 今週の<code class="highlighter-rouge">index.md</code>を作成</h4>
+<h4 id="3-今週のindexmdを作成">3. 今週の<code class="language-plaintext highlighter-rouge">index.md</code>を作成</h4>
 
 <ul>
   <li>
-    <p><code class="highlighter-rouge">/index.md</code>を以下のように変更</p>
+    <p><code class="language-plaintext highlighter-rouge">/index.md</code>を以下のように変更</p>
 
     <ul>
-      <li>（たとえば、<code class="highlighter-rouge">XXXX=0120</code>のとき）10行目?を以下のように変更
-        <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>## Updated on January 20, 2021
+      <li>（たとえば、<code class="language-plaintext highlighter-rouge">XXXX=0120</code>のとき）10行目?を以下のように変更
+        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>## Updated on January 20, 2021
 </code></pre></div>        </div>
       </li>
       <li>図へのリンクをそれぞれ変更。たとえば、
-        <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>|![Projection](./images/2021XXXX/VariablesProjection.png)|
+        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>|![Projection](./images/2021XXXX/VariablesProjection.png)|
 </code></pre></div>        </div>
       </li>
-      <li>表の数値をそれぞれ変更(<code class="highlighter-rouge">Main_Japan.m</code>の結果を書き留めておく)。たとえば、
-        <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>| **New Cases** | 53,088   |  41,290  | &lt;span style="color: black; "&gt;11,798&lt;/span&gt; |
+      <li>表の数値をそれぞれ変更(<code class="language-plaintext highlighter-rouge">Main_Japan.m</code>の結果を書き留めておく)。たとえば、
+        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>| **New Cases** | 53,088   |  41,290  | &lt;span style="color: black; "&gt;11,798&lt;/span&gt; |
 | **New Deaths** |   723  | 445  | &lt;span style="color: black; "&gt;278&lt;/span&gt; |
 </code></pre></div>        </div>
-        <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>| **New Cases** |  83,138  |  129,454  | &lt;span style="color: red; "&gt;-46,315&lt;/span&gt; |
+        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>| **New Cases** |  83,138  |  129,454  | &lt;span style="color: red; "&gt;-46,315&lt;/span&gt; |
 | **New Deaths** |   1,004  |    1,459 | &lt;span style="color: red; "&gt;-454&lt;/span&gt; |
 </code></pre></div>        </div>
         <ul>
@@ -395,17 +402,17 @@ git config --global user.email "MY_NAME@example.com"
   </li>
 </ul>
 
-<h4 id="4-サイドバー_datasidebarshome_sidebarymlの更新">4. サイドバー(<code class="highlighter-rouge">/_data/sidebars/home_sidebar.yml</code>)の更新</h4>
+<h4 id="4-サイドバー_datasidebarshome_sidebarymlの更新">4. サイドバー(<code class="language-plaintext highlighter-rouge">/_data/sidebars/home_sidebar.yml</code>)の更新</h4>
 
 <ul>
   <li>
-    <p><code class="highlighter-rouge">/_data/sidebars/home_sidebar.yml</code>の23行目?以降を次のように変更</p>
+    <p><code class="language-plaintext highlighter-rouge">/_data/sidebars/home_sidebar.yml</code>の23行目?以降を次のように変更</p>
 
     <ul>
       <li>
-        <p><code class="highlighter-rouge">Latest</code>と<code class="highlighter-rouge">Last week</code>のリンクを変更し、2週前のリンクを加える</p>
+        <p><code class="language-plaintext highlighter-rouge">Latest</code>と<code class="language-plaintext highlighter-rouge">Last week</code>のリンクを変更し、2週前のリンクを加える</p>
       </li>
-      <li>たとえば、<code class="highlighter-rouge">XXXX=0120</code>, <code class="highlighter-rouge">YYYY=0113</code>, <code class="highlighter-rouge">ZZZZ=0106</code>のとき
+      <li>たとえば、<code class="language-plaintext highlighter-rouge">XXXX=0120</code>, <code class="language-plaintext highlighter-rouge">YYYY=0113</code>, <code class="language-plaintext highlighter-rouge">ZZZZ=0106</code>のとき
 ```</li>
       <li>title: Nationwide
 output: web, pdf
@@ -432,22 +439,22 @@ output: web, pdf
 
 <ul>
   <li>以下のgitコマンドを実行
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git add -A
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git add -A
 git commit -m "update on 2021XXXX"
 git push
 </code></pre></div>    </div>
   </li>
   <li>
-    <p>（特にWindowsの場合）<code class="highlighter-rouge">git add -A</code>で時間がかかる場合、<code class="highlighter-rouge">git add (更新したファイル)</code>とする</p>
+    <p>（特にWindowsの場合）<code class="language-plaintext highlighter-rouge">git add -A</code>で時間がかかる場合、<code class="language-plaintext highlighter-rouge">git add (更新したファイル)</code>とする</p>
   </li>
-  <li>初回の<code class="highlighter-rouge">git push</code>で、githubのCovid19OutputJapanアカウントで認証手続きが必要な場合がある</li>
+  <li>初回の<code class="language-plaintext highlighter-rouge">git push</code>で、githubのCovid19OutputJapanアカウントで認証手続きが必要な場合がある</li>
 </ul>
 
 <h3 id="japanese-version">Japanese version</h3>
 
 <h4 id="0">0.</h4>
 <ul>
-  <li><code class="highlighter-rouge">https://github.com/Covid19OutputJapan/Covid19OutputJapan.github.io/JP/</code>以下のファイルを（<code class="highlighter-rouge">git clone</code>などで）ダウンロードしておく
+  <li><code class="language-plaintext highlighter-rouge">https://github.com/Covid19OutputJapan/Covid19OutputJapan.github.io/JP/</code>以下のファイルを（<code class="language-plaintext highlighter-rouge">git clone</code>などで）ダウンロードしておく
     <ul>
       <li>English versionと同じ構造になっています</li>
     </ul>
@@ -456,7 +463,7 @@ git push
 
 <h4 id="1">1.</h4>
 <ul>
-  <li>英語版サイトにある画像ファイルフォルダ<code class="highlighter-rouge">/Covid19OutputJapan.github.io/image/2021XXXX</code>を、日本語版サイト<code class="highlighter-rouge">/Covid19OutputJapan.github.io/JP/image/2021XXXX</code>に移動またはコピー</li>
+  <li>英語版サイトにある画像ファイルフォルダ<code class="language-plaintext highlighter-rouge">/Covid19OutputJapan.github.io/image/2021XXXX</code>を、日本語版サイト<code class="language-plaintext highlighter-rouge">/Covid19OutputJapan.github.io/JP/image/2021XXXX</code>に移動またはコピー</li>
 </ul>
 
 <h4 id="2-5">2-5.</h4>
@@ -480,7 +487,7 @@ git push
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2021 Daisuke Fujii and Taisuke Nakata. All rights reserved. <br />
- Site last generated: 2021-01-26 20:00 <br />
+ Site last generated: 2021-02-03 16:35 <br />
                 </div>
             </div>
 </footer>

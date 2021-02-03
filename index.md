@@ -7,12 +7,12 @@ permalink: index.html
 summary:
 ---
 
-{% assign fig_loc = "./archives/20210126/Figures/" %}
+{% assign fig_loc = "./archives/20210202/Figures/" %}
 <!-- csv files must be in the "_data" folder -->
 {% assign datafile_oneweek = site.data.oneweek20210126 %}
 {% assign datafile_fourweek = site.data.fourweek20210126 %}
 
-## Last update on January 26, 2021
+## Last update on February 3, 2021
 
 Replications files are available [here](https://github.com/Covid19OutputJapan/Covid19OutputJapan.github.io/tree/main/archives/).
 
@@ -22,7 +22,7 @@ Replications files are available [here](https://github.com/Covid19OutputJapan/Co
 |![Projection]({{ fig_loc }}VariablesProjection.png)|
 
 Source: Authors' calculation.<br>
-Note: Red line:average output loss=1.6%. Black line:average output loss=2%. Blue line:average output loss=3%. Weekly frequency.
+Note: Red line:average output loss=1.35%. Black line:average output loss=1.65%. Blue line:average output loss=2.5%. Weekly frequency.
 
 ### 2. Projected relationship between Covid-19 and output
 
@@ -70,8 +70,8 @@ Note: Black line:the most recent week. Red line:one week earlier. Blue line:two 
 {: align="center"}
 |    | "Conditional"<br>forecast<br>from last week | <br><br>Actual | <br>"Conditional"<br>forecast error |
 | ---- | ---- | ---- | ---- |
-| **New Cases** | 37,437   |  34,897  | <span style="color: black; ">2,640</span> |
-| **New Deaths** |   527  | 583  | <span style="color: red; ">-56</span> |
+| **New Cases** | 34,281   |  24,238  | <span style="color: black; ">10,043</span> |
+| **New Deaths** |   449  | 637  | <span style="color: red; ">-190</span> |
 
 Source: Authors' calculation.<br>
 Note: Our model provides projections of Covid-19 conditional on paths of output but does not provide the projection of output. Thus, we compare the actual Covid-19 outcomes with the projection of them if the model had known the realized path of output.  
@@ -123,7 +123,7 @@ Note: Our model provides projections of Covid-19 conditional on paths of output 
 #### i. One-week horizon
 
 {: align="center"}
-|![ForecaseErrors]({{ fig_loc }}ForecaseErrors.png)|
+|![ForecaseErrors]({{ fig_loc }}ForecastErrors.png)|
 
 Source: Authors' calculation.<br>
 Note: The red lines---"Forecast"---are what the model would have predicted given the data available up to that point.
@@ -146,6 +146,7 @@ Source: Authors' calculation.<br>
 Note: The red lines---"Forecast"---are what the model would have predicted given the data available up to that point.
 -->
 
+<!--
 ### 5. Chart of the Week
 
 {: align="center"}
@@ -153,3 +154,4 @@ Note: The red lines---"Forecast"---are what the model would have predicted given
 
 Source: Authors' calculation.<br>
 Note: The solid black line and grey fan chart are the same as in Chart 2. The red line is the relationship between the output loss and the number of and cumulative deaths if the pace of vaccine distribution is twice as fast as in the baseline case.
+-->
