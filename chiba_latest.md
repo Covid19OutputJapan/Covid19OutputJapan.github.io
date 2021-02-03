@@ -11,22 +11,9 @@ summary:
 
 ## Last update on February 3, 2021
 
-Replications files are available [here](https://github.com/Covid19OutputJapan/Covid19OutputJapan.github.io/tree/main/archives/).
+{% include link_to_code.html %}
 
-Link to other Chiba pages:
-<table>
-<tr>
-{% assign cnt = 0 %}
-{% for page1 in site.pages %}
-    {% for tag1 in page1.tags %}
-        {% if tag1 == "chiba" and page1.name != page.name %}
-            <td><a href="{{page1.url | remove: "/" }}">{{page1.permalink}}</a></td>
-            {% assign cnt = cnt | plus:1 %}
-        {% endif %}
-    {% endfor %}
-{% endfor %}
-</tr>
-</table>
+{% include link_to_others.html text='Link to other Chiba pages:' tag='chiba' %}
 
 ### 1. Baseline scenario
 

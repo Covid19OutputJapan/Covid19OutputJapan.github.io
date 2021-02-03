@@ -14,7 +14,7 @@ summary:
 
 ## Last update on February 3, 2021
 
-Replications files are available [here](https://github.com/Covid19OutputJapan/Covid19OutputJapan.github.io/tree/main/archives/).
+{% include link_to_code.html %}
 
 ### 1. Conditional Projections of Covid-19
 
