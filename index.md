@@ -7,13 +7,13 @@ permalink: index.html
 summary:
 ---
 
-{% assign fig_loc = "./archives/20210202/Figures/" %}
+{% assign fig_loc = "./archives/20210209/Figures/" %}
 <!-- csv files must be in the "_data" folder -->
 {% assign datafile_oneweek = site.data.oneweek20210126 %}
 {% assign datafile_fourweek = site.data.fourweek20210126 %}
 
-## Last update on February 3, 2021
-
+## Last update on February 9, 2021
+** Based on the data available as of February 7, 2021
 {% include link_to_code.html %}
 
 ### 1. Conditional Projections of Covid-19
@@ -22,7 +22,7 @@ summary:
 |![Projection]({{ fig_loc }}VariablesProjection.png)|
 
 Source: Authors' calculation.<br>
-Note: Red line:average output loss=1.35%. Black line:average output loss=1.65%. Blue line:average output loss=2.5%. Weekly frequency.
+Note: Red line:average output loss=1.2%. Black line:average output loss=1.65%. Blue line:average output loss=2.5%. Weekly frequency.
 
 ### 2. Projected relationship between Covid-19 and output
 
@@ -70,8 +70,8 @@ Note: Black line:the most recent week. Red line:one week earlier. Blue line:two 
 {: align="center"}
 |    | "Conditional"<br>forecast<br>from last week | <br><br>Actual | <br>"Conditional"<br>forecast error |
 | ---- | ---- | ---- | ---- |
-| **New Cases** | 34,281   |  24,238  | <span style="color: black; ">10,043</span> |
-| **New Deaths** |   449  | 637  | <span style="color: red; ">-190</span> |
+| **New Cases** | 20,174   |  15,580  | <span style="color: black; ">4,594</span> |
+| **New Deaths** |   267  | 675  | <span style="color: red; ">-408</span> |
 
 Source: Authors' calculation.<br>
 Note: Our model provides projections of Covid-19 conditional on paths of output but does not provide the projection of output. Thus, we compare the actual Covid-19 outcomes with the projection of them if the model had known the realized path of output.  

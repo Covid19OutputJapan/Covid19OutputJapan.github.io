@@ -47,6 +47,12 @@
   
   
   
+  <url>
+    <loc>http://localhost:4000/20210202.html</loc>
+  </url>
+  
+  
+  
   
   
   <url>
@@ -107,6 +113,12 @@
   
   <url>
     <loc>http://localhost:4000/osaka_20210126.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/osaka_20210202.html</loc>
   </url>
   
   
@@ -319,6 +331,12 @@
   
   <url>
     <loc>http://localhost:4000/tokyo_20210126.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/tokyo_20210202.html</loc>
   </url>
   
   

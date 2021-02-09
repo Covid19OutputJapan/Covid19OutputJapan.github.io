@@ -1,0 +1,81 @@
+# This is your sidebar TOC. The sidebar code loops through sections here and provides the appropriate formatting.
+
+
+entries:
+- title: sidebar
+  product: Covid-19 and Output in Japan
+  version:
+  folders:
+
+  - title:
+    output: pdf
+    type: frontmatter
+    folderitems:
+    - title:
+      url: /titlepage.html
+      output: pdf
+      type: frontmatter
+    - title:
+      url: /tocpage.html
+      output: pdf
+      type: frontmatter
+
+  - title: Nationwide
+    output: web, pdf
+    folderitems:
+    - title: Latest
+      url: /index.html
+      output: web, pdf
+      type: homepage
+    - title: Last week
+      url: /20210126.html
+      output: web, pdf
+      type: homepage
+    - title: January 21, 2021
+      url: /20210121.html
+      output: web, pdf
+      type: homepage
+
+  - title: Prefectures
+    output: web, pdf
+    folderitems:
+    - title: Tokyo
+      output: web, pdf
+      url: /tokyo_latest.html
+      type: homepage
+    - title: Osaka
+      output: web, pdf
+      url: /osaka_latest.html
+      type: homepage
+    - title: Kanagawa
+      output: web, pdf
+      url: /kanagawa_latest.html
+      type: homepage
+    - title: Chiba
+      output: web, pdf
+      url: /chiba_latest.html
+      type: homepage
+    - title: Saitama
+      output: web, pdf
+      url: /saitama_latest.html
+      type: homepage
+
+  - title: Information
+    output: web, pdf
+    folderitems:
+    - title: Team
+      url: /team.html
+      output: web, pdf
+      type: homepage
+    - title: Resources
+      url: /resources.html
+      output: web, pdf
+      type: homepage
+    - title: History
+      url: /history.html
+      output: web, pdf
+      type: homepage
+    - title: Disclaimer
+      url: /disclaimer.html
+      output: web, pdf
+      type: homepage
