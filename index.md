@@ -27,7 +27,7 @@ Note: Red line:average output loss=1.2%. Black line:average output loss=1.65%. B
 ### 2. Projected relationship between Covid-19 and output
 
 {: align="center"}
-|![TradeoffUB]({{ fig_loc }}BaselineTradeoffUBp.png)|
+|[![TradeoffUB]({{ fig_loc }}BaselineTradeoffUBp.png)]({{ fig_loc }}BaselineTradeoffUBp.png))|
 
 Source: Authors' calculation.<br>
 Note: Black line:the most recent week. Red line:one week earlier. Blue line:two weeks earlier. The vertical axis shows the number of cumulative deaths by the end of the next 12 months. The horizontal axis shows the average output loss over the next twelve months. The horizontal dashed line indicates the total number of Covid-19 deaths during 2020. The darkest and the second darkest grey areas indicate 20- and 40-percent confidence sets, respectively. The second lightest and the lightest grey areas indicated 60- and 80-percent confidence sets, respectively.
@@ -123,7 +123,7 @@ Note: Our model provides projections of Covid-19 conditional on paths of output 
 #### i. One-week horizon
 
 {: align="center"}
-|![ForecaseErrors]({{ fig_loc }}ForecastErrors.png)|
+|[![ForecaseErrors]({{ fig_loc }}ForecastErrors.png)]({{ fig_loc }}ForecastErrors.png)|
 
 Source: Authors' calculation.<br>
 Note: The red lines---"Forecast"---are what the model would have predicted given the data available up to that point.

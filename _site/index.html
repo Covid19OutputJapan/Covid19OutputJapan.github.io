@@ -292,7 +292,7 @@
 <!-- csv files must be in the "_data" folder -->
 
 <h2 id="last-update-on-february-9-2021">Last update on February 9, 2021</h2>
-<p>** Based on the data available as of February 7, 2021</p>
+<p>** Based on the data available as of February 7, 2021. Click to enlarge each image.</p>
 <p>Replications files are available <a href="https://github.com/Covid19OutputJapan/Covid19OutputJapan.github.io/tree/main/archives/">here</a>.</p>
 
 <h3 id="1-conditional-projections-of-covid-19">1. Conditional Projections of Covid-19</h3>
@@ -300,7 +300,7 @@
 <table align="center">
   <tbody>
     <tr>
-      <td><a href="./archives/20210209/Figures/VariablesProjection.png"><img src="./archives/20210209/Figures/VariablesProjection.png" alt="Projection" /></a>)</td>
+      <td><a href="./archives/20210209/Figures/VariablesProjection.png"><img src="./archives/20210209/Figures/VariablesProjection.png" alt="Projection" /></a></td>
     </tr>
   </tbody>
 </table>
@@ -313,7 +313,7 @@ Note: Red line:average output loss=1.2%. Black line:average output loss=1.65%. B
 <table align="center">
   <tbody>
     <tr>
-      <td><img src="./archives/20210209/Figures/BaselineTradeoffUBp.png" alt="TradeoffUB" /></td>
+      <td><a href="./archives/20210209/Figures/BaselineTradeoffUBp.png"><img src="./archives/20210209/Figures/BaselineTradeoffUBp.png" alt="TradeoffUB" /></a>)</td>
     </tr>
   </tbody>
 </table>
@@ -549,7 +549,7 @@ Note: Our model provides projections of Covid-19 conditional on paths of output 
 <table align="center">
   <tbody>
     <tr>
-      <td><img src="./archives/20210209/Figures/ForecastErrors.png" alt="ForecaseErrors" /></td>
+      <td><a href="./archives/20210209/Figures/ForecastErrors.png"><img src="./archives/20210209/Figures/ForecastErrors.png" alt="ForecaseErrors" /></a></td>
     </tr>
   </tbody>
 </table>
@@ -597,7 +597,7 @@ Note: The solid black line and grey fan chart are the same as in Chart 2. The re
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2021 Daisuke Fujii and Taisuke Nakata. All rights reserved. <br />
- Site last generated: 2021-02-10 12:23 <br />
+ Site last generated: 2021-02-10 12:57 <br />
                 </div>
             </div>
 </footer>
@@ -613,7 +613,24 @@ Note: The solid black line and grey fan chart are the same as in Chart 2. The re
 
 <script type="text/javascript" src="/js/lightbox.js"></script>
 <link rel="stylesheet" href="/css/lightbox.css">
+
+<!-- NOTE 210210 doesn't work for now <script>
     
+    var elements = document.querySelectorAll('p');
+    Array.prototype.forEach.call(elements, function(el, i){
+        if(el.innerHTML=='[expand]') {
+            var parentcontent = el.parentNode.innerHTML.replace('<p>[expand]</p>','<div class="expand" style="display: none; height: 0; overflow: hidden;">').replace('<p>[/expand]</p>','</div>');
+            el.parentNode.innerHTML = parentcontent;
+        }
+    });
+
+    var elements = document.querySelectorAll('div.expand');
+    Array.prototype.forEach.call(elements, function(el, i){
+        el.previousElementSibling.innerHTML = el.previousElementSibling.innerHTML + '<span>..&nbsp; <a href="#" style="cursor: pointer;" onclick="this.parentNode.parentNode.nextElementSibling.style.display = \'block\'; this.parentNode.parentNode.nextElementSibling.style.height = \'auto\'; this.parentNode.style.display = \'none\';">read&nbsp;more&nbsp;&rarr;</a></span>';
+    });
+
+</script>-->
+
 </body>
 
 <!-- the google_analytics_id gets auto inserted from the config file -->

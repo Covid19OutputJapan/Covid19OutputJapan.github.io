@@ -315,7 +315,7 @@
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2021 Daisuke Fujii and Taisuke Nakata. All rights reserved. <br />
- Site last generated: 2021-02-10 12:23 <br />
+ Site last generated: 2021-02-10 12:57 <br />
                 </div>
             </div>
 </footer>
@@ -331,7 +331,24 @@
 
 <script type="text/javascript" src="/js/lightbox.js"></script>
 <link rel="stylesheet" href="/css/lightbox.css">
+
+<!-- NOTE 210210 doesn't work for now <script>
     
+    var elements = document.querySelectorAll('p');
+    Array.prototype.forEach.call(elements, function(el, i){
+        if(el.innerHTML=='[expand]') {
+            var parentcontent = el.parentNode.innerHTML.replace('<p>[expand]</p>','<div class="expand" style="display: none; height: 0; overflow: hidden;">').replace('<p>[/expand]</p>','</div>');
+            el.parentNode.innerHTML = parentcontent;
+        }
+    });
+
+    var elements = document.querySelectorAll('div.expand');
+    Array.prototype.forEach.call(elements, function(el, i){
+        el.previousElementSibling.innerHTML = el.previousElementSibling.innerHTML + '<span>..&nbsp; <a href="#" style="cursor: pointer;" onclick="this.parentNode.parentNode.nextElementSibling.style.display = \'block\'; this.parentNode.parentNode.nextElementSibling.style.height = \'auto\'; this.parentNode.style.display = \'none\';">read&nbsp;more&nbsp;&rarr;</a></span>';
+    });
+
+</script>-->
+
 </body>
 
 <!-- the google_analytics_id gets auto inserted from the config file -->
