@@ -19,7 +19,7 @@ summary:
 ### 1. Conditional Projections of Covid-19
 
 {: align="center"}
-|![Projection]({{ fig_loc }}VariablesProjection.png)|
+|[![Projection]({{ fig_loc }}VariablesProjection.png)]({{ fig_loc }}VariablesProjection.png))|
 
 Source: Authors' calculation.<br>
 Note: Red line:average output loss=1.2%. Black line:average output loss=1.65%. Blue line:average output loss=2.5%. Weekly frequency.
