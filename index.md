@@ -13,13 +13,13 @@ summary:
 {% assign datafile_fourweek = site.data.fourweek20210126 %}
 
 ## Last update on February 9, 2021
-** Based on the data available as of February 7, 2021
+** Based on the data available as of February 7, 2021. Click to enlarge each image.
 {% include link_to_code.html %}
 
 ### 1. Conditional Projections of Covid-19
 
 {: align="center"}
-|[![Projection]({{ fig_loc }}VariablesProjection.png)]({{ fig_loc }}VariablesProjection.png))|
+|[![Projection]({{ fig_loc }}VariablesProjection.png)]({{ fig_loc }}VariablesProjection.png)|
 
 Source: Authors' calculation.<br>
 Note: Red line:average output loss=1.2%. Black line:average output loss=1.65%. Blue line:average output loss=2.5%. Weekly frequency.
