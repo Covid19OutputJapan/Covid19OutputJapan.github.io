@@ -53,10 +53,28 @@
   
   
   
+  <url>
+    <loc>http://localhost:4000/20210209.html</loc>
+  </url>
+  
+  
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/aichi_latest.html</loc>
+  </url>
+  
   
   
   <url>
     <loc>http://localhost:4000/chiba_20210126.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/chiba_20210202.html</loc>
   </url>
   
   
@@ -72,6 +90,12 @@
   </url>
   
   
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/fukuoka_latest.html</loc>
+  </url>
   
   
   
@@ -119,6 +143,12 @@
   
   <url>
     <loc>http://localhost:4000/osaka_20210202.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/osaka_20210209.html</loc>
   </url>
   
   
@@ -337,6 +367,12 @@
   
   <url>
     <loc>http://localhost:4000/tokyo_20210202.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/tokyo_20210209.html</loc>
   </url>
   
   

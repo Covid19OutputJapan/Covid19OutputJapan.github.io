@@ -7,55 +7,33 @@ permalink: tokyo_latest.html
 summary:
 ---
 
-{% assign fig_loc = "./archives/20210209/Figures/Tokyo/" %}
+{% assign fig_loc = "./archives/20210216/Figures/" %}
 
-## Last update on February 9, 2021
-** Based on the data available as of February 7, 2021. Click to enlarge each image.
+## Last update on February 16, 2021
+** Based on the data available as of February 14, 2021. Click to enlarge each image.
 
 {% include link_to_code.html %}
 
 {% include link_to_others.html text='Link to other Tokyo pages:' tag='tokyo' %}
 
-### 1. Scenarios with gradual recovery of economic activity
+### 1. Scenarios with immediate recovery of economic activity
 
 {: align="center"}
-|[![Tokyo_gradual_Y]({{ fig_loc }}BaselineDeclineGradual_Y.png)]({{ fig_loc }}BaselineDeclineGradual_Y.png)|
+|[![Tokyo_gradual_Y]({{ fig_loc }}Tokyo/Thresholds.png)]({{ fig_loc }}Tokyo/Thresholds.png)|
 
 Source: Authors’ calculation.
-<!--<br>
 Note:	See Fujii and Nakata (2021) for a detailed discussion of the scenario.
--->
 
-### 2. Scenarios with immediate recovery of economic activity
+### 2. Scenarios with gradual recovery of economic activity
 
 {: align="center"}
-|[![Tokyo_gradual_Y]({{ fig_loc }}BaselineDecline_Y.png)]({{ fig_loc }}BaselineDecline_Y.png)|
+|[![Tokyo_gradual_Y]({{ fig_loc }}Tokyo/GradualRecovery.png)]({{ fig_loc }}Tokyo/GradualRecovery.png)|
 
-Source: Authors’ calculation.<br>
-Note:	See Fujii and Nakata (2021) for a detailed discussion of the scenario.
+Source: Authors’ calculation.
 
-<!--
-### 2. Rapid-decline scenario
+### 3. Scenarios under various assumptions for the pace of vaccination
 
 {: align="center"}
-|![Rapid]({{ fig_loc }}RapidDecline.png)|
+|[![Tokyo_gradual_Y]({{ fig_loc }}Tokyo/VaccineVariation.png)]({{ fig_loc }}Tokyo/VaccineVariation.png)|
 
-Source: Authors’ calculation.<br>
-Note:	See Fujii and Nakata (2021) for a detailed discussion of the scenario.
-
-### 3. Gradual-decline scenario
-
-{: align="center"}
-|![Gradual]({{ fig_loc }}GradualDecline.png)|
-
-Source: Authors’ calculation.<br>
-Note:	See Fujii and Nakata (2021) for a detailed discussion of the scenario.
-
-### 4. All cases together
-
-{: align="center"}
-|![All]({{ fig_loc }}ThreeScenariosDecline.png)|
-
-Source: Authors’ calculation.<br>
-Note:	See Fujii and Nakata (2021) for a detailed discussion of the scenario.
--->
+Source: Authors’ calculation.
