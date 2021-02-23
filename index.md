@@ -7,10 +7,10 @@ permalink: index.html
 summary:
 ---
 
-{% assign fig_loc = "./archives/20210216/Figures/" %}
+{% assign fig_loc = "./archives/20210223/Figures/" %}
 
-## Last update on February 16, 2021
-** Based on the data available as of February 14, 2021. Click to enlarge each image.
+## Last update on February 23, 2021
+** Based on the data available as of February 21, 2021. Click to enlarge each image.
 {% include link_to_code.html %}
 
 <!-- ### 1. Conditional Projections of Covid-19
@@ -36,8 +36,8 @@ Note: Black line:the most recent week. Red line:one week earlier. Blue line:two 
 {: align="center"}
 |    | "Conditional"<br>forecast<br>from last week | <br><br>Actual | <br>"Conditional"<br>forecast error |
 | ---- | ---- | ---- | ---- |
-| **New Cases** | 15,033   |  10,370  | <span style="color: black; ">4,663</span> |
-| **New Deaths** |   197  | 542  | <span style="color: red; ">-345</span> |
+| **New Cases** | 9,361  |  8,808  | <span style="color: black; ">553</span> |
+| **New Deaths** |   144  | 523  | <span style="color: red; ">-379</span> |
 
 Source: Authors' calculation.<br>
 Note: Our model provides projections of Covid-19 conditional on paths of output but does not provide the projection of output. Thus, we compare the actual Covid-19 outcomes with the projection of them if the model had known the realized path of output.  

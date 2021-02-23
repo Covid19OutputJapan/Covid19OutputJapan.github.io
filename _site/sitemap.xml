@@ -3,19 +3,19 @@
   
   
   <url>
-    <loc>http://localhost:4000/samplepost.html</loc>
+    <loc>http://0.0.0.0:4000/samplepost.html</loc>
   </url>
   
   
   
   <url>
-    <loc>http://localhost:4000/myupdate.html</loc>
+    <loc>http://0.0.0.0:4000/myupdate.html</loc>
   </url>
   
   
   
   <url>
-    <loc>http://localhost:4000/test-post-from-last-year.html</loc>
+    <loc>http://0.0.0.0:4000/test-post-from-last-year.html</loc>
   </url>
   
   
@@ -24,69 +24,43 @@
   
   
   <url>
-    <loc>http://localhost:4000/20210113.html</loc>
+    <loc>http://0.0.0.0:4000/20210113.html</loc>
   </url>
   
   
   
   <url>
-    <loc>http://localhost:4000/20210120.html</loc>
+    <loc>http://0.0.0.0:4000/20210120.html</loc>
   </url>
   
   
   
   <url>
-    <loc>http://localhost:4000/20210121.html</loc>
+    <loc>http://0.0.0.0:4000/20210121.html</loc>
   </url>
   
   
   
   <url>
-    <loc>http://localhost:4000/20210126.html</loc>
+    <loc>http://0.0.0.0:4000/20210126.html</loc>
   </url>
   
   
   
   <url>
-    <loc>http://localhost:4000/20210202.html</loc>
+    <loc>http://0.0.0.0:4000/20210202.html</loc>
   </url>
   
   
   
   <url>
-    <loc>http://localhost:4000/20210209.html</loc>
-  </url>
-  
-  
-  
-  
-  
-  <url>
-    <loc>http://localhost:4000/aichi_latest.html</loc>
+    <loc>http://0.0.0.0:4000/20210209.html</loc>
   </url>
   
   
   
   <url>
-    <loc>http://localhost:4000/chiba_20210126.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://localhost:4000/chiba_20210202.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://localhost:4000/chiba_latest.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://localhost:4000/disclaimer.html</loc>
+    <loc>http://0.0.0.0:4000/20210216.html</loc>
   </url>
   
   
@@ -94,205 +68,43 @@
   
   
   <url>
-    <loc>http://localhost:4000/fukuoka_latest.html</loc>
+    <loc>http://0.0.0.0:4000/aichi_20210216.html</loc>
   </url>
   
   
   
   <url>
-    <loc>http://localhost:4000/history.html</loc>
+    <loc>http://0.0.0.0:4000/aichi_latest.html</loc>
   </url>
   
   
   
   <url>
-    <loc>http://localhost:4000/index.html</loc>
+    <loc>http://0.0.0.0:4000/chiba_20210126.html</loc>
   </url>
   
   
   
   <url>
-    <loc>http://localhost:4000/kanagawa_20210126.html</loc>
+    <loc>http://0.0.0.0:4000/chiba_20210202.html</loc>
   </url>
   
   
   
   <url>
-    <loc>http://localhost:4000/kanagawa_latest.html</loc>
+    <loc>http://0.0.0.0:4000/chiba_20210216.html</loc>
   </url>
   
   
   
   <url>
-    <loc>http://localhost:4000/news.html</loc>
+    <loc>http://0.0.0.0:4000/chiba_latest.html</loc>
   </url>
   
   
   
   <url>
-    <loc>http://localhost:4000/news_archive.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://localhost:4000/osaka_20210126.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://localhost:4000/osaka_20210202.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://localhost:4000/osaka_20210209.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://localhost:4000/osaka_latest.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://localhost:4000/p1_landing_page.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://localhost:4000/p1_sample1.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://localhost:4000/p1_sample2.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://localhost:4000/p1_sample3.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://localhost:4000/p1_sample4.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://localhost:4000/p1_sample5.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://localhost:4000/p1_sample6.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://localhost:4000/p1_sample7.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://localhost:4000/p2_landing_page.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://localhost:4000/p2_sample1.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://localhost:4000/p2_sample10.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://localhost:4000/p2_sample11.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://localhost:4000/p2_sample12.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://localhost:4000/p2_sample13.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://localhost:4000/p2_sample14.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://localhost:4000/p2_sample2.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://localhost:4000/p2_sample3.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://localhost:4000/p2_sample4.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://localhost:4000/p2_sample5.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://localhost:4000/p2_sample6.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://localhost:4000/p2_sample7.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://localhost:4000/p2_sample8.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://localhost:4000/p2_sample9.html</loc>
+    <loc>http://0.0.0.0:4000/disclaimer.html</loc>
   </url>
   
   
@@ -300,19 +112,237 @@
   
   
   <url>
-    <loc>http://localhost:4000/resources.html</loc>
+    <loc>http://0.0.0.0:4000/fukuoka_20210216.html</loc>
   </url>
   
   
   
   <url>
-    <loc>http://localhost:4000/saitama_20210126.html</loc>
+    <loc>http://0.0.0.0:4000/fukuoka_latest.html</loc>
   </url>
   
   
   
   <url>
-    <loc>http://localhost:4000/saitama_latest.html</loc>
+    <loc>http://0.0.0.0:4000/history.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://0.0.0.0:4000/index.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://0.0.0.0:4000/kanagawa_20210126.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://0.0.0.0:4000/kanagawa_latest.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://0.0.0.0:4000/news.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://0.0.0.0:4000/news_archive.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://0.0.0.0:4000/osaka_20210126.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://0.0.0.0:4000/osaka_20210202.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://0.0.0.0:4000/osaka_20210209.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://0.0.0.0:4000/osaka_20210216.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://0.0.0.0:4000/osaka_latest.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://0.0.0.0:4000/p1_landing_page.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://0.0.0.0:4000/p1_sample1.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://0.0.0.0:4000/p1_sample2.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://0.0.0.0:4000/p1_sample3.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://0.0.0.0:4000/p1_sample4.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://0.0.0.0:4000/p1_sample5.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://0.0.0.0:4000/p1_sample6.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://0.0.0.0:4000/p1_sample7.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://0.0.0.0:4000/p2_landing_page.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://0.0.0.0:4000/p2_sample1.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://0.0.0.0:4000/p2_sample10.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://0.0.0.0:4000/p2_sample11.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://0.0.0.0:4000/p2_sample12.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://0.0.0.0:4000/p2_sample13.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://0.0.0.0:4000/p2_sample14.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://0.0.0.0:4000/p2_sample2.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://0.0.0.0:4000/p2_sample3.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://0.0.0.0:4000/p2_sample4.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://0.0.0.0:4000/p2_sample5.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://0.0.0.0:4000/p2_sample6.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://0.0.0.0:4000/p2_sample7.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://0.0.0.0:4000/p2_sample8.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://0.0.0.0:4000/p2_sample9.html</loc>
+  </url>
+  
+  
+  
+  
+  
+  <url>
+    <loc>http://0.0.0.0:4000/resources.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://0.0.0.0:4000/saitama_20210126.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://0.0.0.0:4000/saitama_latest.html</loc>
   </url>
   
   
@@ -344,41 +374,7 @@
   
   
   <url>
-    <loc>http://localhost:4000/team.html</loc>
-  </url>
-  
-  
-  
-  
-  
-  
-  
-  <url>
-    <loc>http://localhost:4000/tokyo_20210121.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://localhost:4000/tokyo_20210126.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://localhost:4000/tokyo_20210202.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://localhost:4000/tokyo_20210209.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://localhost:4000/tokyo_latest.html</loc>
+    <loc>http://0.0.0.0:4000/team.html</loc>
   </url>
   
   
@@ -388,13 +384,53 @@
   
   
   <url>
-    <loc>http://localhost:4000/assets/css/style.css</loc>
+    <loc>http://0.0.0.0:4000/tokyo_20210121.html</loc>
   </url>
   
   
   
   <url>
-    <loc>http://localhost:4000/how_to_update.html</loc>
+    <loc>http://0.0.0.0:4000/tokyo_20210126.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://0.0.0.0:4000/tokyo_20210202.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://0.0.0.0:4000/tokyo_20210209.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://0.0.0.0:4000/tokyo_20210216.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://0.0.0.0:4000/tokyo_latest.html</loc>
+  </url>
+  
+  
+  
+  
+  
+  
+  
+  <url>
+    <loc>http://0.0.0.0:4000/assets/css/style.css</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://0.0.0.0:4000/how_to_update.html</loc>
   </url>
   
   

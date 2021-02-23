@@ -67,6 +67,28 @@
 
 
 
+{
+"title": "Covid-19 and Output in Japan",
+"tags": "nationwide",
+"keywords": "sample homepage",
+"url": "20210216.html",
+"summary": ""
+}
+,
+
+
+
+
+
+{
+"title": "Covid-19 and Output in Japan: Aichi",
+"tags": "aichi",
+"keywords": "sample homepage",
+"url": "aichi_20210216.html",
+"summary": ""
+}
+,
+
 
 
 {
@@ -106,6 +128,17 @@
 "title": "Covid-19 and Output in Japan: Chiba",
 "tags": "chiba",
 "keywords": "sample homepage",
+"url": "chiba_20210216.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Covid-19 and Output in Japan: Chiba",
+"tags": "chiba",
+"keywords": "sample homepage",
 "url": "chiba_latest.html",
 "summary": ""
 }
@@ -123,6 +156,17 @@
 ,
 
 
+
+
+
+{
+"title": "Covid-19 and Output in Japan: Fukuoka",
+"tags": "fukuoka",
+"keywords": "sample homepage",
+"url": "fukuoka_20210216.html",
+"summary": ""
+}
+,
 
 
 
@@ -230,6 +274,17 @@
 "tags": "osaka",
 "keywords": "sample homepage",
 "url": "osaka_20210209.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Covid-19 and Output in Japan: Osaka",
+"tags": "osaka",
+"keywords": "sample homepage",
+"url": "osaka_20210216.html",
 "summary": ""
 }
 ,
@@ -614,6 +669,17 @@
 "tags": "tokyo",
 "keywords": "sample homepage",
 "url": "tokyo_20210209.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Covid-19 and Output in Japan: Tokyo",
+"tags": "tokyo",
+"keywords": "sample homepage",
+"url": "tokyo_20210216.html",
 "summary": ""
 }
 ,
