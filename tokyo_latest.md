@@ -7,10 +7,10 @@ permalink: tokyo_latest.html
 summary:
 ---
 
-{% assign fig_loc = "./archives/20210223/Figures/" %}
+{% assign fig_loc = "./archives/20210302/Figures/" %}
 
-## Last update on February 23, 2021
-** Based on the data available as of February 21, 2021. Click to enlarge each image.
+## Last update on March 2, 2021
+** Based on the data available as of February 28, 2021. Click to enlarge each image.
 
 {% include link_to_code.html %}
 
@@ -47,13 +47,5 @@ Source: Authors’ calculation.
 
 {: align="center"}
 |[![Tokyo_gradual_Y]({{ fig_loc }}Tokyo/GradualRecovery3.png)]({{ fig_loc }}Tokyo/GradualRecovery3.png)|
-
-Source: Authors’ calculation.
-
-
-### 3. Scenarios under various assumptions for the pace of vaccination
-
-{: align="center"}
-|[![Tokyo_gradual_Y]({{ fig_loc }}Tokyo/VaccineVariation1.png)]({{ fig_loc }}Tokyo/VaccineVariation1.png)|
 
 Source: Authors’ calculation.

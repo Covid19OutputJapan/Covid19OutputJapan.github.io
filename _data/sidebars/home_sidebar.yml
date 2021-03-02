@@ -28,6 +28,10 @@ entries:
       output: web, pdf
       type: homepage
     - title: Last week
+      url: /20210223.html
+      output: web, pdf
+      type: homepage
+    - title: February 16, 2021
       url: /20210216.html
       output: web, pdf
       type: homepage
@@ -70,6 +74,14 @@ entries:
     - title: Fukuoka
       output: web, pdf
       url: /fukuoka_latest.html
+      type: homepage
+    - title: Kanagawa
+      output: web, pdf
+      url: /kanagawa_latest.html
+      type: homepage
+    - title: Saitama
+      output: web, pdf
+      url: /saitama_latest.html
       type: homepage
 
   - title: Information

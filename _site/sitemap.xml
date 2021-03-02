@@ -65,10 +65,28 @@
   
   
   
+  <url>
+    <loc>http://0.0.0.0:4000/20210223.html</loc>
+  </url>
+  
+  
+  
   
   
   <url>
     <loc>http://0.0.0.0:4000/aichi_20210216.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://0.0.0.0:4000/aichi_20210223.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://0.0.0.0:4000/aichi_20210225.html</loc>
   </url>
   
   
@@ -98,6 +116,18 @@
   
   
   <url>
+    <loc>http://0.0.0.0:4000/chiba_20210223.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://0.0.0.0:4000/chiba_20210225.html</loc>
+  </url>
+  
+  
+  
+  <url>
     <loc>http://0.0.0.0:4000/chiba_latest.html</loc>
   </url>
   
@@ -113,6 +143,18 @@
   
   <url>
     <loc>http://0.0.0.0:4000/fukuoka_20210216.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://0.0.0.0:4000/fukuoka_20210223.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://0.0.0.0:4000/fukuoka_20210225.html</loc>
   </url>
   
   
@@ -137,6 +179,18 @@
   
   <url>
     <loc>http://0.0.0.0:4000/kanagawa_20210126.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://0.0.0.0:4000/kanagawa_20210203.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://0.0.0.0:4000/kanagawa_20210225.html</loc>
   </url>
   
   
@@ -179,6 +233,18 @@
   
   <url>
     <loc>http://0.0.0.0:4000/osaka_20210216.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://0.0.0.0:4000/osaka_20210223.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://0.0.0.0:4000/osaka_20210225.html</loc>
   </url>
   
   
@@ -342,6 +408,18 @@
   
   
   <url>
+    <loc>http://0.0.0.0:4000/saitama_20210203.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://0.0.0.0:4000/saitama_20210225.html</loc>
+  </url>
+  
+  
+  
+  <url>
     <loc>http://0.0.0.0:4000/saitama_latest.html</loc>
   </url>
   
@@ -409,6 +487,18 @@
   
   <url>
     <loc>http://0.0.0.0:4000/tokyo_20210216.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://0.0.0.0:4000/tokyo_20210223.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://0.0.0.0:4000/tokyo_20210225.html</loc>
   </url>
   
   
