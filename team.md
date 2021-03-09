@@ -32,6 +32,10 @@ summary:
 
 - Shotaro Beppu
 
+- Yuta Maeda
+
 - Masataka Mori
 
 - Quentin Batista
+
+- Hongtao Li

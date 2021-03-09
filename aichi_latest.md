@@ -7,10 +7,10 @@ permalink: aichi_latest.html
 summary:
 ---
 
-{% assign fig_loc = "./archives/20210302/Figures/Aichi/" %}
+{% assign fig_loc = "./archives/20210309/Figures/Aichi/" %}
 
-## Last update on March 2, 2021
-** Based on the data available as of February 28, 2021. Click to enlarge each image.
+## Last update on March 9, 2021
+** Based on the data available as of March 7, 2021. Click to enlarge each image.
 
 {% include link_to_code.html %}
 
