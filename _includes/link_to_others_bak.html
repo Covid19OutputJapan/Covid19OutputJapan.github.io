@@ -1,0 +1,15 @@
+{{ include.text }}
+
+<table>
+<tr>
+{% assign cnt = 0 %}
+{% for page1 in site.pages %}
+    {% for tag1 in page1.tags %}
+        {% if tag1 == include.tag and page1.name != page.name %}
+            <td><a href="{{page1.url | remove: "/" }}">{{page1.permalink}}</a></td>
+            {% assign cnt = cnt | plus:1 %}
+        {% endif %}
+    {% endfor %}
+{% endfor %}
+</tr>
+</table>

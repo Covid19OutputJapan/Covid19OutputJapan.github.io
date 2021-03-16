@@ -7,10 +7,10 @@ permalink: kanagawa_latest.html
 summary:
 ---
 
-{% assign fig_loc = "./archives/20210309/Figures/Kanagawa/" %}
+{% assign fig_loc = "./archives/20210316/Figures/Kanagawa/" %}
 
-## Last update on March 9, 2021
-** Based on the data available as of March 7, 2021. Click to enlarge each image.
+## Last update on March 16, 2021
+** Based on the data available as of March 14, 2021. Click to enlarge each image.
 
 {% include link_to_code.html %}
 
@@ -26,13 +26,13 @@ summary:
 Source: Authors’ calculation. <br>
 Note:	See Fujii and Nakata (2021) for a detailed discussion of the scenario.
 
-#### (B) Alternative scenario
+<!-- #### (B) Alternative scenario
 
 {: align="center"}
 |[![Kanagawa_gradual_Y]({{ fig_loc }}Thresholds3.png)]({{ fig_loc }}Thresholds3.png)|
 
 Source: Authors’ calculation. <br>
-Note: In this scenario, the effective reproduction number is assumed to be 1.3 times higher than the baseline scenario from March 22 to April 11.
+Note: In this scenario, the effective reproduction number is assumed to be 1.3 times higher than the baseline scenario from March 22 to April 11. -->
 
 ### 2. Scenarios with gradual recovery of economic activity
 
