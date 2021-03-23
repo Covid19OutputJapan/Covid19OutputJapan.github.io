@@ -7,34 +7,16 @@ permalink: saitama_latest.html
 summary:
 ---
 
-{% assign fig_loc = "./archives/20210316/Figures/Saitama/" %}
+{% assign fig_loc = "./archives/20210323/Figures/Saitama/" %}
 
-## Last update on March 16, 2021
-** Based on the data available as of March 14, 2021. Click to enlarge each image.
+## Last update on March 23, 2021
+** Based on the data available as of March 21, 2021. Click to enlarge each image.
 
 {% include link_to_code.html %}
 
 {% include link_to_others.html text='Link to other Saitama pages:' tag='saitama' %}
 
-### 1. Scenarios with immediate recovery of economic activity
-
-#### (A) Baseline scenario
-
-{: align="center"}
-|[![Saitama_gradual_Y]({{ fig_loc }}Thresholds1.png)]({{ fig_loc }}Thresholds1.png)|
-
-Source: Authors’ calculation. <br>
-Note:	See Fujii and Nakata (2021) for a detailed discussion of the scenario.
-
-<!-- #### (B) Alternative scenario
-
-{: align="center"}
-|[![Saitama_gradual_Y]({{ fig_loc }}Thresholds3.png)]({{ fig_loc }}Thresholds3.png)|
-
-Source: Authors’ calculation. <br>
-Note: In this scenario, the effective reproduction number is assumed to be 1.3 times higher than the baseline scenario from March 22 to April 11. -->
-
-### 2. Scenarios with gradual recovery of economic activity
+### 1. Scenarios with gradual recovery of economic activity
 
 #### (A) Baseline scenario
 

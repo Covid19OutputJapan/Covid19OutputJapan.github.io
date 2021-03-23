@@ -7,10 +7,10 @@ permalink: fukuoka_latest.html
 summary:
 ---
 
-{% assign fig_loc = "./archives/20210316/Figures/Fukuoka/" %}
+{% assign fig_loc = "./archives/20210323/Figures/Fukuoka/" %}
 
-## Last update on March 16, 2021
-** Based on the data available as of March 14, 2021. Click to enlarge each image.
+## Last update on March 23, 2021
+** Based on the data available as of March 21, 2021. Click to enlarge each image.
 
 {% include link_to_code.html %}
 
