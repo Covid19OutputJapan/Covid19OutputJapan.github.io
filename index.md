@@ -7,47 +7,40 @@ permalink: index.html
 summary:
 ---
 
-{% assign fig_loc = "./archives/20210323/Figures/" %}
+{% assign fig_loc = "./archives/20210330/Figures/" %}
 
-## Last update on March 23, 2021
-** Based on the data available as of March 21, 2021. Click to enlarge each image.
+## Last update on March 30, 2021
+** Based on the data available as of March 28, 2021. Click to enlarge each image.
+
 {% include link_to_code.html %}
 
-<!-- ### 1. Conditional Projections of Covid-19
+
+### 1. Scenarios with gradual recovery of economic activity in Tokyo
+
+#### (i) Baseline scenario
 
 {: align="center"}
-|[![Projection]({{ fig_loc }}VariablesProjection.png)]({{ fig_loc }}VariablesProjection.png)|
+|[![Tokyo_gradual_Y]({{ fig_loc }}Tokyo/GradualRecovery1.png)]({{ fig_loc }}Tokyo/GradualRecovery1.png)|
 
-Source: Authors' calculation.<br>
-Note: Red line:average output loss=1.2%. Black line:average output loss=1.65%. Blue line:average output loss=2.5%. Weekly frequency. -->
+Source: Authors’ calculation.
 
-### 1. Projected relationship between Covid-19 and output
-
-{: align="center"}
-|[![TradeoffUB]({{ fig_loc }}BaselineTradeoffUBp.png)]({{ fig_loc }}BaselineTradeoffUBp.png))|
-
-Source: Authors' calculation.<br>
-Note: Black line:the most recent week. Red line:one week earlier. Blue line:two weeks earlier. The vertical axis shows the number of cumulative deaths by the end of the next 12 months. The horizontal axis shows the average output loss over the next twelve months. The horizontal dashed line indicates the total number of Covid-19 deaths during 2020. The darkest and the second darkest grey areas indicate 20- and 40-percent confidence sets, respectively. The second lightest and the lightest grey areas indicated 60- and 80-percent confidence sets, respectively.
-
-### 2. Forecast Errors
-
-#### i. One-week horizon
+#### (ii) Alternative scenario
 
 {: align="center"}
-|    | "Conditional"<br>forecast<br>from last week | <br><br>Actual | <br>"Conditional"<br>forecast error |
-| ---- | ---- | ---- | ---- |
-| **New Cases** | 8,335  |  8,911  | <span style="color: red; ">-576</span> |
-| **New Deaths** |   208  | 241  | <span style="color: red; ">-33</span> |
+|[![Tokyo_gradual_Y]({{ fig_loc }}Tokyo/GradualRecovery3.png)]({{ fig_loc }}Tokyo/GradualRecovery3.png)|
 
-Source: Authors' calculation.<br>
-Note: Our model provides projections of Covid-19 conditional on paths of output but does not provide the projection of output. Thus, we compare the actual Covid-19 outcomes with the projection of them if the model had known the realized path of output.  
+Source: Authors’ calculation.
 
-### 3. Real-time Evaluation of the Model's Forecasting Performance
-
-#### i. One-week horizon
+#### (iii) Variant scenario (A)
 
 {: align="center"}
-|[![ForecaseErrors]({{ fig_loc }}ForecastErrors.png)]({{ fig_loc }}ForecastErrors.png)|
+|[![Tokyo_gradual_Y]({{ fig_loc }}Tokyo/GradualRecovery41.png)]({{ fig_loc }}Tokyo/GradualRecovery41.png)|
 
-Source: Authors' calculation.<br>
-Note: The red lines---"Forecast"---are what the model would have predicted given the data available up to that point.
+Source: Authors’ calculation.
+
+#### (iv) Variant scenario (B)
+
+{: align="center"}
+|[![Tokyo_gradual_Y]({{ fig_loc }}Tokyo/GradualRecovery42.png)]({{ fig_loc }}Tokyo/GradualRecovery42.png)|
+
+Source: Authors’ calculation.

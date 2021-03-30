@@ -7,28 +7,41 @@ permalink: kanagawa_latest.html
 summary:
 ---
 
-{% assign fig_loc = "./archives/20210323/Figures/Kanagawa/" %}
+{% assign fig_loc = "./archives/20210330/Figures/Kanagawa/" %}
 
-## Last update on March 23, 2021
-** Based on the data available as of March 21, 2021. Click to enlarge each image.
+## Last update on March 30, 2021
+** Based on the data available as of March 28, 2021. Click to enlarge each image.
 
 {% include link_to_code.html %}
 
 {% include link_to_others.html text='Link to other Kanagawa pages:' tag='kanagawa' %}
 
-
 ### 1. Scenarios with gradual recovery of economic activity
 
-#### (A) Baseline scenario
+#### (i) Baseline scenario
 
 {: align="center"}
 |[![Kanagawa_gradual_Y]({{ fig_loc }}GradualRecovery1.png)]({{ fig_loc }}GradualRecovery1.png)|
 
 Source: Authors’ calculation.
 
-#### (B) Alternative scenario
+#### (ii) Alternative scenario
 
 {: align="center"}
 |[![Kanagawa_gradual_Y]({{ fig_loc }}GradualRecovery3.png)]({{ fig_loc }}GradualRecovery3.png)|
+
+Source: Authors’ calculation.
+
+#### (iii) Variant scenario (A)
+
+{: align="center"}
+|[![Kanagawa_gradual_Y]({{ fig_loc }}GradualRecovery41.png)]({{ fig_loc }}GradualRecovery41.png)|
+
+Source: Authors’ calculation.
+
+#### (iv) Variant scenario (B)
+
+{: align="center"}
+|[![Kanagawa_gradual_Y]({{ fig_loc }}GradualRecovery42.png)]({{ fig_loc }}GradualRecovery42.png)|
 
 Source: Authors’ calculation.
