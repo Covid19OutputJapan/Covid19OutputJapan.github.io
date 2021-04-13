@@ -7,10 +7,10 @@ permalink: index.html
 summary:
 ---
 
-{% assign fig_loc = "./archives/20210406/Figures/" %}
+{% assign fig_loc = "./archives/20210413/Figures/" %}
 
-## Last update on April 6, 2021
-** Based on the data available as of April 4, 2021. Click to enlarge each image.
+## Last update on April 13, 2021
+** Based on the data available as of April 11, 2021. Click to enlarge each image.
 
 {% include link_to_code.html %}
 
@@ -24,21 +24,21 @@ summary:
 
 Source: Authors’ calculation.
 
-#### (ii) Alternative scenario
+### (ii) Alternative scenario
 
 {: align="center"}
 |[![Tokyo_gradual_Y]({{ fig_loc }}Tokyo/GradualRecovery3.png)]({{ fig_loc }}Tokyo/GradualRecovery3.png)|
 
 Source: Authors’ calculation.
 
-#### (iii) Variant scenario (A)
+<!-- ##### (iii) Variant scenario (A)
 
 {: align="center"}
 |[![Tokyo_gradual_Y]({{ fig_loc }}Tokyo/GradualRecovery41.png)]({{ fig_loc }}Tokyo/GradualRecovery41.png)|
 
-Source: Authors’ calculation.
+Source: Authors’ calculation. -->
 
-#### (iv) Variant scenario (B)
+#### (iii) Variant scenario
 
 {: align="center"}
 |[![Tokyo_gradual_Y]({{ fig_loc }}Tokyo/GradualRecovery42.png)]({{ fig_loc }}Tokyo/GradualRecovery42.png)|

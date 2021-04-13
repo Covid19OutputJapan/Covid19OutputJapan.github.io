@@ -7,44 +7,44 @@ permalink: osaka_latest.html
 summary:
 ---
 
-{% assign fig_loc = "./archives/20210406/Figures/Osaka/" %}
+{% assign fig_loc = "./archives/20210413/Figures/Osaka/" %}
 
-## Last update on April 6, 2021
-** Based on the data available as of April 4, 2021. Click to enlarge each image.
+## Last update on April 13, 2021
+** Based on the data available as of April 11, 2021. Click to enlarge each image.
 
 {% include link_to_code.html %}
 
 {% include link_to_others.html text='Link to other Osaka pages:' tag='osaka' %}
 
-### 1.
+### 1. Scenarios with gradual recovery of economic activity
 
 #### (i) Baseline scenario
 
 {: align="center"}
-|[![gradual_Y]({{ fig_loc }}ThresholdsON1.png)]({{ fig_loc }}ThresholdsON1.png)|
+|[![gradual_Y]({{ fig_loc }}GradualRecovery1.png)]({{ fig_loc }}GradualRecovery1.png)|
 
 Source: Authors’ calculation.
 
-<!-- #### (ii) Alternative scenario
+#### (ii) Alternative scenario
 
 {: align="center"}
 |[![gradual_Y]({{ fig_loc }}GradualRecovery3.png)]({{ fig_loc }}GradualRecovery3.png)|
 
-Source: Authors’ calculation. -->
+Source: Authors’ calculation.
 
 
-### 2.
+<!-- ### 2.
 
 #### (i) Variant scenario (A)
 
 {: align="center"}
 |[![gradual_Y]({{ fig_loc }}ThresholdsON41.png)]({{ fig_loc }}ThresholdsON41.png)|
 
-Source: Authors’ calculation.
+Source: Authors’ calculation. -->
 
-#### (ii) Variant scenario (B)
+#### (iii) Variant scenario
 
 {: align="center"}
-|[![gradual_Y]({{ fig_loc }}ThresholdsON42.png)]({{ fig_loc }}ThresholdsON42.png)|
+|[![gradual_Y]({{ fig_loc }}GradualRecovery42.png)]({{ fig_loc }}GradualRecovery42.png)|
 
 Source: Authors’ calculation.
