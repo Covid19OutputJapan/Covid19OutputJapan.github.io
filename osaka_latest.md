@@ -7,18 +7,18 @@ permalink: osaka_latest.html
 summary:
 ---
 
-{% assign fig_loc = "./archives/20210413/Figures/Osaka/" %}
+{% assign fig_loc = "./archives/20210420/Figures/Osaka/" %}
 
-## Last update on April 13, 2021
-** Based on the data available as of April 11, 2021. Click to enlarge each image.
+## Last update on April 20, 2021
+** Based on the data available as of April 18, 2021. Click to enlarge each image.
 
 {% include link_to_code.html %}
 
 {% include link_to_others.html text='Link to other Osaka pages:' tag='osaka' %}
 
-### 1. Scenarios with gradual recovery of economic activity
+### 1. Scenarios with alternative degrees of N501Y infectiousness
 
-#### (i) Baseline scenario
+<!-- #### (i) Baseline scenario
 
 {: align="center"}
 |[![gradual_Y]({{ fig_loc }}GradualRecovery1.png)]({{ fig_loc }}GradualRecovery1.png)|
@@ -30,7 +30,7 @@ Source: Authors’ calculation.
 {: align="center"}
 |[![gradual_Y]({{ fig_loc }}GradualRecovery3.png)]({{ fig_loc }}GradualRecovery3.png)|
 
-Source: Authors’ calculation.
+Source: Authors’ calculation. -->
 
 
 <!-- ### 2.
@@ -42,9 +42,9 @@ Source: Authors’ calculation.
 
 Source: Authors’ calculation. -->
 
-#### (iii) Variant scenario
+<!-- #### (iii) Variant scenario -->
 
 {: align="center"}
-|[![gradual_Y]({{ fig_loc }}GradualRecovery42.png)]({{ fig_loc }}GradualRecovery42.png)|
+|[![gradual_Y]({{ fig_loc }}VarInfection42_jp.png)]({{ fig_loc }}VarInfection42_jp.png)|
 
 Source: Authors’ calculation.

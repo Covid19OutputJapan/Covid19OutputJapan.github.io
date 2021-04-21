@@ -7,18 +7,18 @@ permalink: tokyo_latest.html
 summary:
 ---
 
-{% assign fig_loc = "./archives/20210413/Figures/" %}
+{% assign fig_loc = "./archives/20210420/Figures/" %}
 
-## Last update on April 13, 2021
-** Based on the data available as of April 11, 2021. Click to enlarge each image.
+## Last update on April 20, 2021
+** Based on the data available as of April 18, 2021. Click to enlarge each image.
 
 {% include link_to_code.html %}
 
 {% include link_to_others.html text='Link to other Tokyo pages:' tag='tokyo' %}
 
-### 1. Scenarios with gradual recovery of economic activity
+### 1. Scenarios with alternative degrees of N501Y infectiousness
 
-#### (i) Baseline scenario
+<!-- #### (i) Baseline scenario
 
 {: align="center"}
 |[![Tokyo_gradual_Y]({{ fig_loc }}Tokyo/GradualRecovery1.png)]({{ fig_loc }}Tokyo/GradualRecovery1.png)|
@@ -30,7 +30,7 @@ Source: Authors’ calculation.
 {: align="center"}
 |[![Tokyo_gradual_Y]({{ fig_loc }}Tokyo/GradualRecovery3.png)]({{ fig_loc }}Tokyo/GradualRecovery3.png)|
 
-Source: Authors’ calculation.
+Source: Authors’ calculation. -->
 
 <!-- #### (iii) Variant scenario (A)
 
@@ -38,10 +38,10 @@ Source: Authors’ calculation.
 |[![Tokyo_gradual_Y]({{ fig_loc }}Tokyo/GradualRecovery41.png)]({{ fig_loc }}Tokyo/GradualRecovery41.png)|
 
 Source: Authors’ calculation. -->
-
-#### (iii) Variant scenario
+<!--
+#### (i) Variant scenario -->
 
 {: align="center"}
-|[![Tokyo_gradual_Y]({{ fig_loc }}Tokyo/GradualRecovery42.png)]({{ fig_loc }}Tokyo/GradualRecovery42.png)|
+|[![Tokyo_gradual_Y]({{ fig_loc }}Tokyo/VarInfection42_jp.png)]({{ fig_loc }}Tokyo/VarInfection42_jp.png)|
 
 Source: Authors’ calculation.

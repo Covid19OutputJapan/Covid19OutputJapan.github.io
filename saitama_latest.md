@@ -7,23 +7,23 @@ permalink: saitama_latest.html
 summary:
 ---
 
-{% assign fig_loc = "./archives/20210413/Figures/Saitama/" %}
+{% assign fig_loc = "./archives/20210420/Figures/Saitama/" %}
 
-## Last update on April 13, 2021
-** Based on the data available as of April 11, 2021. Click to enlarge each image.
+## Last update on April 20, 2021
+** Based on the data available as of April 18, 2021. Click to enlarge each image.
 
 {% include link_to_code.html %}
 
 {% include link_to_others.html text='Link to other Saitama pages:' tag='saitama' %}
 
-### 1. Scenarios with gradual recovery of economic activity
-
+### 1. Scenarios with alternative degrees of N501Y infectiousness
+<!--
 #### (i) Baseline scenario
 
 {: align="center"}
 |[![Saitama_gradual_Y]({{ fig_loc }}GradualRecovery1.png)]({{ fig_loc }}GradualRecovery1.png)|
 
-Source: Authors’ calculation.
+Source: Authors’ calculation. -->
 
 <!-- #### (ii) Alternative scenario
 
@@ -39,9 +39,9 @@ Source: Authors’ calculation.
 
 Source: Authors’ calculation. -->
 
-#### (ii) Variant scenario
+<!-- #### (ii) Variant scenario -->
 
 {: align="center"}
-|[![Saitama_gradual_Y]({{ fig_loc }}GradualRecovery42.png)]({{ fig_loc }}GradualRecovery42.png)|
+|[![Saitama_gradual_Y]({{ fig_loc }}VarInfection42_jp.png)]({{ fig_loc }}VarInfection42_jp.png)|
 
 Source: Authors’ calculation.
