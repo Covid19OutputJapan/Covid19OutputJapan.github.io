@@ -20,7 +20,7 @@ summary:
 
 - Eri Satake
 
-- Haruki shibuya
+- Haruki Shibuya
 
 - Hiroyuki Asai
 
@@ -44,6 +44,6 @@ summary:
 
 - Takumi Aiba
 
-- Yuta Maeda
-
 - Xiaohan Deng
+
+- Yuta Maeda
