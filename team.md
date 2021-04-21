@@ -18,24 +18,32 @@ summary:
 
 ### Research Assistants
 
-- Hiroyuki Asai
+- Eri Satake
 
-- Miho Kasai
+- Haruki shibuya
+
+- Hiroyuki Asai
 
 - Hiroyuki Kubota
 
-- Haruki Shibuya
+- Hongtao Li
 
 - Kazuma Takakura
 
-- Siah Choe
-
-- Shotaro Beppu
-
-- Yuta Maeda
-
 - Masataka Mori
+
+- Miho Kasai
 
 - Quentin Batista
 
-- Hongtao Li
+- Shoki Kusaka
+
+- Shotaro Beppu
+
+- Sota Kawawaki
+
+- Takumi Aiba
+
+- Yuta Maeda
+
+- Xiaohan Deng

@@ -41,6 +41,6 @@ Source: Authors’ calculation. -->
 <!-- #### (iii) Variant scenario -->
 
 {: align="center"}
-|[![Tokyo_gradual_Y]({{ fig_loc }}Tokyo/VarInfection42_jp.png)]({{ fig_loc }}Tokyo/VarInfection42_jp.png)|
+|[![Tokyo_gradual_Y]({{ fig_loc }}Tokyo/VarInfection42.png)]({{ fig_loc }}Tokyo/VarInfection42.png)|
 
 Source: Authors’ calculation.

@@ -42,6 +42,6 @@ Source: Authors’ calculation. -->
 <!-- #### (ii) Variant scenario -->
 
 {: align="center"}
-|[![Kanagawa_gradual_Y]({{ fig_loc }}VarInfection42_jp.png)]({{ fig_loc }}VarInfection42_jp.png)|
+|[![Kanagawa_gradual_Y]({{ fig_loc }}VarInfection42.png)]({{ fig_loc }}VarInfection42.png)|
 
 Source: Authors’ calculation.
