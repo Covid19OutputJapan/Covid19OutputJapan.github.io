@@ -30,6 +30,8 @@ summary:
 
 - Kazuma Takakura
 
+- Kohei Machi
+
 - Masataka Mori
 
 - Miho Kasai
