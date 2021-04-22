@@ -30,6 +30,8 @@ summary:
 
 - Kazuma Takakura
 
+- Kensyu Kijima
+
 - Kohei Machi
 
 - Masataka Mori
