@@ -7,10 +7,10 @@ permalink: saitama_latest.html
 summary:
 ---
 
-{% assign fig_loc = "./archives/20210420/Figures/Saitama/" %}
+{% assign fig_loc = "./archives/20210427/Figures/Saitama/" %}
 
-## Last update on April 20, 2021
-** Based on the data available as of April 18, 2021. Click to enlarge each image.
+## Last update on April 27, 2021
+** Based on the data available as of April 25, 2021. Click to enlarge each image.
 
 {% include link_to_code.html %}
 
@@ -42,6 +42,6 @@ Source: Authors’ calculation. -->
 <!-- #### (ii) Variant scenario -->
 
 {: align="center"}
-|[![Saitama_gradual_Y]({{ fig_loc }}VarInfection42.png)]({{ fig_loc }}VarInfection42.png)|
+|[![Saitama_gradual_Y]({{ fig_loc }}VarInfection42_ivi_0.0.png)]({{ fig_loc }}VarInfection42_ivi_0.0.png)|
 
 Source: Authors’ calculation.

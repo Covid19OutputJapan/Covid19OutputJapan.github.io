@@ -7,16 +7,16 @@ permalink: osaka_latest.html
 summary:
 ---
 
-{% assign fig_loc = "./archives/20210420/Figures/Osaka/" %}
+{% assign fig_loc = "./archives/20210427/Figures/Osaka/" %}
 
-## Last update on April 20, 2021
-** Based on the data available as of April 18, 2021. Click to enlarge each image.
+## Last update on April 27, 2021
+** Based on the data available as of April 25, 2021. Click to enlarge each image.
 
 {% include link_to_code.html %}
 
 {% include link_to_others.html text='Link to other Osaka pages:' tag='osaka' %}
 
-### 1. Scenarios with alternative degrees of N501Y infectiousness
+
 
 <!-- #### (i) Baseline scenario
 
@@ -43,8 +43,18 @@ Source: Authors’ calculation. -->
 Source: Authors’ calculation. -->
 
 <!-- #### (iii) Variant scenario -->
+### 1. Scenarios with alternative degrees of N501Y infectiousness
+
+#### (i) Baseline scenario
 
 {: align="center"}
-|[![gradual_Y]({{ fig_loc }}VarInfection42.png)]({{ fig_loc }}VarInfection42.png)|
+|[![gradual_Y]({{ fig_loc }}Thresholds_ivi_0.5.png)]({{ fig_loc }}Thresholds_ivi_0.5.png)|
+
+Source: Authors’ calculation.
+
+#### (ii) Alternative scenario
+
+{: align="center"}
+|[![gradual_Y]({{ fig_loc }}Thresholds_ivi_0.3.png)]({{ fig_loc }}Thresholds_ivi_0.3.png)|
 
 Source: Authors’ calculation.
