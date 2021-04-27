@@ -40,7 +40,7 @@ Source: Authors’ calculation. -->
 
 <!-- #### (iii) Variant scenario -->
 
-### 1. Scenarios with alternative degrees of N501Y infectiousness
+### 1. Scenarios with alternative criteria for lifting the state of emergency
 
 #### (i) Baseline scenario
 
