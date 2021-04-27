@@ -48,13 +48,13 @@ Source: Authors’ calculation. -->
 #### (i) Baseline scenario
 
 {: align="center"}
-|[![gradual_Y]({{ fig_loc }}Thresholds_ivi_0.5.png)]({{ fig_loc }}Thresholds_ivi_0.5.png)|
+|[![gradual_Y]({{ fig_loc }}Thresholds42_ivi_0.5.png)]({{ fig_loc }}Thresholds42_ivi_0.5.png)|
 
 Source: Authors’ calculation.
 
 #### (ii) Alternative scenario
 
 {: align="center"}
-|[![gradual_Y]({{ fig_loc }}Thresholds_ivi_0.3.png)]({{ fig_loc }}Thresholds_ivi_0.3.png)|
+|[![gradual_Y]({{ fig_loc }}Thresholds42_ivi_0.3.png)]({{ fig_loc }}Thresholds42_ivi_0.3.png)|
 
 Source: Authors’ calculation.

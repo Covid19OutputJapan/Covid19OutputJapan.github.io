@@ -45,13 +45,13 @@ Source: Authors’ calculation. -->
 #### (i) Baseline scenario
 
 {: align="center"}
-|[![Tokyo_gradual_Y]({{ fig_loc }}Tokyo/Thresholds_ivi_0.5.png)]({{ fig_loc }}Tokyo/Thresholds_ivi_0.5.png)|
+|[![Tokyo_gradual_Y]({{ fig_loc }}Tokyo/Thresholds42_ivi_0.5.png)]({{ fig_loc }}Tokyo/Thresholds42_ivi_0.5.png)|
 
 Source: Authors’ calculation.
 
 #### (ii) Alternative scenario
 
 {: align="center"}
-|[![Tokyo_gradual_Y]({{ fig_loc }}Tokyo/Thresholds_ivi_0.3.png)]({{ fig_loc }}Tokyo/Thresholds_ivi_0.3.png)|
+|[![Tokyo_gradual_Y]({{ fig_loc }}Tokyo/Thresholds42_ivi_0.3.png)]({{ fig_loc }}Tokyo/Thresholds42_ivi_0.3.png)|
 
 Source: Authors’ calculation.
