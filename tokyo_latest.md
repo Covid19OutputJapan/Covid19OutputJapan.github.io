@@ -45,20 +45,20 @@ Source: Authors’ calculation. -->
 #### (i) Baseline scenario
 
 {: align="center"}
-|[![gradual_Y]({{ fig_loc }}Baseline_EN.png)]({{ fig_loc }}Baseline_EN.png)|
+|[![gradual_Y]({{ fig_loc }}Tokyo/Baseline_EN.png)]({{ fig_loc }}Tokyo/Baseline_EN.png)|
 
 Source: Authors’ calculation.
 
 #### (ii) Alternative scenario
 
 {: align="center"}
-|[![gradual_Y]({{ fig_loc }}Alternative_EN.png)]({{ fig_loc }}Alternative_EN.png)|
+|[![gradual_Y]({{ fig_loc }}Tokyo/Alternative_EN.png)]({{ fig_loc }}Tokyo/Alternative_EN.png)|
 
 Source: Authors’ calculation.
 
 ### 2. Vaccination prospects
 
 {: align="center"}
-|[![gradual_Y]({{ fig_loc }}Vaccine_EN.png)]({{ fig_loc }}Vaccine_EN.png)|
+|[![gradual_Y]({{ fig_loc }}Tokyo/Vaccine_EN.png)]({{ fig_loc }}Tokyo/Vaccine_EN.png)|
 
 Source: Authors’ calculation.
