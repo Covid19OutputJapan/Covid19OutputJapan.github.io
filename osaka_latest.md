@@ -48,14 +48,14 @@ Source: Authors’ calculation. -->
 #### (i) Baseline scenario
 
 {: align="center"}
-|[![gradual_Y]({{ fig_loc }}Baseline.png)]({{ fig_loc }}Baseline.png)|
+|[![gradual_Y]({{ fig_loc }}Baseline_EN.png)]({{ fig_loc }}Baseline_EN.png)|
 
 Source: Authors’ calculation.
 
 #### (ii) Alternative scenario
 
 {: align="center"}
-|[![gradual_Y]({{ fig_loc }}Alternative.png)]({{ fig_loc }}Alternative.png)|
+|[![gradual_Y]({{ fig_loc }}Alternative_EN.png)]({{ fig_loc }}Alternative_EN.png)|
 
 Source: Authors’ calculation.
 
