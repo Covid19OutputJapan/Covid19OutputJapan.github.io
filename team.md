@@ -48,6 +48,4 @@ summary:
 
 - Takumi Aiba
 
-- Xiaohan Deng
-
 - Yuta Maeda

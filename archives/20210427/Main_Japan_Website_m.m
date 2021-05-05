@@ -5,14 +5,14 @@
 clear variables
 close all
 iPC=0;
-%home = '/Users/shotaro/Dropbox/fujii_nakata/Website/Covid19OutputJapan.github.io/archives/20210406/';
+home = '/Users/shotaro/Dropbox/fujii_nakata/Website/Covid19OutputJapan.github.io/archives/20210427/';
 if iPC == 1
 %     home = '\Users\shcor\Dropbox\fujii_nakata\Website\Codes\';
     home = '\Users\masam\Dropbox\fujii_nakata\Website\Codes\';
 else
     % home = '/Users/Daisuke/Desktop/Dropbox/Research/fujii_nakata/Website/Codes/';
     %home = '/Users/ymaeda/Dropbox/fujii_nakata/Website/Codes/';
-    home = '/Users/shotaro/Dropbox/fujii_nakata/Website/Codes/';
+    %home = '/Users/shotaro/Dropbox/fujii_nakata/Website/Codes/';
     %home = '/Users/machikohei/Dropbox/fujii_nakata/Website/Codes/';
 end
 cd(home);
@@ -21,8 +21,8 @@ Last2Week = '20210413';
 
 
 %====================== Program parameter values ======================%
-figure_save = 1;    % 0 = figures won't be saved, 1 = they will be saved
-mat_save = 1;    % 0 = figures won't be saved, 1 = they will be saved
+figure_save = 0;    % 0 = figures won't be saved, 1 = they will be saved
+mat_save = 0;    % 0 = figures won't be saved, 1 = they will be saved
 % in the "Figure" folder
 fs = 16;            % common font size for many figures
 xlim_tradeoff = [1,2.5];
@@ -452,27 +452,27 @@ ParamList2 = ["alpha2","ERN2","beta2","delta2"];
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Forecast error analysis (using next week's data) %%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% if iPC==1
-%   NextD = load('\Users\shcor\Dropbox\fujii_nakata\Website\Codes\Japan20210316.mat');
-%   FE = load('\Users\shcor\Dropbox\fujii_nakata\Website\Codes\Forecast.mat');
-% else
-%   NextD = load('/Users/Daisuke/Desktop/Dropbox/Research/fujii_nakata/Website/Codes/Japan20210316.mat');
-%   FE = load('/Users/Daisuke/Desktop/Dropbox/Research/fujii_nakata/Website/Codes/Forecast.mat');
-% end
-% 
-% AlphaNext = NextD.alpha(end);
-% [CumDNext,AverageAlphaNext,SimDataNext,SimNNext]=Covid_projection(InitialValues,AlphaNext,betaT,gammaT,deltaT,V,h,k,POP0,hconstant);
-% dDForecast = [FE.dDForecast;(CumDNext-D(end))];
-% dNForecast = [FE.dNForecast;SimNNext];
-% if dNForecast(end) ~= dNForecast(end-1) && length(dNForecast) == NextD.Tdata
-%   if iPC==1
-%       save('\Users\shcor\Dropbox\fujii_nakata\Website\Codes\Forecast.mat','dDForecast','dNForecast','-append');
-%   else
-%       save('/Users/Daisuke/Desktop/Dropbox/Research/fujii_nakata/Website/Codes/Forecast.mat','dDForecast','dNForecast','-append');
-%   end
-% end
+if iPC==1
+  NextD = load('\Users\shcor\Dropbox\fujii_nakata\Website\Codes\Japan20210316.mat');
+  FE = load('\Users\shcor\Dropbox\fujii_nakata\Website\Codes\Forecast.mat');
+else
+  NextD = load('/Users/shotaro/Dropbox/fujii_nakata/Website/Codes/Japan20210504.mat');
+  FE = load('/Users/shotaro/Dropbox/fujii_nakata/Website/Codes/Forecast.mat');
+end
 
+AlphaNext = NextD.alpha(end);
+[CumDNext,AverageAlphaNext,SimDataNext,SimNNext]=Covid_projection(InitialValues,AlphaNext,betaT,gammaT,deltaT,V,h,k,POP0,hconstant);
+dDForecast = [FE.dDForecast;(CumDNext-D(end))];
+dNForecast = [FE.dNForecast;SimNNext];
+if dNForecast(end) ~= dNForecast(end-1) && length(dNForecast) == NextD.Tdata
+  if iPC==1
+      save('\Users\shcor\Dropbox\fujii_nakata\Website\Codes\Forecast.mat','dDForecast','dNForecast','-append');
+  else
+      save('/Users/shotaro/Dropbox/fujii_nakata/Website/Codes/Forecast.mat','dDForecast','dNForecast','-append');
+  end
+end
 
+%%
 
 
 %--- Sensitivity parameters ---%

@@ -7,10 +7,10 @@ permalink: osaka_latest.html
 summary:
 ---
 
-{% assign fig_loc = "./archives/20210427/Figures/Osaka/" %}
+{% assign fig_loc = "./archives/20210504/Figures/Osaka/" %}
 
-## Last update on April 27, 2021
-** Based on the data available as of April 25, 2021. Click to enlarge each image.
+## Last update on May 4, 2021
+** Based on the data available as of May 2, 2021. Click to enlarge each image.
 
 {% include link_to_code.html %}
 
@@ -48,13 +48,20 @@ Source: Authors’ calculation. -->
 #### (i) Baseline scenario
 
 {: align="center"}
-|[![gradual_Y]({{ fig_loc }}Thresholds42_ivi_0.5.png)]({{ fig_loc }}Thresholds42_ivi_0.5.png)|
+|[![gradual_Y]({{ fig_loc }}Baseline.png)]({{ fig_loc }}Baseline.png)|
 
 Source: Authors’ calculation.
 
 #### (ii) Alternative scenario
 
 {: align="center"}
-|[![gradual_Y]({{ fig_loc }}Thresholds42_ivi_0.3.png)]({{ fig_loc }}Thresholds42_ivi_0.3.png)|
+|[![gradual_Y]({{ fig_loc }}Alternative.png)]({{ fig_loc }}Alternative.png)|
+
+Source: Authors’ calculation.
+
+### 2. Vaccination prospects
+
+{: align="center"}
+|[![gradual_Y]({{ fig_loc }}Vaccine_EN.png)]({{ fig_loc }}Vaccine_EN.png)|
 
 Source: Authors’ calculation.
