@@ -119,6 +119,24 @@
   
   
   
+  <url>
+    <loc>http://0.0.0.0:4000/20210427.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://0.0.0.0:4000/20210504.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://0.0.0.0:4000/20210511.html</loc>
+  </url>
+  
+  
+  
   
   
   <url>
@@ -236,6 +254,24 @@
   
   
   <url>
+    <loc>http://0.0.0.0:4000/chiba_20210420.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://0.0.0.0:4000/chiba_20210427.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://0.0.0.0:4000/chiba_20210504.html</loc>
+  </url>
+  
+  
+  
+  <url>
     <loc>http://0.0.0.0:4000/chiba_latest.html</loc>
   </url>
   
@@ -322,6 +358,24 @@
   
   
   <url>
+    <loc>http://0.0.0.0:4000/index_20210420.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://0.0.0.0:4000/index_20210427.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://0.0.0.0:4000/index_20210504.html</loc>
+  </url>
+  
+  
+  
+  <url>
     <loc>http://0.0.0.0:4000/kanagawa_20210126.html</loc>
   </url>
   
@@ -377,6 +431,24 @@
   
   <url>
     <loc>http://0.0.0.0:4000/kanagawa_20210413.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://0.0.0.0:4000/kanagawa_20210420.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://0.0.0.0:4000/kanagawa_20210427.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://0.0.0.0:4000/kanagawa_20210504.html</loc>
   </url>
   
   
@@ -473,6 +545,24 @@
   
   <url>
     <loc>http://0.0.0.0:4000/osaka_20210413.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://0.0.0.0:4000/osaka_20210420.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://0.0.0.0:4000/osaka_20210427.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://0.0.0.0:4000/osaka_20210504.html</loc>
   </url>
   
   
@@ -690,6 +780,24 @@
   
   
   <url>
+    <loc>http://0.0.0.0:4000/saitama_20210420.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://0.0.0.0:4000/saitama_20210427.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://0.0.0.0:4000/saitama_20210504.html</loc>
+  </url>
+  
+  
+  
+  <url>
     <loc>http://0.0.0.0:4000/saitama_latest.html</loc>
   </url>
   
@@ -811,6 +919,24 @@
   
   <url>
     <loc>http://0.0.0.0:4000/tokyo_20210413.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://0.0.0.0:4000/tokyo_20210420.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://0.0.0.0:4000/tokyo_20210427.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://0.0.0.0:4000/tokyo_20210504.html</loc>
   </url>
   
   

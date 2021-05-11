@@ -11,14 +11,14 @@ if iPC==1
     %     home = 'C:\Users\tak10\Dropbox\fujii_nakata\Website\Codes\Cabinet_2021APR28_DR\';
 else
     %home ='/Users/machikohei/Dropbox/fujii_nakata/Website/Codes/Cabinet_2021APR28_DR/';
-    home = '/Users/ymaeda/Dropbox/fujii_nakata/Website/Covid19OutputJapan.github.io/archives/20210504/';
+    %home = '/Users/ymaeda/Dropbox/fujii_nakata/Website/Covid19OutputJapan.github.io/archives/20210504/';
     %home = '/Users/ymaeda/Documents/ym_doc/Tokyo_Univrsity_MA/Reserach Assistant/fujii_nakata/Codes/';
-    %home = '/Users/shotaro/Dropbox/fujii_nakata/Website/Codes/Cabinet_2021APR28_DR/';
+    home = '/Users/shotaro/Dropbox/fujii_nakata/Website/Covid19OutputJapan.github.io/archives/20210504//';
 end
 cd(home);
 %====================== Program parameter values ======================%
-figure_save = 1;    % 0 = figures won't be saved, 1 = they will be saved
-data_save = 1;      % save back data
+figure_save = 0;    % 0 = figures won't be saved, 1 = they will be saved
+data_save = 0;      % save back data
 vaccine_figure_loop = 0; % =0 appear only once; =1 appear every loop; 
 beta_figure_loop = 0; % =0 appear only once; =1 appear every loop; 
 % in the "Figure" folder
@@ -127,7 +127,7 @@ paces_vector = [3600000,7000000];
 TL_vector = {100:100:700,70:10:100,80:10:130,50:10:100,[100:100:1000, 1060],20:10:100,10:10:100,50:10:100}; % 解除基準分析をコントロールしている Cell array
 TL_index_vector = {[250,500,100],[100,80],[130,110],[100,80],[250,500,100],[50,20],[60,10]}; %色付けして強調するものを決める
 
-for pindex = [1,5] %:length(PrefVector) %change this parameter for prefecture
+for pindex = [1] %:length(PrefVector) %change this parameter for prefecture
     %====================== Model parameter values ======================%
     pref = PrefVector{pindex};        % prefecture to be analyzed
     prefGDP = GDPVector(pindex);
