@@ -137,6 +137,12 @@
   
   
   
+  <url>
+    <loc>http://0.0.0.0:4000/20210518.html</loc>
+  </url>
+  
+  
+  
   
   
   <url>
@@ -376,6 +382,12 @@
   
   
   <url>
+    <loc>http://0.0.0.0:4000/index_20210511.html</loc>
+  </url>
+  
+  
+  
+  <url>
     <loc>http://0.0.0.0:4000/kanagawa_20210126.html</loc>
   </url>
   
@@ -563,6 +575,12 @@
   
   <url>
     <loc>http://0.0.0.0:4000/osaka_20210504.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://0.0.0.0:4000/osaka_20210511.html</loc>
   </url>
   
   
@@ -937,6 +955,12 @@
   
   <url>
     <loc>http://0.0.0.0:4000/tokyo_20210504.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://0.0.0.0:4000/tokyo_20210511.html</loc>
   </url>
   
   
