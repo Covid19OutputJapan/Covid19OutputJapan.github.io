@@ -143,6 +143,12 @@
   
   
   
+  <url>
+    <loc>http://0.0.0.0:4000/20210525.html</loc>
+  </url>
+  
+  
+  
   
   
   <url>
@@ -383,6 +389,12 @@
   
   <url>
     <loc>http://0.0.0.0:4000/index_20210511.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://0.0.0.0:4000/index_20210518.html</loc>
   </url>
   
   
@@ -961,6 +973,12 @@
   
   <url>
     <loc>http://0.0.0.0:4000/tokyo_20210511.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://0.0.0.0:4000/tokyo_20210518.html</loc>
   </url>
   
   

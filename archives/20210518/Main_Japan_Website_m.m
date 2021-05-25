@@ -5,34 +5,37 @@
 clear variables
 close all
 iPC= 0;
-%home = '/Users/shotaro/Dropbox/fujii_nakata/Website/Covid19OutputJapan.github.io/archives/20210504/';
-if iPC == 1
-%     home = '\Users\shcor\Dropbox\fujii_nakata\Website\Codes\';
-    home = '\Users\masam\Dropbox\fujii_nakata\Website\Codes\';
-else
-    % home = '/Users/Daisuke/Desktop/Dropbox/Research/fujii_nakata/Website/Codes/';
-    home = '/Users/ymaeda/Dropbox/fujii_nakata/Website/Codes/';
-    %home = '/Users/shotaro/Dropbox/fujii_nakata/Website/Codes/';
-    %home = '/Users/machikohei/Dropbox/fujii_nakata/Website/Codes/';
-end
+home = '/Users/ymaeda/Dropbox/fujii_nakata/Website/Covid19OutputJapan.github.io/archives/20210518/';
+% if iPC == 1
+% %     home = '\Users\shcor\Dropbox\fujii_nakata\Website\Codes\';
+%     home = '\Users\masam\Dropbox\fujii_nakata\Website\Codes\';
+% else
+%     % home = '/Users/Daisuke/Desktop/Dropbox/Research/fujii_nakata/Website/Codes/';
+%     home = '/Users/ymaeda/Dropbox/fujii_nakata/Website/Codes/';
+%     %home = '/Users/shotaro/Dropbox/fujii_nakata/Website/Codes/';
+%     %home = '/Users/machikohei/Dropbox/fujii_nakata/Website/Codes/';
+% end
 cd(home);
 LastWeek = '20210511';
 Last2Week = '20210504';
 
 
 %====================== Program parameter values ======================%
-figure_save = 1;    % 0 = figures won't be saved, 1 = they will be saved
-mat_save = 1;    % 0 = figures won't be saved, 1 = they will be saved　in the "Figure" folder
+figure_save = 0;    % 0 = figures won't be saved, 1 = they will be saved
+mat_save = 0;    % 0 = figures won't be saved, 1 = they will be saved　in the "Figure" folder
 fs = 16;            %common font size for many figures
 xlim_tradeoff = [1,2.5];
-iDrawUB = 1;          %1 = create UB with simulations
+iDrawUB = 0;          %1 = create UB with simulations
 %for iDrawUB = 0; we get error in line 924.
 Nsim = 30000;         % if iDrawUB=1, this is the number of draws you use.
 if iPC == 1
     fn = 'Yu Gothic';
-else 
+else
     fn = 'YuGothic';
 end
+gamma_ICU = 7/28; % Recovery rate from ICU
+% ICU_limit_vec = [373,0,0,0,659]; % Define ICU limit for each prefecture
+ICU_adjustment = 0.8;
 %======================================================================%
 
 %====================== Model parameter values ======================%
@@ -126,13 +129,19 @@ else
 end
 dDActual = [FE.dDActual;dD(end)];
 dNActual = [FE.dNActual;N(end)];
+% if dNActual(end) ~= dNActual(end-1) && length(dNActual) == Tdata
+%     if iPC==1
+%         save([home 'Forecast.mat'],'dDActual','dNActual','-append');
+%     else
+%         save([home 'Forecast.mat'],'dDActual','dNActual','-append');
+%     end
+% end
+ICUActual = [FE.ICUActual;N(end)];
 if dNActual(end) ~= dNActual(end-1) && length(dNActual) == Tdata
-    if iPC==1
-        save([home 'Forecast.mat'],'dDActual','dNActual','-append');
-    else
-        save([home 'Forecast.mat'],'dDActual','dNActual','-append');
-    end
+%     save([home 'Forecast.mat'],'dDActual','dNActual','-append');
+    save([home 'Forecast.mat'],'dDActual','dNActual','ICUActual','-append');
 end
+
 
 %--- Constructing the reference level of output ---%
 potentialGDP = zeros(52*3,1);       % potential GDP for the next 3 years
@@ -238,6 +247,8 @@ for i = 1:Tdata
         GDP(i) = referenceGDP(i)*(1-alpha(i));
     end
 end
+ICU = zeros(Tdata+1,1);
+ICU(2:Tdata+1,1) = FE.ICUActual;
 
 %--- Compute the history of time-varying parameters ---%
 delta = (D(2:Tdata+1)-D(1:Tdata))./I(1:Tdata);                              % death rate
@@ -265,6 +276,8 @@ betaT = mean(beta_sample)*ones(SimPeriod,1);
 delta_sample = delta(end-RetroPeriod+1:end);
 % delta_average = mean(delta_sample);
 delta_average = sum(delta_sample.*(I(end-RetroPeriod+1:end)/sum(I(end-RetroPeriod+1:end))));
+ICU_inflow = (ICU(2:Tdata+1) - ICU(1:Tdata) + gamma_ICU.*ICU(1:Tdata) + dD(1:Tdata))./(delta(1:Tdata).*N(1:Tdata));
+ICU_inflow_avg = mean(ICU_inflow(end-RetroPeriod+1:end))*ICU_adjustment;
 
 % pace = ps*3600000;
 % %                 pace2 = pace*1.27;
@@ -307,9 +320,11 @@ if Vsimple == 0
 else
     [V,deltaT,VT] = vaccine_distribution_simple(vacpath,elderly,ordinary,elderly_total,delta_average,E1,E2,D1,D2);
 end
-    
+
 %--- Construct time series of parameters ---%
-InitialValues = [S(end),I(end),R(end),D(end)];
+% InitialValues = [S(end),I(end),R(end),D(end)];
+InitialValues = [S(end),I(end),R(end),D(end),ICU(end)];
+
 
 VShots = sum(VT,2);
 CumD = zeros(1,length(TargetAlpha));
@@ -317,29 +332,31 @@ AverageAlpha = zeros(1,length(TargetAlpha));
 LagResults = zeros(2,length(TargetAlpha),length(wl));
 ParamList2 = ["alpha2","ERN2","beta2","delta2"];
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% Forecast error analysis (using next week's data) %%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% if iPC==1
-%   NextD = load('\Users\shcor\Dropbox\fujii_nakata\Website\Codes\Japan20210316.mat');
-%   FE = load('\Users\shcor\Dropbox\fujii_nakata\Website\Codes\Forecast.mat');
-% else
-%   NextD = load('/Users/Daisuke/Desktop/Dropbox/Research/fujii_nakata/Website/Codes/Japan20210316.mat');
-%   FE = load('/Users/Daisuke/Desktop/Dropbox/Research/fujii_nakata/Website/Codes/Forecast.mat');
-% end
-% 
-% AlphaNext = NextD.alpha(end);
-% [CumDNext,AverageAlphaNext,SimDataNext,SimNNext]=Covid_projection(InitialValues,AlphaNext,betaT,gammaT,deltaT,V,h,k,POP0,hconstant);
-% dDForecast = [FE.dDForecast;(CumDNext-D(end))];
-% dNForecast = [FE.dNForecast;SimNNext];
-% if dNForecast(end) ~= dNForecast(end-1) && length(dNForecast) == NextD.Tdata
-%   if iPC==1
-%       save('\Users\shcor\Dropbox\fujii_nakata\Website\Codes\Forecast.mat','dDForecast','dNForecast','-append');
-%   else
-%       save('/Users/Daisuke/Desktop/Dropbox/Research/fujii_nakata/Website/Codes/Forecast.mat','dDForecast','dNForecast','-append');
-%   end
-% end
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-- Forecast error analysis (using next week's data) --%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+if iPC==1
+  NextD = load('\Users\shcor\Dropbox\fujii_nakata\Website\Codes\Japan20210525.mat');
+  FE = load('\Users\shcor\Dropbox\fujii_nakata\Website\Codes\Forecast.mat');
+else
+  NextD = load('/Users/ymaeda/Dropbox/fujii_nakata/Website/Codes/Japan20210525.mat');
+  FE = load('/Users/ymaeda/Dropbox/fujii_nakata/Website/Codes/Forecast.mat');
+end
 
+AlphaNext = NextD.alpha(end);
+[CumDNext,AverageAlphaNext,SimDataNext,SimNNext,SimICUNext] = Covid_projection2(InitialValues,AlphaNext,betaT,gammaT,deltaT,V,h,k,POP0,hconstant,ICU_inflow_avg,gamma_ICU); 
+dDForecast = [FE.dDForecast;(CumDNext-D(end))];
+dNForecast = [FE.dNForecast;SimNNext];
+ICUForecast = [FE.ICUForecast;SimICUNext(2:end)];
+if dNForecast(end) ~= dNForecast(end-1) && length(dNForecast) == NextD.Tdata
+  if iPC==1
+      save('\Users\shcor\Dropbox\fujii_nakata\Website\Codes\Forecast.mat','dDForecast','dNForecast','ICUForecast','-append');
+  else
+      save('/Users/ymaeda/Dropbox/fujii_nakata/Website/Codes/Forecast.mat','dDForecast','dNForecast','ICUForecast','-append');
+  end
+end
+
+%%
 %---------------%
 %insert %% here
 %---------------%
@@ -348,7 +365,7 @@ ParamList2 = ["alpha2","ERN2","beta2","delta2"];
 % BetaVals = beta_average*[1.05, 1, 0.95];
 % KVals = [1.5, 2, 2.5];
 % HVals = [0.8, 1, 1.2];
-% 
+%
 % VacStartVals = [16, 12, 20];
 % VacPaceVals = [0.5*VacPace, VacPace, 2*VacPace];
 % FrontLoadingVals = [0.5, 1, 1.5];
@@ -439,7 +456,7 @@ for l = 1:2
     for j = 1:4
         subplot(2,2,j)
         for i = 1:length(AlphaVals)
-            
+
             %     alphaT = flip(0:0.01*AlphaVals(i)*2/(SimPeriod-1):(0.01*AlphaVals(i)*2))';
             alphaT = zeros(SimPeriod,1);
             alphaT(1:26) = flip(0:0.01*AlphaVals(i)*4/(26-1):(0.01*AlphaVals(i)*4))';
@@ -451,7 +468,7 @@ for l = 1:2
             end
             ProjectedData = [AlphaIndexVariables(:,5,i),AlphaIndexVariables(:,6,i),ERNT,VShots];
             CombinedData = [Past;ProjectedData];
-            
+
             if j==2
                 temp=100*(CombinedData(:,j)-referenceGDP(1*length(CombinedData(:,j))))./referenceGDP(1*length(CombinedData(:,j)));
                 if i==1
@@ -539,12 +556,12 @@ delta_se= std(delta_sample)/sqrt(length(delta_sample));
 %"h_se" is computed above.
 
 if iDrawUB==0 %not used anymore.
-%     
+%
 %     BetaValsUB = beta_average+beta_se*[-1,-0.75, -0.5, -0.25, 0, 0.25, 0.5, 0.75, 1];
 %     DeltaValsUB = delta_average+delta_se*[-1,-0.75, -0.5, -0.25, 0, 0.25, 0.5, 0.75, 1];
 %     HValsUB = h+h_se*[1,0.75,0.5,0.25, 0, -0.25, -0.5, -0.75, -1];
 %     UB = zeros(length(BetaValsUB),length(TargetAlpha));    % matrix to contain the results of uncertainty-band analysis
-%     
+%
 %     for i = 1:length(TargetAlpha)
 %         %     alphaT = flip(0:0.01*TargetAlpha(i)*2/(SimPeriod-1):(0.01*TargetAlpha(i)*2))';
 %         alphaT = zeros(SimPeriod,1);
@@ -562,14 +579,14 @@ if iDrawUB==0 %not used anymore.
 %             [UB(j,i)]=Covid_projection(InitialValues,alphaT,betaS,gammaT,deltaS,V,HS,k,POP0,hconstant);
 %         end
 %     end
-%     
+%
 %     Y1UB = zeros(length(AverageAlpha),9);
 %     X1UB = 100*AverageAlpha;
 %     Y1UB(:,1)= UB(1,:);
 %     for iUB=2:9
 %         Y1UB(:,iUB)= UB(iUB,:)-UB(iUB-1,:);
 %     end
-%    
+%
 %     %--- Trade-off figure with UB (baseline) ---%
 %     figure(6)
 %     AreaUB=area(X1UB,Y1UB,0);
@@ -603,32 +620,32 @@ if iDrawUB==0 %not used anymore.
 %     ytickformat('%,6.0f')
 
 elseif iDrawUB==1
-    
+
     %%%%%%%%%%%%%%%%% Uncertainty band for the tradeoff curve (with simulation) %%%%%%%%%%%%%%%%%
     UB2=zeros(9,Nsim);    % matrix to contain the results of uncertainty-band analysis
-    
+
     h1=h(1);
     h2=h(2);
     h_se1=h_se(1);
     h_se2=h_se(2);
-    
-    
+
+
     for i = 1:length(TargetAlpha)
         alphaT = zeros(SimPeriod,1);
         alphaT(1:26) = flip(0:0.01*TargetAlpha(i)*4/(26-1):(0.01*TargetAlpha(i)*4))';
         parfor j = 1:Nsim
             betaS  = normrnd(beta_average,beta_se)*ones(SimPeriod,1);
             delta_averageS = normrnd(delta_average,delta_se);
-                
+
             %[V,deltaS,VT] = vaccine_distribution_medical(vacpath,elderly,ordinary,elderly_total,delta_averageS,E1,E2,D1,D2,ps,POP0,3);
             %[V,deltaS,VT] = vaccine_distribution_medical(vacpath,medical,V1_medical,V2_medical,elderly,V1_elderly,V2_elderly, ordinary,elderly_total,delta_averageS,E1,E2,D1,D2,ps,POP0,3,10);
              [V,deltaS,VT] = vaccine_distribution_medical(vacpath,medical,V1_medical,V2_medical,elderly,V1_elderly,V2_elderly, ordinary,elderly_total,delta_averageS,E1,E2,D1,D2,ps,POP0,3,10);
-%             
+%
 %             delta_ssS = delta_averageS*(0.09/1.27);
 %             deltaS = delta_averageS*ones(SimPeriod,1);
 %             deltaS(VacStart+3:VacStart+3+9+13) = delta_averageS:(delta_ssS-delta_averageS)/22:delta_ssS;
 %             deltaS(VacStart+3+9+13+1:end) = delta_ssS;
-%             
+%
             %        HS(1) = normrnd(h(1),h_se(1)); % It does not work well with parfor
             %        HS(2) = normrnd(h(2),h_se(2)); % It does not work well with parfor
             HS1 = normrnd(h1,h_se1);
@@ -637,7 +654,7 @@ elseif iDrawUB==1
             [UB2(j,i)]=Covid_projection(InitialValues,alphaT,betaS,gammaT,deltaS,V,HS,k,POP0,hconstant);
         end
     end
-    
+
     UBp=zeros(9,length(TargetAlpha));    % matrix to contain the results of uncertainty-band analysis
     Y1UB = zeros(length(AverageAlpha),9);
     X1UB = 100*AverageAlpha;
@@ -648,8 +665,8 @@ elseif iDrawUB==1
     for iUB=2:9
         Y1UBp(:,iUB)= UBp(iUB,:)-UBp(iUB-1,:);
     end
-       
-%%   
+
+%%
      for l = 1:2
         if l == 1
             figure(66)
@@ -714,7 +731,7 @@ elseif iDrawUB==1
 %             xline(AverageAlpha2020,'k','LineWidth',1.5,'HandleVisibility','off');
 %             text(3.5,150000,{'????';'     ?2020??'},'FontSize',16);
         end
-        
+
         yline(D(end),'k--','LineWidth',1.5,'HandleVisibility','off');
         xlim(xlim_tradeoff);
         ylim([8000 30000]);
@@ -728,7 +745,7 @@ elseif iDrawUB==1
         ax.YAxis.Exponent = 0;
         ytickformat('%,6.0f')
     end
-%     
+%
 %     %%%%%%%%%%%%%%%%% Chart of the week
 %     for l = 1:2
 %         if l == 1
@@ -800,11 +817,11 @@ if figure_save == 1
         saveas(figure(51),[home  'Figures/VariablesProjection_jp.png']);
     end
 
-    
+
     %saveas(figure(6),[home  '\Figures\BaselineTradeoffUB.png']);
 %     saveas(figure(10),[home 'Figures/ForecastErrors.png']);
 %     saveas(figure(101),[home 'Figures/ForecastErrors_jp.png']);
-    
+
     if iPC==1
         saveas(figure(66),[home  'Figures\BaselineTradeoffUBp.png']);
         saveas(figure(661),[home  'Figures\BaselineTradeoffUBp_jp.png']);
@@ -815,13 +832,13 @@ if figure_save == 1
 
 %     saveas(figure(666),[home  'Figures/ChartOfTheWeek.png']);
 %     saveas(figure(6661),[home  'Figures/ChartOfTheWeek_jp.png']);
-    
+
     %saveas(figure(7),[home  '\Figures\Sensitivity.png']);
     %saveas(figure(8),[home  '\Figures\LaggedTradeoff.png']);
     %saveas(figure(9),[home  '\Figures\CF_multiplicative.png']);
-    
-   
-    
+
+
+
     %saveas(figure(100),[home '\Figures\MobilityGDPScatter.png']);
     %saveas(figure(101),[home '\Figures\ParametersProjection.png']);
     %saveas(figure(102),[home '\Figures\BaselineTradeoff.png']);
