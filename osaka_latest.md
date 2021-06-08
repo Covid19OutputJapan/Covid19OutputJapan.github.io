@@ -7,10 +7,10 @@ permalink: osaka_latest.html
 summary:
 ---
 
-{% assign fig_loc = "./archives/20210601/Figures/Osaka/" %}
+{% assign fig_loc = "./archives/20210608/Figures/Osaka/" %}
 
-## Last update on June 1, 2021
-** Based on the data available as of May 30, 2021. Click to enlarge each image.
+## Last update on June 8, 2021
+** Based on the data available as of June 6, 2021. Click to enlarge each image.
 
 {% include link_to_code.html %}
 
@@ -32,7 +32,6 @@ Source: Authors’ calculation.
 
 Source: Authors’ calculation. -->
 
-
 <!-- ### 2.
 
 #### (i) Variant scenario (A)
@@ -43,18 +42,13 @@ Source: Authors’ calculation. -->
 Source: Authors’ calculation. -->
 
 <!-- #### (iii) Variant scenario -->
-### 1. Scenarios with alternative criteria for lifting the state of emergency
+
+
+
+
+### 1. Vaccination prospects
 
 {: align="center"}
-|[![gradual_Y]({{ fig_loc }}Baseline_India_EN.png)]({{ fig_loc }}Baseline_India_EN.png)|
+|[![gradual_Y]({{ fig_loc }}VP_MainResults_EN.png)]({{ fig_loc }}VP_MainResults_EN.png)|
 
 Source: Authors’ calculation.
-
-
-### 2. Vaccination prospects
-
-{: align="center"}
-|[![gradual_Y]({{ fig_loc }}Vaccine_India_EN.png)]({{ fig_loc }}Vaccine_EN.png)|
-
-Source: Authors’ calculation.
-

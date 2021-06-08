@@ -28,6 +28,10 @@ entries:
       output: web, pdf
       type: homepage
     - title: Last week
+      url: /20210601.html
+      output: web, pdf
+      type: homepage
+    - title: May 25, 2021
       url: /20210525.html
       output: web, pdf
       type: homepage

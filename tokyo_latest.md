@@ -7,10 +7,10 @@ permalink: tokyo_latest.html
 summary:
 ---
 
-{% assign fig_loc = "./archives/20210601/Figures/" %}
+{% assign fig_loc = "./archives/20210608/Figures/" %}
 
-## Last update on June 1, 2021
-** Based on the data available as of May 30, 2021. Click to enlarge each image.
+## Last update on June 8, 2021
+** Based on the data available as of June 6, 2021. Click to enlarge each image.
 
 {% include link_to_code.html %}
 
@@ -45,7 +45,7 @@ Source: Authors’ calculation. -->
 
 
 {: align="center"}
-|[![gradual_Y]({{ fig_loc }}Tokyo/Baseline_India_EN.png)]({{ fig_loc }}Tokyo/Baseline_India_EN.png)|
+|[![gradual_Y]({{ fig_loc }}Tokyo/TL_MainResults_EN.png)]({{ fig_loc }}Tokyo/TL_MainResults_EN.png)|
 
 Source: Authors’ calculation.
 
@@ -54,7 +54,7 @@ Source: Authors’ calculation.
 (A) Baseline scenario
 
 {: align="center"}
-|[![gradual_Y]({{ fig_loc }}Tokyo/Vaccine_India_EN.png)]({{ fig_loc }}Tokyo/Vaccine_India_EN.png)|
+|[![gradual_Y]({{ fig_loc }}Tokyo/VP_MainResults_EN.png)]({{ fig_loc }}Tokyo/VP_MainResults_EN.png)|
 
 Source: Authors’ calculation.
 
