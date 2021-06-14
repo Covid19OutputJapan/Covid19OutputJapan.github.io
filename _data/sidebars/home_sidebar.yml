@@ -24,7 +24,7 @@ entries:
     output: web, pdf
     folderitems:
     - title: Latest
-      url: /20210601.html
+      url: /20210608.html
       output: web, pdf
       type: homepage
     - title: Last week
