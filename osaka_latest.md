@@ -7,10 +7,10 @@ permalink: osaka_latest.html
 summary:
 ---
 
-{% assign fig_loc = "./archives/20210608/Figures/Osaka/" %}
+{% assign fig_loc = "./archives/20210615/Figures/Osaka/" %}
 
-## Last update on June 8, 2021
-** Based on the data available as of June 6, 2021. Click to enlarge each image.
+## Last update on June 15, 2021
+** Based on the data available as of June 13, 2021. Click to enlarge each image.
 
 {% include link_to_code.html %}
 

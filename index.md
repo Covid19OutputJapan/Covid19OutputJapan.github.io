@@ -7,10 +7,10 @@ permalink: index.html
 summary:
 ---
 
-{% assign fig_loc = "./archives/20210608/Figures/" %}
+{% assign fig_loc = "./archives/20210615/Figures/" %}
 
-## Last update on June 8, 2021
-** Based on the data available as of June 6, 2021. Click to enlarge each image.
+## Last update on June 15, 2021
+** Based on the data available as of June 13, 2021. Click to enlarge each image.
 
 {% include link_to_code.html %}
 
@@ -40,18 +40,16 @@ Source: Authors’ calculation. -->
 
 <!-- #### (iii) Variant scenario -->
 
-### 1. Scenarios with alternative criteria for lifting the state of emergency in Tokyo
+### <!--1. Scenarios with alternative criteria for lifting the state of emergency in Tokyo-->
 
 
 
-{: align="center"}
+<!-- {: align="center"}
 |[![gradual_Y]({{ fig_loc }}Tokyo\TL_MainResults_EN.png)]({{ fig_loc }}Tokyo/TL_MainResults_EN.png)|
 
-Source: Authors’ calculation.
+Source: Authors’ calculation.-->
 
-### 2. Vaccination prospects in Tokyo
-
-(A) Baseline scenario
+### 1. Vaccination prospects in Tokyo
 
 {: align="center"}
 |[![gradual_Y]({{ fig_loc }}Tokyo\VP_MainResults_EN.png)]({{ fig_loc }}Tokyo/VP_MainResults_EN.png)|
