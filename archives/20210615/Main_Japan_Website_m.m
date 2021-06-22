@@ -5,10 +5,10 @@
 clear variables
 close all
 iPC= 1;
-%home = '/Users/ymaeda/Dropbox/fujii_nakata/Website/Covid19OutputJapan.github.io/archives/20210525/';
+home = '/Users/kenic/Dropbox/fujii_nakata/Website/Covid19OutputJapan.github.io/archives/20210615/';
 if iPC == 1
     %     home = '\Users\shcor\Dropbox\fujii_nakata\Website\Codes\';
-    home = '\Users\masam\Dropbox\fujii_nakata\Website\Codes\';
+    %home = '\Users\masam\Dropbox\fujii_nakata\Website\Codes\';
 else
     % home = '/Users/Daisuke/Desktop/Dropbox/Research/fujii_nakata/Website/Codes/';
     home = '/Users/ymaeda/Dropbox/fujii_nakata/Website/Codes/';
@@ -21,8 +21,8 @@ Last2Week = '20210601';
 
 
 %====================== Program parameter values ======================%
-figure_save = 1;    % 0 = figures won't be saved, 1 = they will be saved
-mat_save = 1;    % 0 = figures won't be saved, 1 = they will be saved　in the "Figure" folder
+figure_save = 0;    % 0 = figures won't be saved, 1 = they will be saved
+mat_save = 0;    % 0 = figures won't be saved, 1 = they will be saved　in the "Figure" folder
 ICU_nation = 1; % = 1 use national definition (NHK data), = 0 use data from Tokyo Keizai
 fs = 16;            %common font size for many figures
 xlim_tradeoff = [1,2.5];
@@ -343,28 +343,29 @@ ParamList2 = ["alpha2","ERN2","beta2","delta2"];
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Forecast error analysis (using next week's data) %%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% if iPC==1
-%   NextD = load('\Users\shcor\Dropbox\fujii_nakata\Website\Codes\Japan20210316.mat');
-%   FE = load('\Users\shcor\Dropbox\fujii_nakata\Website\Codes\Forecast.mat');
-% else
-%   NextD = load('/Users/Daisuke/Desktop/Dropbox/Research/fujii_nakata/Website/Codes/Japan20210316.mat');
-%   FE = load('/Users/Daisuke/Desktop/Dropbox/Research/fujii_nakata/Website/Codes/Forecast.mat');
-% end
-%
-% AlphaNext = NextD.alpha(end);
-%[CumDNext,AverageAlphaNext,SimDataNext,SimNNext,SimICUNext] = ...
-%Covid_projection2(InitialValues,AlphaNext,betaT,gammaT,deltaT,V,h,k,POP0,hconstant,ICU_inflow_avg,gamma_ICU); % [CumDNext,AverageAlphaNext,SimDataNext,SimNNext]=Covid_projection(InitialValues,AlphaNext,betaT,gammaT,deltaT,V,h,k,POP0,hconstant);
-% dDForecast = [FE.dDForecast;(CumDNext-D(end))];
-% dNForecast = [FE.dNForecast;SimNNext];
-% ICUForecast = [FE.ICUForecast;SimICUNext(2)];
-% if dNForecast(end) ~= dNForecast(end-1) && length(dNForecast) == NextD.Tdata
-%   if iPC==1
-%       save('\Users\shcor\Dropbox\fujii_nakata\Website\Codes\Forecast.mat','dDForecast','dNForecast','ICUForecast','-append');
-%   else
-%       save('/Users/Daisuke/Desktop/Dropbox/Research/fujii_nakata/Website/Codes/Forecast.mat','dDForecast','dNForecast','ICUForecast','-append');
-%   end
-% end
+if iPC==1
+  NextD = load('\Users\kenic\Dropbox\fujii_nakata\Website\Codes\Japan20210622.mat');
+  FE = load('\Users\kenic\Dropbox\fujii_nakata\Website\Codes\Forecast.mat');
+else
+  NextD = load('/Users/Daisuke/Desktop/Dropbox/Research/fujii_nakata/Website/Codes/Japan20210316.mat');
+  FE = load('/Users/Daisuke/Desktop/Dropbox/Research/fujii_nakata/Website/Codes/Forecast.mat');
+end
 
+AlphaNext = NextD.alpha(end);
+[CumDNext,AverageAlphaNext,SimDataNext,SimNNext,SimICUNext] = ...
+Covid_projection2(InitialValues,AlphaNext,betaT,gammaT,deltaT,V,h,k,POP0,hconstant,ICU_inflow_avg,gamma_ICU,delta_ICU); % [CumDNext,AverageAlphaNext,SimDataNext,SimNNext]=Covid_projection(InitialValues,AlphaNext,betaT,gammaT,deltaT,V,h,k,POP0,hconstant);
+dDForecast = [FE.dDForecast;(CumDNext-D(end))];
+dNForecast = [FE.dNForecast;SimNNext];
+ICUForecast = [FE.ICUForecast;SimICUNext(2)];
+if dNForecast(end) ~= dNForecast(end-1) && length(dNForecast) == NextD.Tdata
+  if iPC==1
+      save('\Users\kenic\Dropbox\fujii_nakata\Website\Codes\Forecast.mat','dDForecast','dNForecast','ICUForecast','-append');
+  else
+      save('/Users/Daisuke/Desktop/Dropbox/Research/fujii_nakata/Website/Codes/Forecast.mat','dDForecast','dNForecast','ICUForecast','-append');
+  end
+end
+
+%%
 %---------------%
 %insert %% here
 %---------------%

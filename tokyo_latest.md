@@ -7,10 +7,10 @@ permalink: tokyo_latest.html
 summary:
 ---
 
-{% assign fig_loc = "./archives/20210615/Figures/" %}
+{% assign fig_loc = "./archives/20210622/Figures/" %}
 
-## Last update on June 15, 2021
-** Based on the data available as of June 13, 2021. Click to enlarge each image.
+## Last update on June 22, 2021
+** Based on the data available as of June 20, 2021. Click to enlarge each image.
 
 {% include link_to_code.html %}
 
