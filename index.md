@@ -7,10 +7,10 @@ permalink: index.html
 summary:
 ---
 
-{% assign fig_loc = "./archives/20210622/Figures/" %}
+{% assign fig_loc = "./archives/20210629/Figures/" %}
 
-## Last update on June 22, 2021
-** Based on the data available as of June 20, 2021. Click to enlarge each image.
+## Last update on June 29, 2021
+** Based on the data available as of June 27, 2021. Click to enlarge each image.
 
 {% include link_to_code.html %}
 
@@ -56,3 +56,9 @@ Source: Authors’ calculation.-->
 
 Source: Authors’ calculation.
 
+### 2. Duration of Recovery
+
+{: align="center"}
+|[![gradual_Y]({{ fig_loc }}Tokyo/DR_MainResults_EN.png)]({{ fig_loc }}Tokyo/VP_MainResults_EN.png)|
+
+Source: Authors’ calculation.
