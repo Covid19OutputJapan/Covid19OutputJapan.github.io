@@ -167,3 +167,8 @@ entries:
       url: /disclaimer.html
       output: web, pdf
       type: homepage
+  - title: Who we are
+      url: /profile.html
+      output: web, pdf
+      type: homepage
+
