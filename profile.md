@@ -14,9 +14,13 @@ summary:
    2007: Soka University of America (B.A. in Economics and Mathematics)
 
    2009: Harvard University (M.A. in Statistics)
+
    2014: University of Chicago (Ph.D. in Economics)
+
    2014-2017: Post-doctoral fellow @ University of Southern California
+
    2017-2018: Lecturer @ University of California, Los Angeles
+
    2018-: Project assistant professor @ University of Tokyo
 
 2. Areas of expertise
@@ -28,9 +32,13 @@ summary:
 1. Background
 
    2003: University of Chicago (B.A. in Economics)
+
    2003-2007: Assistant Economist @ Federal Reserve Bank of Kansas City
+
    2012: New York University (Ph.D. in Economics)
+
    2012-2020: Economist, Senior Economist, Principal Economist @ Board of Governors of the Federal Reserve System
+   
    2020-: Associate Professor (with tenure) @ University of Tokyo
 
 2. Areas of expertise
