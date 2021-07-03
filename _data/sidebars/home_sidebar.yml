@@ -170,7 +170,7 @@ entries:
   - title: Who we are
     output: web, pdf
     folderitems:
-      title: profile
+    - title: profile
       url: /profile.html
       output: web, pdf
       type: homepage
