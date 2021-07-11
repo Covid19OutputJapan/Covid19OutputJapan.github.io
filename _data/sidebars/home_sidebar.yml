@@ -24,10 +24,14 @@ entries:
     output: web, pdf
     folderitems:
     - title: Latest
-      url: /20210629.html
+      url: /20210706.html
       output: web, pdf
       type: homepage
     - title: Last week
+      url: /20210629.html
+      output: web, pdf
+      type: homepage
+    - title: June 22, 2021
       url: /20210622.html
       output: web, pdf
       type: homepage
@@ -119,7 +123,7 @@ entries:
       url: /20210121.html
       output: web, pdf
       type: homepage
-
+    
   - title: Prefectures
     output: web, pdf
     folderitems:
@@ -151,7 +155,7 @@ entries:
       output: web, pdf
       url: /saitama_latest.html
       type: homepage
-
+  
   - title: Information
     output: web, pdf
     folderitems:
