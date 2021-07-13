@@ -179,6 +179,18 @@
   
   
   
+  <url>
+    <loc>http://0.0.0.0:4000/20210706.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://0.0.0.0:4000/20210713.html</loc>
+  </url>
+  
+  
+  
   
   
   <url>
@@ -455,6 +467,18 @@
   
   <url>
     <loc>http://0.0.0.0:4000/index_20210622.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://0.0.0.0:4000/index_20210629.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://0.0.0.0:4000/index_20210706.html</loc>
   </url>
   
   
@@ -822,6 +846,12 @@
   
   
   <url>
+    <loc>http://0.0.0.0:4000/profile.html</loc>
+  </url>
+  
+  
+  
+  <url>
     <loc>http://0.0.0.0:4000/resources.html</loc>
   </url>
   
@@ -1087,6 +1117,18 @@
   
   <url>
     <loc>http://0.0.0.0:4000/tokyo_20210622.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://0.0.0.0:4000/tokyo_20210629.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://0.0.0.0:4000/tokyo_20210706.html</loc>
   </url>
   
   
