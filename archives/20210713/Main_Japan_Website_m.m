@@ -5,10 +5,10 @@
 clear variables
 close all
 iPC= 1;
-home = '/Users/kenic/Dropbox/fujii_nakata/Website/Covid19OutputJapan.github.io/archives/20210706/';
+%home = '/Users/ymaeda/Dropbox/fujii_nakata/Website/Covid19OutputJapan.github.io/archives/20210525/';
 if iPC == 1
     %home = '\Users\masam\Dropbox\fujii_nakata\Website\Codes\';
-    %home = '\Users\kenic\Dropbox\fujii_nakata\Website\Codes\';
+    home = '\Users\kenic\Dropbox\fujii_nakata\Website\Codes\';
 else
     % home = '/Users/Daisuke/Desktop/Dropbox/Research/fujii_nakata/Website/Codes/';
     home = '/Users/ymaeda/Dropbox/fujii_nakata/Website/Codes/';
@@ -16,17 +16,17 @@ else
     home = '/Users/koheimachi/Dropbox/fujii_nakata/Website/Codes/';
 end
 cd(home);
-LastWeek = '20210629';
-Last2Week = '20210622';
+LastWeek = '20210706';
+Last2Week = '20210629';
 
 
 %====================== Program parameter values ======================%
-figure_save = 0;    % 0 = figures won't be saved, 1 = they will be saved
-mat_save = 0;    % 0 = figures won't be saved, 1 = they will be saved　in the "Figure" folder
+figure_save = 1;    % 0 = figures won't be saved, 1 = they will be saved
+mat_save = 1;    % 0 = figures won't be saved, 1 = they will be saved　in the "Figure" folder
 ICU_nation = 1; % = 1 use national definition (NHK data), = 0 use data from Tokyo Keizai
 fs = 16;            %common font size for many figures
 xlim_tradeoff = [1,2.5];
-iDrawUB = 0;          %1 = create UB with simulations
+iDrawUB = 1;          %1 = create UB with simulations
 %for iDrawUB = 0; we get error in line 924.
 Nsim = 30000;         % if iDrawUB=1, this is the number of draws you use.
 if iPC == 1
@@ -56,8 +56,8 @@ RetroPeriodDelta = RetroPeriod;
 wl = [1,2];            % Results as of these weeks ago
 
 
-total_shots = 8400000;
-paces_ori = 6300000;
+total_shots = 9800000;
+paces_ori = 7000000;
 gradual_paces = 1;
 sw_vacpath = 0;
 lag = 3;
@@ -82,8 +82,9 @@ VT3share = 0.6;
 % parameters for ICU
 gamma_ICU = 7/28; % Recovery rate from ICU
 % ICU_limit_vec = [373,0,0,0,659]; % Define ICU limit for each prefecture
-ICU_adjustment = 0.9; %0.85;
-
+ICU_adjustment = 0.85; %0.9;
+retro_ub = 17; % Control the moving average of beta (beta_avg = sum_{t = lb}^{ub} (1/(ub-lb + 1) sum_{x=1}^t (1/t) beta_t)
+retro_lb = 17;
 %====================================================================%
 
 
@@ -140,7 +141,7 @@ VacStart = find(SimDateEN == datetime(2021,4,1));
 End2020 = find(dateEN == datetime(2021,1,7));
 Month = string(date1);
 
-date_slowdown = find(date == datetime(2021,9,2)) - Tdata;
+date_slowdown = find(date == datetime(2021,8,12)) - Tdata; % when the vaccine paces slow down
 %--- Construct weekly vaccine data ---%
 % vaccine_medical = importdata([home 'vaccine_daily_medical.xls']);
 % vaccine_elderly = importdata([home 'vaccine_daily_elderly.xls']);
@@ -276,19 +277,27 @@ end
     = SIRD(Tdata,POP0,N,E1,E2,V1_elderly,V1_medical,V1_others,V2_elderly,V2_medical,V2_others,gamma,dD,TdataGDP,referenceGDP,alpha,GDP);
 
 [delta,beta_tilde,ERN,beta,ICU_inflow,...
-    gammaT,delta_average,ICU_inflow_avg,delta_sample]...
+    gammaT,delta_average,ICU_inflow_avg,delta_sample,beta_avg]...
     = Time_Series_Average(S,I,D,ICU,dD,N,Tdata,SimPeriod,...
     RetroPeriod,POP0,gamma,hconstant,h_all,alpha,k,...
-    gamma_ICU,ICU_adjustment,RetroPeriodDelta);
+    gamma_ICU,ICU_adjustment,RetroPeriodDelta,retro_lb,retro_ub);
 
 
 %--- Eliminate the effects of vaccination from delta ---%
+delta_past_avg = delta_average; %Past 17 weeks average
 delta_ss = delta_average*(0.1063/1.53);
 VD_elderly = D1*V1_elderly + (D2-D1)*V2_elderly;
 VD_medical = D1*V1_medical + (D2-D1)*V2_medical;
+VD_ordinary = (D1*V1_medical + (D2-D1)*V2_medical) + (D1*V1_others + (D2-D1)*V2_others);
 share = ((1 - sum(VD_elderly(1:end-2))/elderly_total) * (delta_average - delta_ss) ...
-    + (1-sum(VD_medical(1:end-2))/(ordinary_total))*delta_ss)/delta_average;
+    + (1-sum(VD_ordinary(1:end-2))/(ordinary_total))*delta_ss)/delta_average;
 delta_average = delta_average/share;
+
+%--- Eliminate the effects of vaccination from delta ---%
+ICU_ss = delta_past_avg*(0.3916/1.62); %Share of the death rate among youth to the death rate of all populaiton
+share = ((1 - sum(VD_elderly(1:end-2))/elderly_total) * (delta_past_avg - ICU_ss) ...
+    + (1-sum(VD_ordinary(1:end-2))/(ordinary_total))*ICU_ss)/delta_past_avg;
+ICU_average = delta_past_avg/share; %Eliminate the effects of vaccination in the past average value
 
 
 AverageAlpha2020 = 100*mean([alpha(1);alpha(2);alpha(1:End2020)]);
@@ -336,7 +345,7 @@ if Vsimple == 0
         vaccine_distribution(V1_medical,V2_medical,...
         V1_elderly,V2_elderly,V1_others, V2_others,...
         ind_date,ind_date2,date_slowdown,lagged_VT2share,VT3share,...
-        elderly,elderly_total,medical,ordinary,delta_average,lag,...
+        elderly,elderly_total,medical,ordinary,delta_average,ICU_average,lag,...
         medical_duration,paces_ori,paces2_ori,paces3,sw_vacpath,gradual_paces,gradual_paces2,...
         E1,E2,D1,D2,ps,POP0,SimPeriod,Tdata);
 else
@@ -355,28 +364,28 @@ ParamList2 = ["alpha2","ERN2","beta2","delta2"];
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Forecast error analysis (using next week's data) %%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-if iPC==1
-  NextD = load('\Users\kenic\Dropbox\fujii_nakata\Website\Codes\Japan20210713.mat');
-  FE = load('\Users\kenic\Dropbox\fujii_nakata\Website\Codes\Forecast.mat');
-else
-  NextD = load('/Users/Daisuke/Desktop/Dropbox/Research/fujii_nakata/Website/Codes/Japan20210316.mat');
-  FE = load('/Users/Daisuke/Desktop/Dropbox/Research/fujii_nakata/Website/Codes/Forecast.mat');
-end
+% if iPC==1
+%   NextD = load('\Users\shcor\Dropbox\fujii_nakata\Website\Codes\Japan20210316.mat');
+%   FE = load('\Users\shcor\Dropbox\fujii_nakata\Website\Codes\Forecast.mat');
+% else
+%   NextD = load('/Users/Daisuke/Desktop/Dropbox/Research/fujii_nakata/Website/Codes/Japan20210316.mat');
+%   FE = load('/Users/Daisuke/Desktop/Dropbox/Research/fujii_nakata/Website/Codes/Forecast.mat');
+% end
+%
+% AlphaNext = NextD.alpha(end);
+%[CumDNext,AverageAlphaNext,SimDataNext,SimNNext,SimICUNext] = ...
+%Covid_projection2(InitialValues,AlphaNext,betaT,gammaT,deltaT,V,h,k,POP0,hconstant,ICU_inflow_avg,gamma_ICU,delta_ICU); % [CumDNext,AverageAlphaNext,SimDataNext,SimNNext]=Covid_projection(InitialValues,AlphaNext,betaT,gammaT,deltaT,V,h,k,POP0,hconstant);
+% dDForecast = [FE.dDForecast;(CumDNext-D(end))];
+% dNForecast = [FE.dNForecast;SimNNext];
+% ICUForecast = [FE.ICUForecast;SimICUNext(2)];
+% if dNForecast(end) ~= dNForecast(end-1) && length(dNForecast) == NextD.Tdata
+%   if iPC==1
+%       save('\Users\shcor\Dropbox\fujii_nakata\Website\Codes\Forecast.mat','dDForecast','dNForecast','ICUForecast','-append');
+%   else
+%       save('/Users/Daisuke/Desktop/Dropbox/Research/fujii_nakata/Website/Codes/Forecast.mat','dDForecast','dNForecast','ICUForecast','-append');
+%   end
+% end
 
-AlphaNext = NextD.alpha(end);
-[CumDNext,AverageAlphaNext,SimDataNext,SimNNext,SimICUNext] = ...
-Covid_projection2(InitialValues,AlphaNext,betaT,gammaT,deltaT,V,h,k,POP0,hconstant,ICU_inflow_avg,gamma_ICU,delta_ICU); % [CumDNext,AverageAlphaNext,SimDataNext,SimNNext]=Covid_projection(InitialValues,AlphaNext,betaT,gammaT,deltaT,V,h,k,POP0,hconstant);
-dDForecast = [FE.dDForecast;(CumDNext-D(end))];
-dNForecast = [FE.dNForecast;SimNNext];
-ICUForecast = [FE.ICUForecast;SimICUNext(2)];
-if dNForecast(end) ~= dNForecast(end-1) && length(dNForecast) == NextD.Tdata
-  if iPC==1
-      save('\Users\kenic\Dropbox\fujii_nakata\Website\Codes\Forecast.mat','dDForecast','dNForecast','ICUForecast','-append');
-  else
-      save('/Users/Daisuke/Desktop/Dropbox/Research/fujii_nakata/Website/Codes/Forecast.mat','dDForecast','dNForecast','ICUForecast','-append');
-  end
-end
-%%
 %---------------%
 %insert %% here
 %---------------%
