@@ -7,10 +7,10 @@ permalink: index.html
 summary:
 ---
 
-{% assign fig_loc = "./archives/20210713/Figures/" %}
+{% assign fig_loc = "./archives/20210720/Figures/" %}
 
-## Last update on July 13, 2021
-** Based on the data available as of July 11, 2021. Click to enlarge each image.
+## Last update on July 20, 2021
+** Based on the data available as of July 18, 2021. Click to enlarge each image.
 
 {% include link_to_code.html %}
 
@@ -49,7 +49,7 @@ Source: Authors’ calculation. -->
 
 Source: Authors’ calculation.-->
 
-### 1. Scenarios with alternative decline of infection for the state of emergency 
+### 1. Scenarios with decline of infection for the self behavior change 
 
 {: align="center"}
 |[![gradual_Y]({{ fig_loc }}Tokyo/ERN_MainResults_EN.png)]({{ fig_loc }}Tokyo/ERN_MainResults_EN.png)|
