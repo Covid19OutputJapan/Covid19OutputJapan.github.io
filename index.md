@@ -49,7 +49,7 @@ Source: Authors’ calculation. -->
 
 Source: Authors’ calculation.-->
 
-### 1. Scenarios with decline of infection for the self behavior change 
+### 1. Slow-down in early August due to voluntary behavioral changes, followed by the final wave
 
 {: align="center"}
 |[![gradual_Y]({{ fig_loc }}Tokyo/ERN_MainResults_EN.png)]({{ fig_loc }}Tokyo/ERN_MainResults_EN.png)|
