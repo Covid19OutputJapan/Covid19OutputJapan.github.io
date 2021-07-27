@@ -7,10 +7,10 @@ permalink: index.html
 summary:
 ---
 
-{% assign fig_loc = "./archives/20210720/Figures/" %}
+{% assign fig_loc = "./archives/20210727/Figures/" %}
 
-## Last update on July 20, 2021
-** Based on the data available as of July 18, 2021. Click to enlarge each image.
+## Last update on July 27, 2021
+** Based on the data available as of July 25, 2021. Click to enlarge each image.
 
 {% include link_to_code.html %}
 
@@ -49,10 +49,19 @@ Source: Authors’ calculation. -->
 
 Source: Authors’ calculation.-->
 
-### 1. Slow-down in early August due to voluntary behavioral changes, followed by the final wave
+### 1. Slow-down in early August due to voluntary behavioral changes, followed by the final wave（Optimistic）
 
 {: align="center"}
-|[![gradual_Y]({{ fig_loc }}Tokyo/ERN_MainResults_EN.png)]({{ fig_loc }}Tokyo/ERN_MainResults_EN.png)|
+|[![gradual_Y]({{ fig_loc }}Tokyo/Optimistic_MainResultsEN.png)]({{ fig_loc }}Tokyo/Optimistic_MainResultsEN.png)|
 
 Source: Authors’ calculation.
+
+### 2. Slow-down in early August due to voluntary behavioral changes, followed by the final wave（Pessimistic）
+
+{: align="center"}
+|[![gradual_Y]({{ fig_loc }}Tokyo/Pessimistic_MainResultsEN.png)]({{ fig_loc }}Tokyo/Pessimistic_MainResultsEN.png)|
+
+Source: Authors’ calculation.
+
+
 
