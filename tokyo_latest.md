@@ -7,10 +7,10 @@ permalink: tokyo_latest.html
 summary:
 ---
 
-{% assign fig_loc = "./archives/20210727/Figures/" %}
+{% assign fig_loc = "./archives/20210803/Figures/" %}
 
-## Last update on July 27, 2021
-** Based on the data available as of July 25, 2021. Click to enlarge each image.
+## Last update on August 3, 2021
+** Based on the data available as of August 1, 2021. Click to enlarge each image.
 
 {% include link_to_code.html %}
 
@@ -42,17 +42,17 @@ Source: Authors’ calculation. -->
 
 
 
-### 1. Slow-down in early August due to voluntary behavioral changes, followed by the final wave（Optimistic）
+### 1. Infection spread suppression scenario by voluntary behavior change
 
 {: align="center"}
-|[![gradual_Y]({{ fig_loc }}Tokyo/Optimistic_MainResultsEN.png)]({{ fig_loc }}Tokyo/Optimistic_MainResultsEN.png)|
+|[![gradual_Y]({{ fig_loc }}Tokyo/Baseline_MainResultsEN.png)]({{ fig_loc }}Tokyo/Baseline_MainResultsEN.png)|
 
 Source: Authors’ calculation.
 
-### 2. Slow-down in early August due to voluntary behavioral changes, followed by the final wave（Pessimistic）
+### 2. Infection spread control scenario by requesting additional action restriction by the government
 
 {: align="center"}
-|[![gradual_Y]({{ fig_loc }}Tokyo/Pessimistic_MainResultsEN.png)]({{ fig_loc }}Tokyo/Pessimistic_MainResultsEN.png)|
+|[![gradual_Y]({{ fig_loc }}Tokyo/Alternative_MainResultsEN.png)]({{ fig_loc }}Tokyo/Alternative_MainResultsEN.png)|
 
 Source: Authors’ calculation.
 

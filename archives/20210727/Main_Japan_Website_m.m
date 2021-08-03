@@ -4,11 +4,11 @@
 
 clear variables
 close all
-iPC= 0;
-%home = '/Users/ymaeda/Dropbox/fujii_nakata/Website/Covid19OutputJapan.github.io/archives/20210525/';
+iPC= 1;
+home = '/Users/kenic/Dropbox/fujii_nakata/Website/Covid19OutputJapan.github.io/archives/20210727/';
 if iPC == 1
     %home = '\Users\masam\Dropbox\fujii_nakata\Website\Codes\';
-    home = '\Users\kenic\Dropbox\fujii_nakata\Website\Codes\';
+    %home = '\Users\kenic\Dropbox\fujii_nakata\Website\Codes\';
 else
     % home = '/Users/Daisuke/Desktop/Dropbox/Research/fujii_nakata/Website/Codes/';
     home = '/Users/ymaeda/Dropbox/fujii_nakata/Website/Codes/';
@@ -21,8 +21,8 @@ Last2Week = '20210713';
 
 
 %====================== Program parameter values ======================%
-figure_save = 1;    % 0 = figures won't be saved, 1 = they will be saved
-mat_save = 1;    % 0 = figures won't be saved, 1 = they will be saved　in the "Figure" folder
+figure_save = 0;    % 0 = figures won't be saved, 1 = they will be saved
+mat_save = 0;    % 0 = figures won't be saved, 1 = they will be saved　in the "Figure" folder
 
 
 fs = 16;            %common font size for many figures
@@ -107,8 +107,7 @@ dD = Data(:,3);
 M = Data(:,4);
 GDP = Data(:,5);
 Tdata = length(N);
-ICU_nation = zeros(Tdata+1,1);
-ICU_nation = zeros(Tdata+1,1);
+ICU = zeros(Tdata+1,1);
 BED = zeros(Tdata,1);
 if ICU_nation == 1
     ICU(2:Tdata+1,1) = Data(:,22);
@@ -116,6 +115,7 @@ if ICU_nation == 1
 else
     ICU(2:Tdata+1,1) = Data(:,21);
 end
+ICU(end) = 995;
 ps = POP0/125710000;
 xtick1 = 1:13:Tdata;
 %dateEN = datestr(date,'mmm-dd');
@@ -390,28 +390,28 @@ InitialValues = [S(end),I(end),R(end),D(end),ICU(end)];
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Forecast error analysis (using next week's data) %%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% if iPC==1
-%   NextD = load('\Users\shcor\Dropbox\fujii_nakata\Website\Codes\Japan20210316.mat');
-%   FE = load('\Users\shcor\Dropbox\fujii_nakata\Website\Codes\Forecast.mat');
-% else
-%   NextD = load('/Users/Daisuke/Desktop/Dropbox/Research/fujii_nakata/Website/Codes/Japan20210316.mat');
-%   FE = load('/Users/Daisuke/Desktop/Dropbox/Research/fujii_nakata/Website/Codes/Forecast.mat');
-% end
-%
-% AlphaNext = NextD.alpha(end);
-%[CumDNext,AverageAlphaNext,SimDataNext,SimNNext,SimICUNext] = ...
-%Covid_projection2(InitialValues,AlphaNext,betaT,gammaT,deltaT,V,h,k,POP0,hconstant,ICU_inflow_avg,gamma_ICU,delta_ICU); % [CumDNext,AverageAlphaNext,SimDataNext,SimNNext]=Covid_projection(InitialValues,AlphaNext,betaT,gammaT,deltaT,V,h,k,POP0,hconstant);
-% dDForecast = [FE.dDForecast;(CumDNext-D(end))];
-% dNForecast = [FE.dNForecast;SimNNext];
-% ICUForecast = [FE.ICUForecast;SimICUNext(2)];
-% if dNForecast(end) ~= dNForecast(end-1) && length(dNForecast) == NextD.Tdata
-%   if iPC==1
-%       save('\Users\shcor\Dropbox\fujii_nakata\Website\Codes\Forecast.mat','dDForecast','dNForecast','ICUForecast','-append');
-%   else
-%       save('/Users/Daisuke/Desktop/Dropbox/Research/fujii_nakata/Website/Codes/Forecast.mat','dDForecast','dNForecast','ICUForecast','-append');
-%   end
-% end
+if iPC==1
+  NextD = load('\Users\kenic\Dropbox\fujii_nakata\Website\Codes\Japan20210803.mat');
+  FE = load('\Users\kenic\Dropbox\fujii_nakata\Website\Codes\Forecast.mat');
+else
+  NextD = load('/Users/Daisuke/Desktop/Dropbox/Research/fujii_nakata/Website/Codes/Japan20210316.mat');
+  FE = load('/Users/Daisuke/Desktop/Dropbox/Research/fujii_nakata/Website/Codes/Forecast.mat');
+end
 
+AlphaNext = NextD.alpha(end);
+[CumDNext,AverageAlphaNext,SimDataNext,SimNNext,SimICUNext] = ...
+Covid_projection2(InitialValues,AlphaNext,betaT,gammaT,deltaT,V,h,k,POP0,hconstant,ICU_inflow_avg,gamma_ICU,delta_ICU); % [CumDNext,AverageAlphaNext,SimDataNext,SimNNext]=Covid_projection(InitialValues,AlphaNext,betaT,gammaT,deltaT,V,h,k,POP0,hconstant);
+dDForecast = [FE.dDForecast;(CumDNext-D(end))];
+dNForecast = [FE.dNForecast;SimNNext];
+ICUForecast = [FE.ICUForecast;SimICUNext(2)];
+if dNForecast(end) ~= dNForecast(end-1) && length(dNForecast) == NextD.Tdata
+  if iPC==1
+      save('\Users\kenic\Dropbox\fujii_nakata\Website\Codes\Forecast.mat','dDForecast','dNForecast','ICUForecast','-append');
+  else
+      save('/Users/Daisuke/Desktop/Dropbox/Research/fujii_nakata/Website/Codes/Forecast.mat','dDForecast','dNForecast','ICUForecast','-append');
+  end
+end
+%%
 %---------------%
 %insert %% here
 %---------------%
