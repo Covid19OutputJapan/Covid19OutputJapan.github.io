@@ -4,9 +4,9 @@ clear variables
 close all
 iPC = 0; % 0 for Mac, 1 for Windows
 if iPC == 1
-%     home = '\Users\masam\Dropbox\fujii_nakata\Website\Codes\';
+    home = '\Users\masam\Dropbox\fujii_nakata\Website\Codes\';
 else
-    home = '/Users/ymaeda/Dropbox/fujii_nakata/Website/Codes/';
+%     home = '/Users/ymaeda/Dropbox/fujii_nakata/Website/Codes/';
 end
 cd(home);
 %====================== Program parameter values ======================%
@@ -29,7 +29,7 @@ gamma = 7/12;          % recovery rate from Covid % Should change this to 7/12 (
 k = 2;                 % exponent of (1-h*alpha)
 hconstant = 1;         % 0 = without intercept, 1 = with intercept for h regression
 tt = 12; % Showing previous t periods for the plot
-DRi=26;%17;%26 %10; % 経済回復速度
+DRi=26; %17;%26 %10; % 経済回復速度
 % RetroPeriods for sample mean
 retro_ub = 17; % Control the moving average of beta (beta_avg = sum_{t = lb}^{ub} (1/(ub-lb + 1) sum_{x=1}^t (1/t) beta_t)
 retro_lb = 17;

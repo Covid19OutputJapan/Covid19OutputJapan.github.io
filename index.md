@@ -7,10 +7,10 @@ permalink: index.html
 summary:
 ---
 
-{% assign fig_loc = "./archives/20210803/Figures/" %}
+{% assign fig_loc = "./archives/20210810/Figures/" %}
 
-## Last update on August 3, 2021
-** Based on the data available as of August 3, 2021. Click to enlarge each image.
+## Last update on August 10, 2021
+** Based on the data available as of August 8, 2021. Click to enlarge each image.
 
 {% include link_to_code.html %}
 
@@ -49,14 +49,14 @@ Source: Authors’ calculation. -->
 
 Source: Authors’ calculation.-->
 
-### 1. Infection spread suppression scenario by voluntary behavior change
+### 1. Infection spread suppression scenario by voluntary behavior change（Optimistic）
 
 {: align="center"}
 |[![gradual_Y]({{ fig_loc }}Tokyo/Baseline_MainResultsEN.png)]({{ fig_loc }}Tokyo/Baseline_MainResultsEN.png)|
 
 Source: Authors’ calculation.
 
-### 2. Infection spread control scenario by requesting additional action restriction by the government
+### 2. Infection spread suppression scenario by voluntary behavior change（Pessimistic）
 
 {: align="center"}
 |[![gradual_Y]({{ fig_loc }}Tokyo/Alternative_MainResultsEN.png)]({{ fig_loc }}Tokyo/Alternative_MainResultsEN.png)|
