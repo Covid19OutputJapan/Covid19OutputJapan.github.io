@@ -1,6 +1,6 @@
 SimPeriod = 52;        % simulation period in weeks
 gamma = 7/12;          % recovery rate from Covid % Should change this to 7/12 (4/25 Kohei Machi)
-k = 2;         (        % exponent of (1-h*alpha)
+k = 2;                 % exponent of (1-h*alpha)
 hconstant = 1;         % 0 = without intercept, 1 = with intercept for h regression
 medical_start_date = datetime(2021,3,18);
 elderly_start_date = datetime(2021,5,13);

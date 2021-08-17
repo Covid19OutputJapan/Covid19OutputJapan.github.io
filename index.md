@@ -7,10 +7,10 @@ permalink: index.html
 summary:
 ---
 
-{% assign fig_loc = "./archives/20210810/Figures/" %}
+{% assign fig_loc = "./archives/20210817/Figures/" %}
 
-## Last update on August 10, 2021
-** Based on the data available as of August 8, 2021. Click to enlarge each image.
+## Last update on August 17, 2021
+** Based on the data available as of August 15, 2021. Click to enlarge each image.
 
 {% include link_to_code.html %}
 
@@ -52,18 +52,30 @@ Source: Authors’ calculation.-->
 ### 1. Infection spread suppression scenario by voluntary behavior change（Optimistic）
 
 {: align="center"}
-|[![gradual_Y]({{ fig_loc }}Tokyo/Baseline_MainResultsEN.png)]({{ fig_loc }}Tokyo/Baseline_MainResultsEN.png)|
+|[![gradual_Y]({{ fig_loc }}Tokyo\Baseline_MainResults_SepEN.png)]({{ fig_loc }}Tokyo/Baseline_MainResults_SepEN.png)|
 
 Source: Authors’ calculation.
 
 ### 2. Infection spread suppression scenario by voluntary behavior change（Pessimistic）
 
 {: align="center"}
-|[![gradual_Y]({{ fig_loc }}Tokyo/Alternative_MainResultsEN.png)]({{ fig_loc }}Tokyo/Alternative_MainResultsEN.png)|
+|[![gradual_Y]({{ fig_loc }}Tokyo\Alternative_MainResults_SepEN.png)]({{ fig_loc }}Tokyo/Alternative_MainResults_SepEN.png)|
 
 Source: Authors’ calculation.
 
+### 3. Lockdown scenario (lifted by 50% ICU capacity)
 
+{: align="center"}
+|[![gradual_Y]({{ fig_loc }}Tokyo\Lockdown_MainResults_50EN.png)]({{ fig_loc }}Tokyo/Lockdown_MainResults_50EN.png)|
+
+Source: Authors’ calculation.
+
+### 4. Lockdown scenario (lifted by 80% ICU capacity)
+
+{: align="center"}
+|[![gradual_Y]({{ fig_loc }}Tokyo\Lockdown_MainResults_80EN.png)]({{ fig_loc }}Tokyo/Lockdown_MainResults_80EN.png)|
+
+Source: Authors’ calculation.
 
 
 
