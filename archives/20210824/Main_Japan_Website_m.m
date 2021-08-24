@@ -4,25 +4,25 @@
 
 clear variables
 close all
-iPC= 9;
+iPC= 0;
 %home = '/Users/ymaeda/Dropbox/fujii_nakata/Website/Covid19OutputJapan.github.io/archives/20210525/';
-if iPC == 0
+if iPC == 1
     %home = '\Users\masam\Dropbox\fujii_nakata\Website\Codes\';
 %     home = '\Users\kenic\Dropbox\fujii_nakata\Website\Codes\';
 else
     % home = '/Users/Daisuke/Desktop/Dropbox/Research/fujii_nakata/Website/Codes/';
 %     home = '/Users/ymaeda/Dropbox/fujii_nakata/Website/Codes/';
-    %home = '/Users/shotaro/Dropbox/fujii_nakata/Website/Codes/';
-    home = '/Users/koheimachi/Dropbox/fujii_nakata/Website/Codes/';
+    home = '/Users/shotaro/Dropbox/fujii_nakata/Website/Codes/';
+    %home = '/Users/koheimachi/Dropbox/fujii_nakata/Website/Codes/';
 end
 cd(home);
-LastWeek = '20210810';
-Last2Week = '20210803';
+LastWeek = '20210817';
+Last2Week = '20210810';
 
 
 %====================== Program parameter values ======================%
-figure_save = 0;    % 0 = figures won't be saved, 1 = they will be saved
-mat_save = 0;    % 0 = figures won't be saved, 1 = they will be saved　in the "Figure" folder
+figure_save = 1;    % 0 = figures won't be saved, 1 = they will be saved
+mat_save = 1;    % 0 = figures won't be saved, 1 = they will be saved　in the "Figure" folder
 
 data_switch = 1;
 
@@ -44,6 +44,7 @@ ICU_nation = 1; % = 1 use national definition (NHK data), = 0 use data from Toky
 pref = 'Japan';        % prefecture to be analyzed
 POP0 = 125710000;      % initial population
 parameter
+SimPeriod = 52; %precaution
 gamma = 0.770883744239911;
 gamma_ICU = gamma_ICU_nation;
 ICU_adjustment = ICU_nation_adjustment;
@@ -98,14 +99,10 @@ date = Data(:,1) + 21916;
 date1 =datetime(date,'ConvertFrom','excel','Format','MMM-yy');
 date = datetime(date,'ConvertFrom','excel');
 
-
-
-
 dateD = Data(:,1) + 21916;
-dateP = dateD(end)+7:7:dateD(end)+7*(SimPeriod+1);
-date_long = [dateD;dateP'];
-date_long = datetime(date_long,'ConvertFrom','excel');
-
+% dateP = dateD(end)+7:7:dateD(end)+7*(SimPeriod+1);
+% date_long = [dateD;dateP'];
+% date_long = datetime(date_long,'ConvertFrom','excel');
 
 N = Data(:,2);
 dD = Data(:,3);
@@ -116,11 +113,11 @@ ICU = zeros(Tdata+1,1);
 BED = zeros(Tdata,1);%
 
 I_data = zeros(Tdata+1,1);
-I_data(2:end) = Data(:,27);
+I_data(2:end) = Data(:,26);
 R_data = zeros(Tdata+1,1);
-R_data(2:end)= Data(:,28);
+R_data(2:end)= Data(:,27);
 D_data = zeros(Tdata+1,1);
-D_data(2:end) = Data(:,29);
+D_data(2:end) = Data(:,28);
 S_data = ones(Tdata+1, 1) * POP0 - (I_data + R_data + D_data);
 dI_data = I_data(2:end) - I_data(1:end-1);
 dR_data = R_data(2:end) - R_data(1:end-1);

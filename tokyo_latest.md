@@ -7,10 +7,10 @@ permalink: tokyo_latest.html
 summary:
 ---
 
-{% assign fig_loc = "./archives/20210817/Figures/" %}
+{% assign fig_loc = "./archives/20210824/Figures/" %}
 
-## Last update on August 17, 2021
-** Based on the data available as of August 15, 2021. Click to enlarge each image.
+## Last update on August 24, 2021
+** Based on the data available as of August 21, 2021. Click to enlarge each image.
 
 {% include link_to_code.html %}
 
@@ -42,31 +42,24 @@ Source: Authors’ calculation. -->
 
 
 
-### 1. Infection spread suppression scenario by voluntary behavior change（Optimistic）
+### 1. Infection spread suppression scenario by voluntary behavior change（Emergency Declaration lifts at the end of October）
 
 {: align="center"}
-|[![gradual_Y]({{ fig_loc }}Tokyo/Baseline_MainResults_SepEN.png)]({{ fig_loc }}Tokyo/Baseline_MainResults_SepEN.png)|
+|[![gradual_Y]({{ fig_loc }}Tokyo/Baseline October MainResultsEN.png)]({{ fig_loc }}Tokyo/Baseline October MainResultsEN.png)|
 
 Source: Authors’ calculation.
 
-### 2. Infection spread suppression scenario by voluntary behavior change（Pessimistic）
+### 2. Infection spread suppression scenario by voluntary behavior change（Emergency declaration lifts at the end of December）
 
 {: align="center"}
-|[![gradual_Y]({{ fig_loc }}Tokyo/Alternative_MainResults_SepEN.png)]({{ fig_loc }}Tokyo/Alternative_MainResults_SepEN.png)|
+|[![gradual_Y]({{ fig_loc }}Tokyo/Alternative December MainResults_EN.png)]({{ fig_loc }}Tokyo/Alternative December MainResults_EN.png)|
 
 Source: Authors’ calculation.
 
-### 3. Lockdown scenario (lifted by 50% ICU capacity)
+### 3. Stronger regulation Scenario (Lifted by 50% ICU capacity)
 
 {: align="center"}
-|[![gradual_Y]({{ fig_loc }}Tokyo/Lockdown_MainResults_50EN.png)]({{ fig_loc }}Tokyo/Lockdown_MainResults_50EN.png)|
-
-Source: Authors’ calculation.
-
-### 4. Lockdown scenario (lifted by 80% ICU capacity)
-
-{: align="center"}
-|[![gradual_Y]({{ fig_loc }}Tokyo/Lockdown_MainResults_80EN.png)]({{ fig_loc }}Tokyo/Lockdown_MainResults_80EN.png)|
+|[![gradual_Y]({{ fig_loc }}Tokyo/Strong Regulation_MainResults_EN.png)]({{ fig_loc }}Tokyo/Strong Regulation_MainResults_EN.png)|
 
 Source: Authors’ calculation.
 
