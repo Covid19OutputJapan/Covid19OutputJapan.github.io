@@ -7,13 +7,12 @@ permalink: index.html
 summary:
 ---
 
-{% assign fig_loc = "./archives/20210824/Figures/" %}
+{% assign fig_loc = "./archives/20210831/Figures/" %}
 
-## Last update on August 24, 2021
-** Based on the data available as of August 22, 2021. Click to enlarge each image.
+## Last update on August 31, 2021
+** Based on the data available as of August 29, 2021. Click to enlarge each image.
 
 {% include link_to_code.html %}
-
 
 
 
@@ -40,33 +39,31 @@ Source: Authors’ calculation. -->
 
 <!-- #### (iii) Variant scenario -->
 
-### <!--1. Scenarios with alternative criteria for lifting the state of emergency in Tokyo-->
-
-
-
-<!-- {: align="center"}
-|[![gradual_Y]({{ fig_loc }}Tokyo\TL_MainResults_EN.png)]({{ fig_loc }}Tokyo/TL_MainResults_EN.png)|
-
-Source: Authors’ calculation.-->
-
-### 1. Infection spread suppression scenario by voluntary behavior change（Emergency Declaration lifts at the end of October）
+### 1. Basic Scenario（Emergency Declaration is in effect when number of infected people is 7000 and lifts when 1000）
 
 {: align="center"}
-|[![gradual_Y]({{ fig_loc }}Tokyo\Baseline October MainResultsEN.png)]({{ fig_loc }}Tokyo/Baseline October MainResultsEN.png)|
+|[![gradual_Y]({{ fig_loc }}Tokyo\Baseline_MainResults_7000_EN.png)]({{ fig_loc }}Tokyo/Baseline_MainResults_7000_EN.png)|
 
 Source: Authors’ calculation.
 
-### 2. Infection spread suppression scenario by voluntary behavior change（Emergency declaration lifts at the end of December）
+### 2. Basic Scenario（Emergency Declaration is in effect when number of infected people is 12000 and lifts when 1000）
 
 {: align="center"}
-|[![gradual_Y]({{ fig_loc }}Tokyo/Alternative December MainResults_EN.png)]({{ fig_loc }}Tokyo/Alternative December MainResults_EN.png)|
+|[![gradual_Y]({{ fig_loc }}Tokyo\Baseline_MainResults_12000_EN.png)]({{ fig_loc }}Tokyo/Baseline_MainResults_12000_EN.png)|
 
 Source: Authors’ calculation.
 
-### 3. Stronger regulation Scenario (Lifted by 50% ICU capacity)
+### 3. Optimistic Scenario (Emergency Declaration is in effect when number of infected people is 6000 and lifts when 1000)
 
 {: align="center"}
-|[![gradual_Y]({{ fig_loc }}Tokyo\Strong Regulation_MainResults_EN.png)]({{ fig_loc }}Tokyo/Strong Regulation_MainResults_EN.png)|
+|[![gradual_Y]({{ fig_loc }}Tokyo\Optimistic_MainResults_6000_EN.png)]({{ fig_loc }}Tokyo/Optimistic_MainResults_6000_EN.png)|
+
+Source: Authors’ calculation.
+
+### 4. Pessimistic Scenario (Emergency Declaration is in effect when number of infected people is 7000 and lifts when 1000)
+
+{: align="center"}
+|[![gradual_Y]({{ fig_loc }}Tokyo\Pessimistic_MainResults_7000_EN.png)]({{ fig_loc }}Tokyo/Pessimistic_MainResults_7000_EN.png)|
 
 Source: Authors’ calculation.
 
