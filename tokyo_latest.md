@@ -7,7 +7,7 @@ permalink: tokyo_latest.html
 summary:
 ---
 
-{% assign fig_loc = "./archives/202109141/Figures/" %}
+{% assign fig_loc = "./archives/20210914/Figures/" %}
 
 ## Last update on September 14, 2021
 ** Based on the data available as of September 12, 2021. Click to enlarge each image.
