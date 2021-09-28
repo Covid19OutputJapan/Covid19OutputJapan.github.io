@@ -7,10 +7,10 @@ permalink: tokyo_latest.html
 summary:
 ---
 
-{% assign fig_loc = "./archives/20210914/Figures/" %}
+{% assign fig_loc = "./archives/20210928/Figures/" %}
 
-## Last update on September 14, 2021
-** Based on the data available as of September 12, 2021. Click to enlarge each image.
+## Last update on September 28, 2021
+** Based on the data available as of September 26, 2021. Click to enlarge each image.
 
 {% include link_to_code.html %}
 
@@ -18,55 +18,27 @@ summary:
 
 
 
-<!-- #### (i) Baseline scenario
+
+
+
+### 1. Alternative vaccine Scenario（Counterfactually set vaccine path so that current vaccine level is the same as the level in the week of 6/22）
 
 {: align="center"}
-|[![Tokyo_gradual_Y]({{ fig_loc }}Tokyo/GradualRecovery1.png)]({{ fig_loc }}Tokyo/GradualRecovery1.png)|
+|[![gradual_Y]({{ fig_loc }}Tokyo/Alternative_Vaccine_Results_BRN_4_EN.png)]({{ fig_loc }}Tokyo/Alternative_Vaccine_Results_BRN_4_EN.png)|
 
 Source: Authors’ calculation.
 
-#### (ii) Alternative scenario
+### 2. Different BRN Scenario（Set BRN to 3, 4, 5, and 6）
 
 {: align="center"}
-|[![Tokyo_gradual_Y]({{ fig_loc }}Tokyo/GradualRecovery3.png)]({{ fig_loc }}Tokyo/GradualRecovery3.png)|
-
-Source: Authors’ calculation. -->
-
-<!-- #### (iii) Variant scenario (A)
-
-{: align="center"}
-|[![Tokyo_gradual_Y]({{ fig_loc }}Tokyo/GradualRecovery41.png)]({{ fig_loc }}Tokyo/GradualRecovery41.png)|
-
-Source: Authors’ calculation. -->
-
-
-
-
-### 1. Basic Scenario（Emergency Declaration is in effect when number of infected people is 7000 and lifts when 1000）
-
-{: align="center"}
-|[![gradual_Y]({{ fig_loc }}Tokyo/Baseline_MainResults_7000_EN.png)]({{ fig_loc }}Tokyo/Baseline_MainResults_7000_EN.png)|
+|[![gradual_Y]({{ fig_loc }}Tokyo/Baseline_MainResults_EN.png)]({{ fig_loc }}Tokyo/Baseline_MainResults_EN.png)|
 
 Source: Authors’ calculation.
 
-### 2. Basic Scenario（Emergency Declaration is in effect when number of infected people is 12000 and lifts when 1000）
+### 3. Different Medical Capacity Scenario Set the number of tolerable new cases to 6000, 10000, and 18000)
 
 {: align="center"}
-|[![gradual_Y]({{ fig_loc }}Tokyo/Baseline_MainResults_12000_EN.png)]({{ fig_loc }}Tokyo/Baseline_MainResults_12000_EN.png)|
-
-Source: Authors’ calculation.
-
-### 3. Optimistic Scenario (Emergency Declaration is in effect when number of infected people is 6000 and lifts when 1000)
-
-{: align="center"}
-|[![gradual_Y]({{ fig_loc }}Tokyo/Optimistic_MainResults_6000_EN.png)]({{ fig_loc }}Tokyo/Optimistic_MainResults_6000_EN.png)|
-
-Source: Authors’ calculation.
-
-### 4. Pessimistic Scenario (Emergency Declaration is in effect when number of infected people is 7000 and lifts when 1000)
-
-{: align="center"}
-|[![gradual_Y]({{ fig_loc }}Tokyo/Pessimistic_MainResults_7000_EN.png)]({{ fig_loc }}Tokyo/Pessimistic_MainResults_7000_EN.png)|
+|[![gradual_Y]({{ fig_loc }}Tokyo/Different_Medical_Results_BRN_4_EN.png)]({{ fig_loc }}Tokyo/Different_Medical_Results_BRN_4_EN.png)|
 
 Source: Authors’ calculation.
 
