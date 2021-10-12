@@ -31,7 +31,7 @@ entries:
       url: /20210928.html
       output: web, pdf
       type: homepage
-    - title: September
+    - title: September 14, 2021
       url: /20210914.html
       output: web, pdf
       type: homepage

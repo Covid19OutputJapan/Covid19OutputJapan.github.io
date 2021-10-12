@@ -23,7 +23,7 @@ summary:
 ### 1. Basic reproduction number
 
 {: align="center"}
-|[![gradual_Y]({{ fig_loc }}Tokyo\Baseline\MainResults_EN.png)]({{ fig_loc }}Tokyo/Baseline/MainResults_EN.png)|
+|[![gradual_Y]({{ fig_loc }}Tokyo/Baseline/MainResults_EN.png)]({{ fig_loc }}Tokyo/Baseline/MainResults_EN.png)|
 
 Source: Authors’ calculation.
 
