@@ -7,10 +7,10 @@ permalink: index.html
 summary:
 ---
 
-{% assign fig_loc = "./archives/20210928/Figures/" %}
+{% assign fig_loc = "./archives/20211012/Figures/" %}
 
-## Last update on September 28, 2021
-** Based on the data available as of September 26, 2021. Click to enlarge each image.
+## Last update on October 12, 2021
+** Based on the data available as of October 10, 2021. Click to enlarge each image.
 
 {% include link_to_code.html %}
 
