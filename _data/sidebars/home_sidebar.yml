@@ -24,10 +24,14 @@ entries:
     output: web, pdf
     folderitems:
     - title: Latest
-      url: /20211012.html
+      url: /20211102.html
       output: web, pdf
       type: homepage
     - title: Last time
+      url: /20211012.html
+      output: web, pdf
+      type: homepage
+    - title: September 28, 2021
       url: /20210928.html
       output: web, pdf
       type: homepage
