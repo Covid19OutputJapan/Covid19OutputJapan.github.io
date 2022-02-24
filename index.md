@@ -9,7 +9,7 @@ summary:
 
 {% assign fig_loc = "./archives/20220222/Figures/" %}
 
-## Last update on February 22, 2021
+## Last update on February 22, 2022
 ** Based on the data available as of February 20, 2021. Click to enlarge each image.
 
 {% include link_to_code.html %}
