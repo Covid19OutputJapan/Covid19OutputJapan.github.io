@@ -8,7 +8,7 @@ if iPC == 1
 else
     %         home = '/Users/sohtakawawaki/Dropbox/fujii_nakata (1)/Website/Codes/';
     %     home = '/Users/okamotowataru/Dropbox/fujii_nakata/Website/Codes/';
-    home = '/Users/ymaeda/Dropbox/fujii_nakata/Website/Codes/';
+    home = '/Users/hagachan/RA/Codes/20220125/';
     %     home = '/Users/shotaro/Dropbox/fujii_nakata/Website/Codes/';
     fn = 'YuGothic';
 end
@@ -54,7 +54,7 @@ end
 
 %=============== Import data ============%
 import_prefecture
-sample_period = find(dateEN == '17-Jun-2021'):find(dateEN == '04-Nov-2021');
+sample_period = find(dateEN == datetime(2021, 06, 17)):find(dateEN == datetime(2021, 11, 04));
 ICU_nation(103) = round((ICU_nation(104) + ICU_nation(102))/2, 0);
 BED(102) = BED(101);
 
@@ -847,31 +847,31 @@ end
 %%
 if data_save == 1
     for iX = 1:nX
-        titleN = strings(1, 1 + nZ * 8);
-        titleN(1) = "週";
-        for ti = 1:nZ
-            titleN(1, 1 + ti) = append("新規感染者数（", Scenario(ti), "）");
-            titleN(1, 1 + nZ + ti) = append("経済活動（", Scenario(ti), "）");
-            titleN(1, 1 + nZ * 2 + ti) = append("実効再生産数（", Scenario(ti), "）");
-            titleN(1, 1 + nZ * 3 + ti) = append("基本再生産数（", Scenario(ti), "）");
-            titleN(1, 1 + nZ * 4 + ti) = append("入院患者数（", Scenario(ti), "）");
-            titleN(1, 1 + nZ * 5 + ti) = append("重症者数_国基準（", Scenario(ti), "）");
-            titleN(1, 1 + nZ * 6 + ti) = append("重症者数_都基準（", Scenario(ti), "）");
-            titleN(1, 1 + nZ * 7 + ti) = append("新規死亡者数（", Scenario(ti), "）");
+        titleN = strings(1, 22);
+        titleN(1) = '週';
+        for ti = 1:nY
+            titleN(1, 1 + ti) = append('新規感染者数（', lineNameJP{ti},'）');
+            titleN(1, 1 + nY + ti) = append('経済活動（', lineNameJP{ti},'）');
+            titleN(1, 1 + nY * 2 + ti) = append('実効再生産数（', lineNameJP{ti},'）');
+            titleN(1, 1 + nY * 3 + ti) = append('基本再生産数（', lineNameJP{ti},'）');
+            titleN(1, 1 + nY * 4 + ti) = append('入院患者数（', lineNameJP{ti},'）');
+            titleN(1, 1 + nY * 5 + ti) = append('重症者数_国基準（', lineNameJP{ti},'）');
+            titleN(1, 1 + nY * 6 + ti) = append('重症者数_都基準（', lineNameJP{ti}, '）');
+            titleN(1, 1 + nY * 7 + ti) = append('新規死亡者数（', lineNameJP{ti},'）');
         end
         TN = table([
             titleN;
             YearMonthWeekJP(Tdata - 7:end - 1), ...
-            squeeze(round(BackDataN(:, iX, iY, :) / 7)), ...
-            squeeze(round(100 * (1 - BackDataAlpha(:, iX, iY, :)), 1)), ...
-            squeeze(round(BackDataERN(:, iX, iY, :), 2)), ...
-            squeeze(round(BackDataBRN(:, iX, iY, :), 2)), ...
-            squeeze(round(BackDataHospital(:, iX, iY, :))), ...
-            squeeze(round(BackDataICU_nation(:, iX, iY, :))), ...
-            squeeze(round(BackDataICU_pref(:, iX, iY, :))), ...
-            squeeze(round(BackDatadD(:, iX, iY, :) / 7))
+            squeeze(round(BackDataN(:, iX, :, 1) / 7)), ...
+            squeeze(round(100 * (1 - BackDataAlpha(:, iX, :, 1)), 1)), ...
+            squeeze(round(BackDataERN(:, iX, :, 1), 2)), ...
+            squeeze(round(BackDataBRN(:, iX, :, 1), 2)), ...
+            squeeze(round(BackDataHospital(:, iX, :, 1))), ...
+            squeeze(round(BackDataICU_nation(:, iX, :, 1))), ...
+            squeeze(round(BackDataICU_pref(:, iX, :, 1))), ...
+            squeeze(round(BackDatadD(:, iX, :, 1) / 7))
             ]);
-        writetable(TN, [home 'Figures/' char(pref) '/' char(figfolder) '/BackData_' char(figname_main) '_' char(ScenarioEN(iX)) '.xls'], 'Sheet', '新規感染者数（1日平均）', 'WriteVariableNames', false);
+        writetable(TN, [home 'Figures/' char(pref) '/' char(figfolder) '/BackData_' char(figname_main) '_' char(ScenarioEN(iX)) '.xls'], "Sheet", "新規感染者数（1日平均）", "WriteVariableNames", false);
     end
 end
 

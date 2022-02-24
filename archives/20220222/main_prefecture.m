@@ -1,31 +1,30 @@
-clear variables
-% close all
-iPC = 0; % 0 for Mac, 1 for Windows
-
-if iPC == 1
-    home = '\Users\masam\Dropbox\fujii_nakata\Website\Codes\';
-    fn = 'Yu Gothic'; % Font style for xaxis, yaxis, title
-else
-    %         home = '/Users/sohtakawawaki/Dropbox/fujii_nakata (1)/Website/Codes/';
-    %     home = '/Users/okamotowataru/Dropbox/fujii_nakata/Website/Codes/';
-    home = '/Users/ymaeda/Dropbox/fujii_nakata/Website/Codes/';
-    %     home = '/Users/shotaro/Dropbox/fujii_nakata/Website/Codes/';
-    fn = 'YuGothic';
+% This m-file executes simulation and generates figures for the  analysis of 
+% the spread of Covid-19 in Tokyo shown at https://covid19outputjapan.github.io
+clear variables;  close all
+tic;
+if ispc == 1
+    home        = 'C:\Users\mogura\Downloads\20220222\';
+    data_path   = 'C:\Users\mogura\Downloads\20220222\Data\';
+    figure_path = 'C:\Users\mogura\Downloads\20220222\Figures\';
+    fn          = 'Yu Gothic'; % Font style for xaxis, yaxis, title
+elseif ismac == 1
+    home        = '/Users/ymaeda/Dropbox/fujii_nakata/Website/Codes/'; %include \ or / at the end
+    data_path   = '/Users/ymaeda/Dropbox/fujii_nakata/Website/Codes/Data/';
+    figure_path = '/Users/ymaeda/Dropbox/fujii_nakata/Website/Codes/Figures/';
+    fn          = 'YuGothic';
 end
-
 cd(home);
 %====================== Program parameter values ======================%
 pref = 'Tokyo';
-prefGDP = 106;
+prefGDP = 106; %Cho-yen; Trillion yen
 figure_save = 0; % 0 = figures won't be saved, 1 = they will be saved
-data_save = 0; % save back data
-no_omicron = 0;     %
+data_save = 1; % save back data
 data_switch = 0; % Use I_data and gamma = mean(gamma_data(end-17+1:end))
 
 fs = 12; % common font size for many figures
-ldfs = 12; % legend font size for vaccine path
+ldfs = 6;
 ldfs_main = 12;
-axfs = 10;
+axfs = 8;
 ft = '%.1f';
 yft = '%.0f';
 language = {'EN', 'JP'};
@@ -45,34 +44,28 @@ figname_dD = 'dD transition';
 figname_BRN = 'BRN';
 figname_omicron_share = 'Omicron share';
 
-
 %================== Model Fixed Parameter Values ============================%
 parameter
 SimPeriod = 52;
-if no_omicron == 1
-    iniI_omicron = 0;
-end
 
 %=============== Import data ============%
 import_prefecture
-sample_period = find(dateEN == '17-Jun-2021'):find(dateEN == '04-Nov-2021');
-ICU_nation(103) = round((ICU_nation(104) + ICU_nation(102))/2, 0);
-BED(102) = BED(101);
 
-YearMonth = [YearMonthEN, YearMonthJP];
-YearMonthWeek = [YearMonthWeekEN, YearMonthWeekJP];
-%Date and Figure parameter
-
-x_left_omicron = find(date == datetime(2021, 12, 9));
-x_right_omicron = find(date == datetime(2022, 3, 3));
-
-NewSevere = readmatrix([home 'tokyo_new_severe_cases.csv']);
-newICU_pref = zeros(Tdata+1, 1);
+newICU_pref                 = zeros(Tdata+1, 1); %Read # of severe cases under the new definition in Tokyo
+NewSevere = readmatrix([data_path 'tokyo_new_severe_cases.csv']);
 initialICUdata = datetime(2020,12,17);
 indNewICU = find(date == initialICUdata,1,'first');
 newICU_pref(indNewICU+1:end,1) = NewSevere(:,6);
 
-% ICU_nation(end) = 12; %Update Saturday values from Tokyo website : https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/corona_portal/info/kunishihyou.html
+sample_period = find(date == datetime(2021, 6, 17)):find(date == datetime(2021, 11, 4)); %The periods of the 5th wave
+
+% Interpolate missing values
+%ICU_nation(end) = 12; %Update Saturday values from Tokyo website : https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/corona_portal/info/kunishihyou.html
+ICU_nation(109) = 618;
+ICU_nation(103) = round((ICU_nation(104) + ICU_nation(102))/2, 0);
+BED(102) = BED(101);
+
+% Retrieve gamma from the time-series of I and R
 if data_switch == 1
     I = I_data;
     gamma_data = zeros(Tdata, 1);
@@ -86,23 +79,39 @@ if data_switch == 1
     gamma = mean(gamma_data(end - RetroPeriod + 1:end));
 end
 
-
 %============ Import vaccine data ============%
-Vmat = readmatrix([home 'vaccination_Tokyo_newly.xlsx']);
-vac1stweek = Vmat(1, 1); %column 1 = week, raw 1 = first week
-
-V1_elderly = zeros(Tdata, 1);
-V2_elderly = V1_elderly;
-V1_others  = V1_elderly;
-V2_others  = V1_elderly;
-V1_elderly(vac1stweek:Tdata)    = Vmat(:, 4);
-V2_elderly(vac1stweek:Tdata)    = Vmat(:, 5);
-V1_others(vac1stweek:Tdata)     = Vmat(:, 7);
-V2_others(vac1stweek:Tdata)     = Vmat(:, 8);
+Vtable                          = readtable([data_path 'vaccination_Tokyo_newly.xlsx']);
+vac1stweek                      = Vtable.week(1); % index of the first week of the COVID-19 vaccination in Tokyo
+V1_elderly                      = zeros(Tdata, 1);
+V2_elderly                      = V1_elderly;
+V1_others                       = V1_elderly;
+V2_others                       = V1_elderly;
+V1_elderly(vac1stweek:Tdata)    = Vtable.elderly_first;
+V2_elderly(vac1stweek:Tdata)    = Vtable.elderly_second;
+V1_others(vac1stweek:Tdata)     = Vtable.others_first;
+V2_others(vac1stweek:Tdata)     = Vtable.others_second;
 
 % Medical personels
-vaccine_medical = readmatrix([home 'vaccine_daily_medical.xls']);
+vaccine_medical                    = readmatrix([data_path 'vaccine_daily_medical.xls']);
 [V1_medical_past, V2_medical_past] = vaccine_daily_to_weekly_table(vaccine_medical, ps, dateEN);
+
+M_first                     = cum_to_new(tablepref.Medical_cum_first); 
+M_second                    = cum_to_new(tablepref.Medical_cum_second);
+M_ps_first                  = cum_to_new(tablepref.Medical_ps_first); 
+M_ps_second                 = cum_to_new(tablepref.Medical_ps_second); 
+M_first(find(date == datetime(2021, 8, 5)):end)     = zeros(length(find(date == datetime(2021, 8, 5)):length(M_first)),1);
+M_second(find(date == datetime(2021, 8, 5)):end)    = zeros(length(find(date == datetime(2021, 8, 5)):length(M_second)),1);
+indM1                       = find(M_ps_first > 0, 1, 'first');   
+indM21                      = find(M_ps_second > 0, 1, 'first');
+
+V1_medical                  = (V1_medical_past / ps) * M_ps_first(indM1);
+V1_medical(indM1 + 1:end)   = M_first(indM1 + 1:end);
+V2_medical                  = (V2_medical_past / ps) * M_ps_second(indM1);
+V2_medical(indM21 + 1:end)  = M_second(indM21 + 1:end);
+
+cumsumPastV1                = cumsum(V1_elderly + V1_others + V1_medical);
+cumsumPastV2                = cumsum(V2_elderly + V2_others + V2_medical);
+
 V3_d = vaccine_medical(:,5);
 Vdata = size(vaccine_medical,1);
 V3_w = zeros(length(dateEN),1);
@@ -119,47 +128,11 @@ end
 for i = find(dateEN == datetime(2022,1,13)):Tdata
     V3_w(i) = V3_d(dateV == dateEN(i)+4);
 end
-V3_ps = 862243/V3_w(end); %Use cumulative data in Tokyo... https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronavaccine/third.html
+V3_ps = tablepref.ps_third(end); 
 V3_w = round(V3_w * V3_ps);
 V3_total = round(cum_to_new(V3_w));
 
-M_first = cum_to_new(Data(:, 12));  M_second = cum_to_new(Data(:, 13));
-M_ps_first = Data(:, 16);   M_ps_second = Data(:, 17);
-M_first(find(date == datetime(2021, 8, 5)):end) = zeros(length(find(date == datetime(2021, 8, 5)):length(M_first)),1);
-M_second(find(date == datetime(2021, 8, 5)):end) = zeros(length(find(date == datetime(2021, 8, 5)):length(M_second)),1);
-indM1 = find(M_ps_first > 0, 1, 'first');   indM21 = find(M_ps_second > 0, 1, 'first');
-
-V1_medical = (V1_medical_past / ps) * M_ps_first(indM1);
-V1_medical(indM1 + 1:end) = M_first(indM1 + 1:end);
-V2_medical = (V2_medical_past / ps) * M_ps_second(indM1);
-V2_medical(indM21 + 1:end) = M_second(indM21 + 1:end);
-cumsumPastV1 = cumsum(V1_elderly + V1_others + V1_medical);
-cumsumPastV2 = cumsum(V2_elderly + V2_others + V2_medical);
-
-medStuff2_cv = cumsum(V2_medical)/600000;
-elderly2_cv = cumsum(V2_elderly)/elderly_tokyo;
-others2_cv = cumsum(V2_others)/(working_tokyo+children_tokyo+600000);
-% figure()
-% plot(dateEN, medStuff2_cv,'k')
-% hold on
-% plot(dateEN, elderly2_cv,'r')
-% plot(dateEN, others2_cv, 'b')
-% plot(dateEN, cumsumPastV2/POP0, '--k')
-% ylim([0 1])
-
 %============ Simulated Vaccine Path ============%
-% VT = zeros(SimPeriod,6);
-% VT(1,2) = V1_elderly(end-2);
-% VT(2,2) = V1_elderly(end-1);
-% VT(3,2) = V1_elderly(end);
-% VT(1,4) = V1_others(end-2);
-% VT(2,4) = V1_others(end-1);
-% VT(3,4) = V1_others(end);
-% cumsumVT1           = cumsum(VT(:,1) + VT(:,3) + VT(:,5))+ cumsumPastV1(end);
-% lagged_cumsumVT1    = [cumsumPastV1(end-2);cumsumPastV1(end-1);cumsumVT1(1:end-2)];
-% cumsumVT2           = cumsum(VT(:,2) + VT(:,4) + VT(:,6))+ cumsumPastV2(end);
-% lagged_cumsumVT2    = [cumsumPastV2(end-2);cumsumPastV2(end-1);cumsumVT2(1:end-2)];
-
 VT = zeros(SimPeriod,9);
 VT(1,2) = V1_elderly(end-2);
 VT(2,2) = V1_elderly(end-1);
@@ -168,54 +141,50 @@ VT(1,5) = V1_others(end-2);
 VT(2,5) = V1_others(end-1);
 VT(3,5) = V1_others(end);
 
-
-
-V3_elderly  = zeros(Tdata,1);
-V3_medical  = V3_total;
+thirdVtable = readtable([data_path 'tokyo_3rd_vaccination.csv']);
+e_share     = thirdVtable.elderly_rate_of_third_dose(end);
+V3_elderly  = V3_total * e_share;
+V3_medical  = V3_total * (1-e_share);
 V3_others  = zeros(Tdata,1);
-% aa          = V2_elderly(find(V2_elderly>0,1,'first'):end);
-% V3_elderly(indJan2022:length(aa)+indJan2022-1) = aa;
-% V3_elderly(length(aa)+indJan2022:length(aa)+indJan2022+2) = VT(1:3,2);
-% ind_Jan2022 = find(SimDateEN == datetime(2022,1,27)):find(SimDateEN == datetime(2022,1,27));
-ind_Feb2022 = find(SimDateEN == datetime(2022,2,10)):find(SimDateEN == datetime(2022,2,24));
+
+ind_Feb2022 = 1:find(SimDateEN == datetime(2022,2,24));
 ind_Mar2022 = find(SimDateEN == datetime(2022,3,3)):find(SimDateEN == datetime(2022,3,31));
 ind_Apr2022 = find(SimDateEN == datetime(2022,4,7)):find(SimDateEN == datetime(2022,4,28));
 ind_May2022 = find(SimDateEN == datetime(2022,5,5)):find(SimDateEN == datetime(2022,5,26));
 ind_Jun2022 = find(SimDateEN == datetime(2022,6,2)):find(SimDateEN == datetime(2022,6,30));
 
-totalVT = zeros(SimPeriod,1);
-% totalVT(ind_Jan2022) = 150000;
-totalVT(ind_Feb2022) = 500000;
-totalVT(ind_Mar2022) = 700000;
-totalVT(ind_Apr2022) = 500000;
-totalVT(ind_May2022) = 350000;
-totalVT(ind_Jun2022) =  80000;
+totalVT                 = zeros(SimPeriod,1);
+totalVT(ind_Feb2022)    = 500000;
+totalVT(ind_Mar2022)    = 700000;
+totalVT(ind_Apr2022)    = 500000;
+totalVT(ind_May2022)    = 350000;
+totalVT(ind_Jun2022)    =  80000;
 
-VT(:,9) = totalVT * 0.5; % Medical
-VT9_ind = find(sum(V2_medical)*0.9 < cumsum(VT(:,9)+sum(V3_medical)),1,'first');
-VT(VT9_ind:end,9) = zeros(SimPeriod-(VT9_ind-1),1);
-VT(VT9_ind,9) = sum(V2_medical)*0.9 - sum(VT(1:VT9_ind-1,9)) - sum(V3_medical);
+VT(:,9)             = totalVT * 0.5; % Medical
+VT9_ind             = find(sum(V2_medical)*accept_share < cumsum(VT(:,9)+sum(V3_medical)),1,'first');
+VT(VT9_ind:end,9)   = zeros(SimPeriod-(VT9_ind-1),1);
+VT(VT9_ind,9)       = sum(V2_medical)*accept_share - sum(VT(1:VT9_ind-1,9)) - sum(V3_medical);
 
-VT(:,3) = totalVT - VT(:,9); %Elderly
-VT3_ind = find(sum(V2_elderly)*0.9<cumsum(VT(:,3)),1,'first');
-VT(VT3_ind:end,3) = zeros(SimPeriod-(VT3_ind-1),1);
-VT(VT3_ind,3) = sum(V2_elderly)*0.9 - sum(VT(1:VT3_ind-1,3));
+VT(:,3)             = totalVT - VT(:,9); %Elderly
+VT3_ind             = find(sum(V2_elderly)*accept_share<cumsum(VT(:,3)),1,'first');
+VT(VT3_ind:end,3)   = zeros(SimPeriod-(VT3_ind-1),1);
+VT(VT3_ind,3)       = sum(V2_elderly)*accept_share - sum(VT(1:VT3_ind-1,3));
 
-VT(:,6) = totalVT -VT(:,9) - VT(:,3); %others
-VT6_ind = find(sum(V2_others)*0.7<cumsum(VT(:,6)),1,'first');
-VT(VT6_ind:end,6) = zeros(SimPeriod-(VT6_ind-1),1);
-VT(VT6_ind,6) = sum(V2_others)*0.7 - sum(VT(1:VT6_ind-1,6));
+VT(:,6)             = totalVT -VT(:,9) - VT(:,3); %others
+VT6_ind             = find(sum(V2_others)*accept_share_ordinary < cumsum(VT(:,6)),1,'first');
+VT(VT6_ind:end,6)   = zeros(SimPeriod-(VT6_ind-1),1);
+VT(VT6_ind,6)       = sum(V2_others)*accept_share_ordinary - sum(VT(1:VT6_ind-1,6));
 
-cumVT3 = cumsum(VT(:,3))/(sum(V2_elderly));
-cumVT6 = cumsum(VT(:,6))/(sum(V2_others));
-cumVT9 = (cumsum(VT(:,9))+sum(V3_medical))/(sum(V2_medical));
+cumVT3              = cumsum(VT(:,3))/(sum(V2_elderly));
+cumVT6              = cumsum(VT(:,6))/(sum(V2_others));
+cumVT9              = (cumsum(VT(:,9))+sum(V3_medical))/(sum(V2_medical));
 
-figure
-plot(SimDateEN, cumVT3,'r')
-hold on
-plot(SimDateEN, cumVT6,'b')
-plot(SimDateEN, cumVT9, 'k')
-ylim([0 1])
+% figure
+% plot(SimDateEN, cumVT3,'r')
+% hold on
+% plot(SimDateEN, cumVT6,'b')
+% plot(SimDateEN, cumVT9, 'k')
+% ylim([0 1])
 
 cumsumVT1           = cumsum(VT(:,1) + VT(:,4) + VT(:,7))+ cumsumPastV1(end);
 lagged_cumsumVT1    = [cumsumPastV1(end-1);cumsumPastV1(end);cumsumVT1(1:end-2)];
@@ -230,18 +199,13 @@ lagged_cumsumVT3    = [cumsumPastV3(end-1);cumsumPastV3(end);cumsumVT3(1:end-2)]
 [potentialGDP, referenceGDP, alpha] = construct_GDP(GDP, TdataGDP);
 
 [Malt, h_all, h_all_se, h, h_se] = estimate_h(M, alpha, TdataGDP, RetroH, hconstant);
+% plot GDP and mobility
 figname = string(['Mobility_GDP_' char(pref)]);
-f = figure('Name', figname);
+f       = figure('Name', figname);
 plot_mobility(Malt, alpha, Tdata, TdataGDP, YearMonthWeekJP, xtick1, fs, 16)
 if figure_save == 1
-    saveas(f, [home 'Figures/' char(pref) '/MobilityGDPLine_v.png']);
+    saveas(f, [figure_path char(pref) '/MobilityGDPLine.png']);
 end
-
-%====== Common exogenous settings ====%
-
-
-% Seasonality
-seasonality = seasonal_adjustment(retro_lb, retro_ub, dateD, SimPeriod+DRi+1, seasonal_effect);
 
 %===== Compute the history of S, I, R, D in the data period ====%
 if data_switch == 0
@@ -262,131 +226,173 @@ else
     D = D_data;
 end
 
-%========== Compute time series average ==========%
-[delta,beta_tilde,ERN,beta, ...
-    ICU_nation_rate, ICU_pref_rate, Hospital_rate,...
-    gammaT,delta_average,ICU_nation_rate_average,ICU_pref_rate_average,Hospital_rate_average,...
-    simple_beta_avg,beta_se, delta_se] ...
-    = Time_Series_Average(S, I, D, ICU_nation, ICU_pref, hospital, dD, N, ...
-    Tdata, SimPeriod, RetroPeriod, POP0, ...
-    hconstant, h_all, alpha, k, ...
-    gamma, gamma_ICU_nation, gamma_ICU_pref, gamma_Hospital, ...
-    ICU_nation_adjustment, ICU_pref_adjustment, Hospital_adjustment, ...
-    sample_period);
+%--- Compute the history of time-varying parameters ---%
+delta           = (D(2:Tdata+1)-D(1:Tdata))./I(1:Tdata);            % death rate
+beta_tilde      = (POP0.* N(1:Tdata))./((S(1:Tdata).*I(1:Tdata)));  % overall infection rate, p4 of Fujii and Nakata (2020)
+BRN             = beta_tilde ./ (gamma + delta);                    % Basic reproduction number
+ERN             = (S(1:end-1)/POP0).* BRN; % effective reproduction number
+if hconstant == 0
+    beta        = beta_tilde./(1+h_all*alpha).^k; % raw infection rate
+elseif hconstant == 1
+    beta        = beta_tilde./(1+(h_all(2)/h_all(1))*alpha).^k;
+end
+%--- Time series average ---%
+equal_weight_retro  = ones(RetroPeriod,1)/RetroPeriod;
+equal_weight_sample = ones(length(sample_period), 1)/length(sample_period);
+I_weight     = I(sample_period)/sum(I(sample_period));
 
-newICU_pref_rate           =   (newICU_pref(2:Tdata+1) - newICU_pref(1:Tdata) + gamma_newICU_pref.*newICU_pref(1:Tdata) + dD(1:Tdata))./I(1:Tdata);
-weight = I(sample_period)/sum(I(sample_period));
-weight_newICU_pref_sample  =   newICU_pref_rate(sample_period).*weight;
-newICU_pref_rate_average   =   sum(weight_newICU_pref_sample(isnan(weight_newICU_pref_sample)==0))*newICU_pref_adjustment; 
+ICU_nation_rate     = (ICU_nation(2:Tdata+1) - ICU_nation(1:Tdata) ...
+                    + gamma_ICU_nation.*ICU_nation(1:Tdata) ...
+                    + dD(1:Tdata))./I(1:Tdata);
+ICU_pref_rate       = (ICU_pref(2:Tdata+1) - ICU_pref(1:Tdata) ...
+                    + gamma_ICU_pref.*ICU_pref(1:Tdata) ...
+                    + dD(1:Tdata))./I(1:Tdata);
+Hospital_rate       = (hospital(2:Tdata+1) - hospital(1:Tdata) ...
+                    + gamma_Hospital.*hospital(1:Tdata))./I(1:Tdata);
+newICU_pref_rate    = (newICU_pref(2:Tdata+1) - newICU_pref(1:Tdata) ...
+                    + gamma_newICU_pref.*newICU_pref(1:Tdata) ...
+                    + dD(1:Tdata))./I(1:Tdata);
+newICU_pref_rate(1:find(newICU_pref > 0, 1, 'first')-1) = nan;
 
-gamma_ICU_nation_path   = gamma_ICU_nation * ones(SimPeriod,1);
-gamma_ICU_pref_path     = gamma_ICU_pref * ones(SimPeriod,1);
-gamma_newICU_pref_path     = gamma_newICU_pref * ones(SimPeriod,1);
-gamma_Hospital_path     = gamma_Hospital * ones(SimPeriod,1);
+[delta_average, delta_se] = ts_avg(delta, sample_period, I_weight);
+[ICU_nation_rate_average] = ts_avg(ICU_nation_rate, sample_period, I_weight);
+[ICU_pref_rate_average]   = ts_avg(ICU_pref_rate, sample_period, I_weight);
+[Hospital_rate_average]   = ts_avg(Hospital_rate, sample_period, I_weight);
+[newICU_pref_rate_average] = ts_avg(newICU_pref_rate, sample_period, I_weight);
+[simple_beta_avg, beta_se] = ts_avg(beta, [Tdata-RetroPeriod+1:Tdata], equal_weight_retro);
+
+ICU_nation_rate_average     = ICU_nation_rate_average  *ICU_nation_adjustment;
+ICU_pref_rate_average       = ICU_pref_rate_average    *ICU_pref_adjustment;
+Hospital_rate_average       = Hospital_rate_average    *Hospital_adjustment;
+newICU_pref_rate_average    = newICU_pref_rate_average *newICU_pref_adjustment;
+
+past_omicron_share  = zeros(Tdata,1);
+past_omicron_share(find(dateEN == datetime(2021, 12, 23)))= 0.079;
+past_omicron_share(find(dateEN == datetime(2021, 12, 30)))= 0.446;
+past_omicron_share(find(dateEN == datetime(2022, 1, 6))) = 0.81;
+past_omicron_share(find(dateEN == datetime(2022, 1, 13)))= 0.894; %https://www3.nhk.or.jp/news/html/20220118/k10013437211000.html
+past_omicron_share(find(dateEN == datetime(2022, 1, 20)))= 0.95;
+past_omicron_share(find(dateEN == datetime(2022, 1, 27)):Tdata) = 1.00;
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%% Simulaiton starts here %%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %=========== simulation setting =============%
-nVariant = 2;
-alpha_Aug = mean(alpha((dateEN >= datetime(2021, 8, 05)) & (datetime(2021, 8, 26) >= dateEN)));
-alpha_Oct2021 = mean(alpha((dateEN >= datetime(2021, 10, 07)) & (datetime(2021, 10, 28) >= dateEN)));
-% exogenous parameters
+Sim_BA2_share = variant_share_two_target(ind_Apr2022(1), ind_Apr2022(end), 0.05, 0.8, 1, SimPeriod);
+BA2_relative_infectivity = 1.2;
+BA2_infectivity_path = (1-Sim_BA2_share)  * 1 + Sim_BA2_share * BA2_relative_infectivity;
+BA2_share       = [zeros(Tdata, 1); Sim_BA2_share];
+
+SoE_date            = SimPeriod+1;  %End of Feb., First wekk of Mar., Second week of Mar
+alpha_Aug           = mean(alpha((dateEN >= datetime(2021, 8, 05)) & (datetime(2021, 8, 26) >= dateEN)));
+alpha_Oct2021       = mean(alpha((dateEN >= datetime(2021, 10, 07)) & (datetime(2021, 10, 28) >= dateEN)));
+
 state               = 0;    %=1 if currently under SOE
 th_on_percent       = 0.35;
 th_on               = max(newICU_limit_pref_vec)*th_on_percent; %8000*7; %ICU_limit_pref_vec(end)*0.5; %
 th_off              = th_on*0.5; %1000 * 7;  %ICU_limit_pref_vec(end)*0.25; %
 th_on_N             = 25000*7;
 th_off_N            = th_on_N * 0.1;
-ori_beta_goal           = 2.1975; %3.75*(gamma+delta_average)
 relative_beta_SOE   = 0.3;
-
 alpha_on            = alpha_Aug;
 alpha_off           = 0.00;
 alpha_jump          = 0.9 * alpha_Aug;
 beta_jump           = 1.0; %0.6
 
-InitialValues = [S(end), I(end), R(end), D(end), ICU_nation(end), ICU_pref(end), hospital(end), newICU_pref(end)];
+originalE1          = E1;
+originalE2          = E2;
+originalE3          = E3;
 
-% xmin = find(date == datetime(2021, 11, 04));
-% xmax = find(date == datetime(2022, 12, 01));
-xmax = find(date == datetime(2022, 4, 28));
-xmin = find(date == datetime(2021, 7, 1));
-ymax_D = 50;
+InitialValues       = [S(end), I(end), R(end), D(end), ...
+                       ICU_nation(end), ICU_pref(end), hospital(end), newICU_pref(end)];
 
-% Simulation parameters
+gammaT                  = gamma             * ones(SimPeriod,1);
+gamma_ICU_nation_path   = gamma_ICU_nation  * ones(SimPeriod,1);
+gamma_ICU_pref_path     = gamma_ICU_pref    * ones(SimPeriod,1);
+gamma_newICU_pref_path  = gamma_newICU_pref * ones(SimPeriod,1);
+gamma_Hospital_path     = gamma_Hospital    * ones(SimPeriod,1);
+
+seasonality = seasonal_adjustment(retro_lb, retro_ub, dateD, SimPeriod+DR+1, seasonal_effect);
+
+omicron_realtive_severity           = 0.2;%[0.4,0.2,0.05];%[1, 0.5, 0.25];
+omicron_realtive_severity_nation    = omicron_realtive_severity; %[0.6,0.35,0.10];%[1, 0.5, 0.25];
+omicron_realtive_hospitalized_rate  = omicron_realtive_severity; 
+
+% Simulation parameters for loop
+%iX
+%ori_beta_goal_vec = [1.46,1.17,0.88];
+ori_BRN_goal_vec = [3, 2.5, 2.0];
+ori_beta_goal_vec = ori_BRN_goal_vec .* (gamma + 5.1611e-04);
 omicron_relative_infectivity = 1.0;%1.2 
-SoE_date_vec  = [1,3,5];  %End of Feb., First wekk of Mar., Second week of Mar
-betaT_temp_ini_vec = [-0.332, -0.332, -0.332];   %1.75 = 30000
+
+betaT_temp_ini_vec = [0, 0, 0];   
 betaT_rho_vec      = [0.99, 0.99, 0.99];
+
+%iY
+delta_temp_ini_vec = [0,-0.1,-0.1];
+delta_rho_vec = [0.95,0.95,0.5];
+
 delta_ICU_nation_temp_ini_vec = [-0.25,-0.25,-0.25]; %[0.9,0.9,3.0];
-delta_ICU_pref_temp_ini_vec = [-0.75,-0.75,-0.75]; %[0,0,2.0];
+delta_ICU_pref_temp_ini_vec = [-0.3,-0.3,-0.3]; %[0,0,2.0];
+
 delta_newICU_pref_temp_ini_vec = [-0.5,-0.5,-0.5]; %[0,0,2.0];
 delta_Hospital_temp_ini_vec = [0,0,0]; %[2.5,2.5,8.0];
-omicron_E2_vector = 0.5;%[1, 0.6, 0.2]; %Relative
-omicron_realtive_severity        = 0.2;%[0.4,0.2,0.05];%[1, 0.5, 0.25];
-omicron_realtive_severity_nation = omicron_realtive_severity; %[0.6,0.35,0.10];%[1, 0.5, 0.25];
-omicron_realtive_hospitalized_rate = omicron_realtive_severity; 
+
 severity_nation_standard_vector = [1, 0.6, 0.3];
-severity_new_pref_standard_vector = [1.5, 1.0, 0.5];
+target_relative_severity = [0.3, 0.25, 0.2] ;
+severity_new_pref_standard_vector = target_relative_severity / omicron_realtive_severity;
 hospitalization_standard_vector = ones(3,1);% [1, 0.4, 0.2];
-gamma_ICU_nation_shock_vec = (1-(1-gamma_ICU_nation)* severity_nation_standard_vector);
-gamma_newICU_pref_shock_vec = (1-(1-gamma_ICU_nation)* severity_nation_standard_vector);
-gamma_Hospital_shock_vec = (1-(1-gamma_Hospital)* hospitalization_standard_vector) ;
 
-% xvec = 1;
-% yvec = 1;
-% zvec = 1;
+%iX
+omicron_E2_vector = 0.5;%[1, 0.6, 0.2]; %Relative
 
-% Directory for saved figures
-xvec = betaT_temp_ini_vec;
-yvec = severity_new_pref_standard_vector;
+xvec = ori_BRN_goal_vec;
+yvec = target_relative_severity;
 zvec = omicron_E2_vector;
 nX = length(xvec);
 nY = length(yvec);
 nZ = length(zvec);
 
-
-figfolder = string(['Baseline']);
 % Scenario Name and Line
-titlevec = {'Scenario', 'シナリオ'};
-figname_xvar = '_relative_severity_';
-Scenario = ["2月3週目に感染減少開始"; "3月1週目に感染減少開始"; "3月3週目に感染減少開始"];
-ScenarioEN = [ "Reduction of New Cases from the 3rd Week of Feb onward"; ...
-               "Reduction of New Cases from the 1st Week of Mar onward"; ...
-               "Reduction of New Cases from the 3rd Week of Mar onward"];
-Scenario_vec = [ScenarioEN,Scenario];
-fig_Scenario_vec = ["Scenario_A", "Scenario_B", "Scenario_C"];
-linecolor = {"r", "k", "b"};
-LineStyles = {"-", "-", "-"};
-lineWidth = [1.5, 1.5, 1.5];
-markertype = {'o','o','o'};
-lineNameJP = {"第5波の重症化率の30%", "第5波の重症化率の20%", "第5波の重症化率の10%"};
-lineNameEN = {"Severity Rate 30% (Relative to the 5th Wave)", ...
-              "Severity Rate 20% (Relative to the 5th Wave)", ...
-              "Severity Rate 10% (Relative to the 5th Wave)"};
+figfolder           = string(['Baseline']); % Directory for saved figures
+titlevec            = {'Scenario', 'シナリオ'};
+figname_xvar        = '_relative_severity_';
 
-column_num_main = nZ;
+Scenario = cell(nX,1);
+ScenarioEN = cell(nX,1);
+for iX = 1:nX
+    Scenario{iX}            = ['基本再生産数 = ',num2str(xvec(iX))];
+    ScenarioEN{iX}          = ['Basic Reproduction Number = ',num2str(xvec(iX))];
+end
 
-originalE1 = E1;
-originalE2 = E2;
-originalE3 = E3;
+Scenario_vec        = [ScenarioEN,Scenario];
+fig_Scenario_vec    = ["Scenario_A", "Scenario_B", "Scenario_C"];
+linecolor           = {"r", "k", "b"};
+LineStyles          = {"-", "-", "-"};
+lineWidth           = [1.5, 1.5, 1.5];
+markertype          = {'o','o','o'};
+
+lineNameJP = cell(nY,1);
+lineNameEN = cell(nY,1);
+for iY = 1:nY
+    lineNameJP{iY}          = ['第5波の重症化率の',num2str(yvec(iY)*100),'%'];
+    lineNameEN{iY}          = ['Severity Rate ',num2str(yvec(iY)*100),'% (Relatieve to the 5th Wave)'];
+end
+
+xmax                = ind_May2022(end) + Tdata;
+xmin                = find(date == datetime(2021, 7, 1));
+column_num_main     = nZ;
 
 % initialize_matirix
-DMat        = nan(nX, nY, nZ);
-AlphaMat    = DMat;
+DMat                = nan(nX, nY, nZ);
+AlphaMat            = DMat;
 
 SimData                 = nan(SimPeriod + 1, length(InitialValues), nX, nY, nZ);
-SimData_endogenous      = zeros(SimPeriod + 1, length(InitialValues), nX, nY, nZ, nVariant);
-beta_path_mat           = zeros(SimPeriod, nX, nY, nZ, nVariant);
-beta_tilde_path_mat     = beta_path_mat;
-BRN_path_mat            = beta_path_mat;
-ERN_path_mat            = beta_path_mat;
 AlphaPath               = nan(SimPeriod, nX, nY, nZ);
 NPath                   = AlphaPath;
-Sim_dD                    = AlphaPath;
+Sim_dD                  = AlphaPath;
 SimERN                  = AlphaPath;
-SimBRN                 = AlphaPath;
+SimBRN                  = AlphaPath;
 betaPath                = AlphaPath;
 betaTildePath           = AlphaPath;
 deltaPath               = AlphaPath;
@@ -394,96 +400,51 @@ delta_ICU_nationPath    = AlphaPath;
 delta_ICU_prefPath      = AlphaPath;
 delta_newICU_prefPath   = AlphaPath;
 delta_HospitalPath      = AlphaPath;
-omicron_share_mat       = AlphaPath;
-omicron_I_share_mat     = AlphaPath;
-omicron_N_share_mat     = AlphaPath;
+
 SimICU_nation           = nan(SimPeriod+1, nX, nY, nZ);
 SimICU_pref             = SimICU_nation;
 SimNewICU_pref          = SimICU_nation;
 SimHospital             = SimICU_nation;
 
-for iX = 1:nX
-    SoE_date = SoE_date_vec(iX);
-    for iY = 1:nY
-        for iZ = 1:nZ
-%             gamma_ICU_nation_path(1) = gamma_ICU_nation*gamma_shock_vec(iY);
-%             gamma_ICU_pref_path(1) = gamma_ICU_pref*gamma_shock_vec(iY);
-%             gamma_Hospital_path(2)  = gamma_Hospital_shock_vec(iY);
-%             gamma_ICU_nation_path(2)= gamma_ICU_nation_shock_vec(iY);
-%             gamma_newICU_pref_path(2)= gamma_newICU_pref_shock_vec(iY);
-            severity_nation_standard = severity_nation_standard_vector(iY);
-            severity_new_pref_standard = severity_new_pref_standard_vector(iY);
-            hospitalization_standard = hospitalization_standard_vector(iY);
-            delta_ICU_nation_temp_ini = delta_ICU_nation_temp_ini_vec(iY);
-            delta_ICU_pref_temp_ini   = delta_ICU_pref_temp_ini_vec(iY);
-            delta_newICU_pref_temp_ini = delta_newICU_pref_temp_ini_vec(iY);
-            delta_Hospital_temp_ini   = delta_Hospital_temp_ini_vec(iY);
-            
+
+%==== Simulation Starts ======%
+
+for iX = 1:nX %different figures
+    ori_beta_goal = ori_beta_goal_vec(iX);
+    
+    betaT_temp_ini = betaT_temp_ini_vec(iX);
+    beta_rho = betaT_rho_vec(iX);
+
+    delta_temp_ini = delta_temp_ini_vec(iX);
+    delta_rho = delta_rho_vec(iX);
+    
+    for iY = 1:nY %different curves within a figure
+        severity_nation_standard = severity_nation_standard_vector(iY);
+        severity_new_pref_standard = severity_new_pref_standard_vector(iY);
+        hospitalization_standard = hospitalization_standard_vector(iY);
+        delta_ICU_nation_temp_ini = delta_ICU_nation_temp_ini_vec(iY);
+        delta_ICU_pref_temp_ini   = delta_ICU_pref_temp_ini_vec(iY);
+        delta_newICU_pref_temp_ini = delta_newICU_pref_temp_ini_vec(iY);
+        delta_Hospital_temp_ini   = delta_Hospital_temp_ini_vec(iY);
+        for iZ = 1:nZ %different curves within a figure
+
             omicronE3 = originalE3;
             omicronE2 = originalE2 * omicron_E2_vector(iZ);
             omicronE1 = originalE1 * omicron_E2_vector(iZ);
-            if no_omicron == 1
-                ori_beta_goal  = beta_goal_vec(iZ);
-            end
-            
-            betaT_temp_ini = betaT_temp_ini_vec(iX);
-            beta_rho = betaT_rho_vec(iX);
-            relative_infectivity_path       = ones(SimPeriod,1); %vector
-            relative_severity_path    = ones(SimPeriod,1); %vector
-            past_omicron_share  = zeros(Tdata,1);
-            past_omicron_share(find(dateEN == datetime(2021, 12, 23)))= 0.079;
-            past_omicron_share(find(dateEN == datetime(2021, 12, 30)))= 0.446;
-            past_omicron_share(find(dateEN == datetime(2022, 1, 6))) = 0.81;
-            past_omicron_share(find(dateEN == datetime(2022, 1, 13)))= 0.894; %https://www3.nhk.or.jp/news/html/20220118/k10013437211000.html
-            past_omicron_share(find(dateEN == datetime(2022, 1, 20)))= 0.95;
-            past_omicron_share(find(dateEN == datetime(2022, 1, 27)))= 0.99;
-            past_omicron_share(find(dateEN == datetime(2022, 2, 3)))=  0.995;
-            %calculate_omicron_share
-            logit_initial       = log(omicron_initial/(omicron_ss-omicron_initial)); % Logit of the variant share, most recently
-            sim_omicron_share   = zeros(SimPeriod,1);
-            sim_omicron_share(1)  =   omicron_initial;
-            sim_omicron_share(2:end,1)  ...
-                = exp((1:length(sim_omicron_share(2:end,1)))'* omicron_growth + logit_initial).*omicron_ss ...
-                ./(1+exp((1:length(sim_omicron_share(2:end,1)))'*omicron_growth+logit_initial));
-            sim_omicron_share(isnan(sim_omicron_share)) = 1;
-            omicron_share       = [past_omicron_share; sim_omicron_share];
-            %plot omicron share
-            if iX == 1 && iY == 1 && iZ == 1
-                figure('Name', char(figname_omicron_share));
-                set(gcf, 'Position', [100, 100, 1200, 800])
-                jTitle = 'オミクロン株割合の推移';
-                plot(omicron_share)
-                xlim([x_left_omicron x_right_omicron])
-                ylim([0 1])
-                xticks(x_left_omicron:x_right_omicron)
-                xticklabels(YearMonthWeekJP(xticks))
-                title(char(jTitle),'FontSize',fs,'FontWeight','normal','FontName',fn)
-                ax = gca;
-                ax.YAxis.FontSize = axfs;   ax.XAxis.FontSize = axfs;   ax.YAxis.Exponent = 0;
-                xtickangle(45)
-                if figure_save == 1
-                    saveas(gcf, [home 'Figures/' char(pref) '/' char(figfolder) '/' char(figname_omicron_share) '.png']);
-                end
-            end
             
             % calculate vaccine effectiveness
-            E1 = originalE1*(1-sim_omicron_share) + omicronE1 * sim_omicron_share; %vector
-            E2 = originalE2*(1-sim_omicron_share) + omicronE2 * sim_omicron_share; %vector
-            E3 = originalE3*(1-sim_omicron_share) + omicronE3 * sim_omicron_share; %vector
+            E1 = omicronE1; %vector
+            E2 = omicronE2; %vector
+            E3 = omicronE3; %vector
             
-            D1 = (D1 - E1)./(1-E1);      % Find reduction of death conditoinal on infection after first does
-            D2 = (D2 - E2)./(1-E2);      % Find reduction of death conditoinal on infection after second does
-            D3 = (D3 - E3)./(1-E3);      % Find reduction of death conditoinal on infection after second does
+            D1 = (D1 - E1)/(1-E1);      % Find reduction of death conditoinal on infection after first does
+            D2 = (D2 - E2)/(1-E2);      % Find reduction of death conditoinal on infection after second does
+            D3 = (D3 - E3)/(1-E3);      % Find reduction of death conditoinal on infection after second does
             
-            relative_infectivity_path       = 1 * (1-sim_omicron_share) ...
-                + omicron_relative_infectivity * sim_omicron_share; %vector
+            %calculate_omicron_share
+            sim_omicron_share   = ones(SimPeriod,1);
+            omicron_share       = [past_omicron_share; sim_omicron_share];
             
-            relative_severity_path    = 1 * (1-sim_omicron_share) ...
-                + omicron_realtive_severity * sim_omicron_share; %vector
-            relative_severity_path_nation    = 1 * (1-sim_omicron_share) ...
-                + omicron_realtive_severity_nation * sim_omicron_share; %vector
-            relative_hospitalized_path = 1 * (1-sim_omicron_share) ...
-                + omicron_realtive_hospitalized_rate * sim_omicron_share;
             VE = E1.*(VT(:,1)+VT(:,4)+VT(:,7))...
                 +(E2-E1).*(VT(:,2)+VT(:,5)+VT(:,8)) ...
                 +(E3-E2).*(VT(:,3)+VT(:,6)+VT(:,9));
@@ -492,35 +453,28 @@ for iX = 1:nX
                 +(originalE3-originalE2).*(V3_elderly+V3_medical+V3_others);
             V = [VE_prev(end-1);VE_prev(end);VE(1:end-2)];
             
-            VE_omicron      = omicronE1 * (VT(:,1)+VT(:,4)+VT(:,7))...
-                + (omicronE2-omicronE1) * (VT(:,2)+VT(:,5)+VT(:,8)) ...
-                + (omicronE3-omicronE2) * (VT(:,3)+VT(:,6)+VT(:,9));
-            VE_prev_omicron = omicronE1 * (V1_elderly+V1_medical+V1_others) ...
-                + (omicronE2-omicronE1) * (V2_elderly+V2_medical+V2_others) ...
-                + (omicronE3-omicronE2) * (V3_elderly+V3_medical+V3_others);
-            V_omicron       = [VE_prev_omicron(end-1); VE_prev_omicron(end); VE_omicron(1:end-2)];
-            
-            
             %Construct betapath
-            beta_goal   = ori_beta_goal;
-            beta_goal   = beta_goal * relative_infectivity_path;
-            betaT       = beta_goal .* transpose(seasonality(1:SimPeriod));
+            %Add Influence of BA.1, BA.2, and Seasonality 
+            beta_goal   = ori_beta_goal;        
+            betaT       = beta_goal* omicron_relative_infectivity...
+                                  .* BA2_infectivity_path...
+                                  .* transpose(seasonality(1:SimPeriod));
             
-            betaT               = beta_AR1(betaT_temp_ini, beta_rho, betaT, start_beta);  %2021/12/23 kawawaki
-            betaT(1)            = betaT(1)/(1+betaT_temp_ini) * (1-0.275);
+            betaT       = beta_AR1(betaT_temp_ini, beta_rho, betaT, start_beta);  %2021/12/23 kawawaki
             betaBox     = [beta; betaT];
             
             %Construct alphapath
-            alphaAfterSOE   = [alpha(Tdata):(alpha_off - alpha(Tdata)) / (DRi):alpha_off];
-            alphaT          = [alphaAfterSOE'; alpha_off * ones(SimPeriod, 1)];
+            alphaAfterSOE   = [alpha(Tdata):(alpha_off - alpha(Tdata)) / (DR):alpha_off];
+            %alphaT          = [alphaAfterSOE'; alpha_off * ones(SimPeriod, 1)];
+            alphaT          = [ones(3,1)*alpha(Tdata); alphaAfterSOE';alpha_off * ones(SimPeriod-3,1)];
             alphaBox        = [alpha; alphaT];
             
             % death rate, severity rate, hospoital rate paths
-            deltaT              = delta_average             * relative_severity_path;
-            SimICU_nation_rate    = ICU_nation_rate_average  * relative_severity_path_nation;
-            SimICU_pref_rate      = ICU_pref_rate_average    * relative_severity_path;
-            SimNewICU_pref_rate   = newICU_pref_rate_average * relative_severity_path;
-            SimHospital_rate      = Hospital_rate_average    * relative_hospitalized_path;
+            deltaT                = delta_average            * omicron_realtive_severity            *ones(SimPeriod,1);
+            SimICU_nation_rate    = ICU_nation_rate_average  * omicron_realtive_severity_nation     *ones(SimPeriod,1);
+            SimICU_pref_rate      = ICU_pref_rate_average    * omicron_realtive_severity            *ones(SimPeriod,1);
+            SimNewICU_pref_rate   = newICU_pref_rate_average * omicron_realtive_severity            *ones(SimPeriod,1);
+            SimHospital_rate      = Hospital_rate_average    * omicron_realtive_hospitalized_rate   *ones(SimPeriod,1);
             
             %AR1 adjustment
             deltaT_woAR             = deltaT;
@@ -537,21 +491,12 @@ for iX = 1:nX
             
             SimHospital_rate_woAR     = SimHospital_rate;
             SimHospital_rate          = beta_AR1(delta_Hospital_temp_ini, delta_Hospital_rho, SimHospital_rate, start_delta_Hospital);
-            
-            
-            
-            
-            
-            
-            
-            
+                        
             SimICU_nation_rate(1:end)   = SimICU_nation_rate(1:end) *  severity_nation_standard;
             SimNewICU_pref_rate(1:end)  = SimNewICU_pref_rate(1:end) *  severity_new_pref_standard;
             SimHospital_rate(1:end)     = SimHospital_rate(1:end) *  hospitalization_standard;
             
-            
-            
-            
+
             %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
             %%%%%%%%%%%%%%%%%%%%%%%%%%%% Simulation SIRD %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
             %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -562,17 +507,16 @@ for iX = 1:nX
                 Covid_projection_omicron_date(InitialValues,alpha_on,alpha_off,SoE_date,th_off_N,...
                 betaT,gammaT,deltaT,SimICU_nation_rate, SimICU_pref_rate, SimHospital_rate,SimNewICU_pref_rate,h,k,POP0,...
                 lagged_cumsumVT1, lagged_cumsumVT2,lagged_cumsumVT3, E1, E2, E3, cum_in_R, ...
-                hconstant,DRi, ...
+                hconstant,DR, ...
                 gamma_ICU_nation_path, gamma_ICU_pref_path, gamma_Hospital_path,gamma_newICU_pref_path,...
                 relative_beta_SOE, beta_jump, beta_goal, seasonality, alphaBox(Tdata + 1:end), state, simple_beta_avg);
             Sim_dD(:, iX, iY, iZ) = squeeze(SimData(2:end,4,iX,iY,iZ)-SimData(1:end-1,4,iX,iY,iZ)+SimData(2:end,4,iX,iY,iZ)-SimData(1:end-1,4,iX,iY,iZ));
             
             deltaPath(:, iX,iY,iZ)  = deltaT;
-            SimICU_nation_rate_Path(:, iX,iY,iZ) = SimICU_nation_rate;
-            SimICU_pref_rate_Path(:, iX,iY,iZ) = SimICU_pref_rate;
-            SimNewICU_pref_rate_Path(:, iX,iY,iZ) = SimNewICU_pref_rate;
-            SimHospital_rate_Path(:, iX,iY,iZ) = SimHospital_rate;
-            
+            SimICU_nation_rate_Path(:, iX,iY,iZ)    = SimICU_nation_rate;
+            SimICU_pref_rate_Path(:, iX,iY,iZ)      = SimICU_pref_rate;
+            SimNewICU_pref_rate_Path(:, iX,iY,iZ)   = SimNewICU_pref_rate;
+            SimHospital_rate_Path(:, iX,iY,iZ)      = SimHospital_rate;
             
         end
         
@@ -604,20 +548,16 @@ for ixx = 1:nX
     end
 end
 
-disp('Pessimistic')
-disp(round(squeeze(NPath(1:5,1,1,1)/7)'))
-disp('Baseline')
-disp(round(squeeze(NPath(1:5,2,1,1)/7)'))
-disp('Optimistic')
-disp(round(squeeze(NPath(1:5,3,1,1)/7)'))
+% disp('Pessimistic')
+% disp(round(squeeze(NPath(3,1,1,1)/7)'))
+% disp('Baseline')
+% disp(round(squeeze(NPath(3,2,1,1)/7)'))
+% disp('Optimistic')
+% disp(round(squeeze(NPath(3,3,1,1)/7)'))
 
-%%
 % %==================== Plot and Backdata ====================%
 
 lgdLocation = 'northwest';
-yft = '%.0f';
-lgdfs = 6;
-axfs = 8;
 column_num = 3;
 
 for l = 1:2 %1:2 when english version needed
@@ -631,7 +571,7 @@ for l = 1:2 %1:2 when english version needed
         
         % Generate graphs for the website
         lng = language{l};
-        figname = [char(figname_main) '_' num2str(fig_Scenario_vec(iX,l),'%.2f') '_' char(lng)];
+        figname = [char(figname_main) '_' char(fig_Scenario_vec(iX)) '_' char(lng)];
         f = figure('Name', figname);
         t = tiledlayout(3,3, 'TileSpacing', 'compact');
         title(t,Scenario_vec(iX,l),'FontSize',20)
@@ -644,7 +584,7 @@ for l = 1:2 %1:2 when english version needed
         title_vec = ["ICU (Old Tokyo Standard)", "重症患者数（旧都基準）"];
         plot_3Dfunction(ICU_pref(2:end), SimICU_pref(2:end,:,:), iX, ...
             WeekNumber, YearMonth, xmin, xmax, ...
-            fn, fs, lgdfs, axfs,yft,...
+            fn, fs, ldfs, axfs,yft,...
             lgdLocation, column_num, l, title_vec, ...
             lineWidth,linecolor, LineStyles, lineName)
         hold on
@@ -663,11 +603,11 @@ for l = 1:2 %1:2 when english version needed
 
         plot_3Dfunction(newICU_pref(2:end), SimNewICU_pref(2:end,:,:), iX, ...
             WeekNumber, YearMonth, xmin, xmax, ...
-            fn, fs, lgdfs, axfs,yft,...
+            fn, fs, ldfs, axfs,yft,...
             lgdLocation, column_num, l, title_vec, ...
             lineWidth,linecolor, LineStyles, lineName)
-        %         Handle = legend;
-        %         set(Handle, 'Visible', 'off');
+        Handle = legend;
+        set(Handle, 'Visible', 'off');
         hold on
         plot([newICU_limit_pref_vec; ones(SimPeriod, 1) * max(newICU_limit_pref_vec)], '--k', 'HandleVisibility', 'off', 'LineWidth', 1.5)
         text(xmin, newICU_limit_pref_vec(xmin) * 0.85, '100%', 'FontSize', fs)
@@ -686,7 +626,7 @@ for l = 1:2 %1:2 when english version needed
 %         title_vec = ["ICU (National Standard)", "重症患者数（国基準）"];
 %         plot_3Dfunction(ICU_nation(2:end), SimICU_nation(2:end,:,:), iX, ...
 %             WeekNumber, YearMonth, xmin, xmax, ...
-%             fn, fs, lgdfs, axfs,yft,...
+%             fn, fs, ldfs, axfs,yft,...
 %             lgdLocation, column_num, l, title_vec, ...
 %             lineWidth,linecolor, LineStyles, lineName)
 %         Handle = legend;
@@ -705,7 +645,7 @@ for l = 1:2 %1:2 when english version needed
         title_vec = ["Hospitalized Patients", "入院患者数"];
         plot_3Dfunction(hospital(2:end), SimHospital(2:end,:,:), iX, ...
             WeekNumber, YearMonth, xmin, xmax, ...
-            fn, fs, lgdfs, axfs,yft,...
+            fn, fs, ldfs, axfs,yft,...
             lgdLocation, column_num, l, title_vec, ...
             lineWidth,linecolor, LineStyles, lineName)
         Handle = legend;
@@ -723,7 +663,7 @@ for l = 1:2 %1:2 when english version needed
         title_vec = ["New Deaths (Daily Average)", "新規死亡者数（1日平均）"];
         plot_3Dfunction(dD / 7, Sim_dD/ 7, iX, ...
             WeekNumber, YearMonth, xmin, xmax, ...
-            fn, fs, lgdfs, axfs,yft,...
+            fn, fs, ldfs, axfs,yft,...
             lgdLocation, column_num, l, title_vec, ...
             lineWidth,linecolor, LineStyles, lineName)
         Handle = legend;
@@ -736,7 +676,7 @@ for l = 1:2 %1:2 when english version needed
         title_vec = ["New Cases (Daily Average)", "新規感染者数（1日平均）"];
         plot_3Dfunction(N/7, NPath/7, iX, ...
             WeekNumber, YearMonth, xmin, xmax, ...
-            fn, fs, lgdfs, axfs,yft,...
+            fn, fs, ldfs, axfs,yft,...
             lgdLocation, column_num, l, title_vec, ...
             lineWidth,linecolor, LineStyles, lineName)
         Handle = legend;
@@ -749,7 +689,7 @@ for l = 1:2 %1:2 when english version needed
         title_vec = ["GDP", "GDP"];
         plot_3Dfunction(100*(1-alpha), 100*(1-AlphaPath), iX, ...
             WeekNumber, YearMonth, xmin, xmax, ...
-            fn, fs, lgdfs, axfs,yft,...
+            fn, fs, ldfs, axfs,yft,...
             lgdLocation, column_num, l, title_vec, ...
             lineWidth,linecolor, LineStyles, lineName)
         ylim([90 100])
@@ -761,7 +701,7 @@ for l = 1:2 %1:2 when english version needed
         title_vec = ["Transitions of ERN", "実効再生産数"];
         plot_3Dfunction(ERN, SimERN, iX, ...
             WeekNumber, YearMonth, xmin, xmax, ...
-            fn, fs, lgdfs, axfs,yft,...
+            fn, fs, ldfs, axfs,yft,...
             lgdLocation, column_num, l, title_vec, ...
             lineWidth,linecolor, LineStyles, lineName)
         Handle = legend;
@@ -794,9 +734,9 @@ for l = 1:2 %1:2 when english version needed
         %         subplot(3, 3, 9)
         
         nexttile
-        title_vec = ["Transition of the Share of Omicron Variant, ", "オミクロン株割合の推移, "];
+        title_vec = ["Transition of the Share of Omicron Variant(BA.2 sub-lineage), ", "オミクロン株BA.2系統割合の推移, "];
         
-        plot(omicron_share)
+        plot(BA2_share)
         hold on
         xline(Tdata,'LineWidth',1.5,'HandleVisibility','off');
         xlim([xmin xmax])
@@ -854,7 +794,7 @@ for l = 1:2 %1:2 when english version needed
         
         if figure_save == 1
             %         saveas(f, [home 'Figures/' char(pref) '/' char(figname_main) char(lng) '.png']);
-            saveas(f, [home 'Figures/' char(pref) '/' char(figfolder) '/' char(figname) '.png']);
+            saveas(f, [figure_path char(pref) '/' char(figfolder) '/' char(figname) '.png']);
         end
         
         
@@ -862,10 +802,10 @@ for l = 1:2 %1:2 when english version needed
 end %End of language loop = figure loop
 
 %% Other Plot
-lgdfs = 12;
+ldfs = 12;
 axfs = 12;
 lineWidth = 2.0*ones(nY);
-omicron_plot_parameter
+plot_parameter
 
 % figure('Name','SR_transition')
 % title_vec = ["Transition of S and R", "SとRの推移"];
@@ -906,32 +846,62 @@ for iX = 1:nX
 end
 %%
 if data_save == 1
+%     for iX = 1:nX
+%         titleN = strings(1, 1 + nZ * 9);
+%         titleN(1) = "週";
+%         for ti = 1:nZ
+%             titleN(1, 1 + ti) = append("新規感染者数（", Scenario(iX), "）");
+%             titleN(1, 1 + nZ + ti) = append("経済活動（", Scenario(iX), "）");
+%             titleN(1, 1 + nZ * 2 + ti) = append("実効再生産数（", Scenario(iX), "）");
+%             titleN(1, 1 + nZ * 3 + ti) = append("基本再生産数（", Scenario(iX), "）");
+%             titleN(1, 1 + nZ * 4 + ti) = append("入院患者数（", Scenario(iX), "）");
+%             titleN(1, 1 + nZ * 5 + ti) = append("重症者数_国基準（", Scenario(iX), "）");
+%             titleN(1, 1 + nZ * 6 + ti) = append("重症者数_旧都基準（", Scenario(iX), "）");
+%             titleN(1, 1 + nZ * 7 + ti) = append("重症者数_新都基準（", Scenario(iX), "）");
+%             titleN(1, 1 + nZ * 7 + ti) = append("重症者数_新都基準（", Scenario(iX), "）");
+%             titleN(1, 1 + nZ * 7 + ti) = append("重症者数_新都基準（", Scenario(iX), "）");
+%             titleN(1, 1 + nZ * 8 + ti) = append("新規死亡者数（", Scenario(iX), "）");
+%         end
+%         TN = table([
+%             titleN;
+%             YearMonthWeekJP(Tdata - 7:end - 1), ...
+%             squeeze(round(BackDataN(:, iX, iY, :) / 7)), ...
+%             squeeze(round(100 * (1 - BackDataAlpha(:, iX, iY, :)), 1)), ...
+%             squeeze(round(BackDataERN(:, iX, iY, :), 2)), ...
+%             squeeze(round(BackDataBRN(:, iX, iY, :), 2)), ...
+%             squeeze(round(BackDataHospital(:, iX, iY, :))), ...
+%             squeeze(round(BackDataICU_nation(:, iX, iY, :))), ...
+%             squeeze(round(BackDataICU_pref(:, iX, iY, :))), ...
+%             squeeze(round(BackDataNewICU_pref(:, iX, iY, :))), ...
+%             squeeze(round(BackDatadD(:, iX, iY, :) / 7))
+%             ]);
+%         writetable(TN, [figure_path char(pref) '\' char(figfolder) '\BackData_' char(figname_main) '_' char(ScenarioEN(iX)) '.xls'], 'Sheet', '新規感染者数（1日平均）', 'WriteVariableNames', false);
+%     end
     for iX = 1:nX
-        titleN = strings(1, 1 + nZ * 9);
+        titleN = strings(1, 11);
         titleN(1) = "週";
-        for ti = 1:nZ
-            titleN(1, 1 + ti) = append("新規感染者数（", Scenario(ti), "）");
-            titleN(1, 1 + nZ + ti) = append("経済活動（", Scenario(ti), "）");
-            titleN(1, 1 + nZ * 2 + ti) = append("実効再生産数（", Scenario(ti), "）");
-            titleN(1, 1 + nZ * 3 + ti) = append("基本再生産数（", Scenario(ti), "）");
-            titleN(1, 1 + nZ * 4 + ti) = append("入院患者数（", Scenario(ti), "）");
-            titleN(1, 1 + nZ * 5 + ti) = append("重症者数_国基準（", Scenario(ti), "）");
-            titleN(1, 1 + nZ * 6 + ti) = append("重症者数_旧都基準（", Scenario(ti), "）");
-            titleN(1, 1 + nZ * 7 + ti) = append("重症者数_新都基準（", Scenario(ti), "）");
-            titleN(1, 1 + nZ * 8 + ti) = append("新規死亡者数（", Scenario(ti), "）");
-        end
+        titleN(1, 2) = "新規感染者数";
+        titleN(1, 3) = "経済活動";
+        titleN(1, 4) = "実効再生産数";
+        titleN(1, 5) = "基本再生産数";
+        titleN(1, 6) = "入院患者数";
+        titleN(1, 7) = "重症者数_旧都基準";
+        titleN(1, 8) = append("重症者数_新都基準（", lineNameJP{1}, "）");
+        titleN(1, 9) = append("重症者数_新都基準（", lineNameJP{2}, "）");
+        titleN(1, 10)= append("重症者数_新都基準（", lineNameJP{3}, "）");
+        titleN(1, 11)= "新規死亡者数";
+        
         TN = table([
             titleN;
             YearMonthWeekJP(Tdata - 7:end - 1), ...
-            squeeze(round(BackDataN(:, iX, iY, :) / 7)), ...
-            squeeze(round(100 * (1 - BackDataAlpha(:, iX, iY, :)), 1)), ...
-            squeeze(round(BackDataERN(:, iX, iY, :), 2)), ...
-            squeeze(round(BackDataBRN(:, iX, iY, :), 2)), ...
-            squeeze(round(BackDataHospital(:, iX, iY, :))), ...
-            squeeze(round(BackDataICU_nation(:, iX, iY, :))), ...
-            squeeze(round(BackDataICU_pref(:, iX, iY, :))), ...
-            squeeze(round(BackDataNewICU_pref(:, iX, iY, :))), ...
-            squeeze(round(BackDatadD(:, iX, iY, :) / 7))
+            squeeze(round(BackDataN(:, iX, 2, 1) / 7)), ...
+            squeeze(round(100 * (1 - BackDataAlpha(:, iX, 2, 1)), 1)), ...
+            squeeze(round(BackDataERN(:, iX, 2, 1), 2)), ...
+            squeeze(round(BackDataBRN(:, iX, 2, 1), 2)), ...
+            squeeze(round(BackDataHospital(:, iX, 2, 1))), ...
+            squeeze(round(BackDataICU_pref(:, iX, 2, 1))), ...
+            squeeze(round(BackDataNewICU_pref(:, iX, :, 1))), ...
+            squeeze(round(BackDatadD(:, iX, 2, 1) / 7))
             ]);
         writetable(TN, [home 'Figures/' char(pref) '/' char(figfolder) '/BackData_' char(figname_main) '_' char(ScenarioEN(iX)) '.xls'], 'Sheet', '新規感染者数（1日平均）', 'WriteVariableNames', false);
     end
@@ -972,3 +942,4 @@ end
 %     writetable(TAD, [home 'Figures/' char(pref) '/' char(figfolder) '/BackData_' char(figname_main) char(pref) '.xls'], 'Sheet', '経済損失と死亡者数', 'WriteVariableNames', false);
 % end
 %
+toc;
