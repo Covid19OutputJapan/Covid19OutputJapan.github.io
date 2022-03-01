@@ -7,10 +7,10 @@ permalink: tokyo_latest.html
 summary:
 ---
 
-{% assign fig_loc = "./archives/20220222/Figures/" %}
+{% assign fig_loc = "./archives/20220301/Figures/" %}
 
-## Last update on February 22, 2022
-** Based on the data available as of February 20, 2022 Click to enlarge each image.
+## Last update on March 1, 2022
+** Based on the data available as of February 27, 2022 Click to enlarge each image.
 
 {% include link_to_code.html %}
 
@@ -21,24 +21,24 @@ summary:
 
 
 
-### Case A: Basic reproduction number 3.0
+### Case A: Basic reproduction number 2.5
 
 {: align="center"}
-|[![gradual_Y]({{ fig_loc }}Tokyo/Baseline/MainResults_Scenario_A_EN.png)]({{ fig_loc }}Tokyo/Baseline/MainResults_Scenario_A_EN.png)|
+|[![gradual_Y]({{ fig_loc }}Tokyo/Relative_Infectivity_Low_Extended/MainResults_Scenario_A_EN.png)]({{ fig_loc }}Tokyo/Relative_Infectivity_Low_Extended/MainResults_Scenario_A_EN.png)|
 
 Source: Authors’ calculation.
 
-### Case B: Basic reproduction number 2.5
+### Case B: Basic reproduction number 2.0
 
 {: align="center"}
-|[![gradual_Y]({{ fig_loc }}Tokyo/Baseline/MainResults_Scenario_B_EN.png)]({{ fig_loc }}Tokyo/Baseline/MainResults_Scenario_B_EN.png)|
+|[![gradual_Y]({{ fig_loc }}Tokyo/Relative_Infectivity_Low_Extended/MainResults_Scenario_B_EN.png)]({{ fig_loc }}Tokyo/Relative_Infectivity_Low_Extended/MainResults_Scenario_B_EN.png)|
 
 Source: Authors’ calculation.
 
-### Case C: Basic reproduction number 2.0
+### Case C: Basic reproduction number 1.5
 
 {: align="center"}
-|[![gradual_Y]({{ fig_loc }}Tokyo/Baseline/MainResults_Scenario_C_EN.png)]({{ fig_loc }}Tokyo/Baseline/MainResults_Scenario_C_EN.png)|
+|[![gradual_Y]({{ fig_loc }}Tokyo/Relative_Infectivity_Low_Extended/MainResults_Scenario_C_EN.png)]({{ fig_loc }}Tokyo/Relative_Infectivity_Low_Extended/MainResults_Scenario_C_EN.png)|
 
 Source: Authors’ calculation.
 
