@@ -24,21 +24,21 @@ summary:
 ### Case A: Basic reproduction number 3.0
 
 {: align="center"}
-|[![gradual_Y]({{ fig_loc }}Tokyo/Relative_Infectivity_Low_Extended/MainResults_Scenario_A_EN.png)]({{ fig_loc }}Tokyo/Relative_Infectivity_Low_Extended/MainResults_Scenario_A_EN.png)|
+|[![gradual_Y]({{ fig_loc }}Tokyo/Not_Extended/MainResults_Scenario_A_EN.png)]({{ fig_loc }}Tokyo/Not_Extended/MainResults_Scenario_A_EN.png)|
 
 Source: Authors’ calculation.
 
 ### Case B: Basic reproduction number 2.5
 
 {: align="center"}
-|[![gradual_Y]({{ fig_loc }}Tokyo/Relative_Infectivity_Low_Extended/MainResults_Scenario_B_EN.png)]({{ fig_loc }}Tokyo/Relative_Infectivity_Low_Extended/MainResults_Scenario_B_EN.png)|
+|[![gradual_Y]({{ fig_loc }}Tokyo/Not_Extended/MainResults_Scenario_B_EN.png)]({{ fig_loc }}Tokyo/Not_Extended/MainResults_Scenario_B_EN.png)|
 
 Source: Authors’ calculation.
 
 ### Case C: Basic reproduction number 2.0
 
 {: align="center"}
-|[![gradual_Y]({{ fig_loc }}Tokyo/Relative_Infectivity_Low_Extended/MainResults_Scenario_C_EN.png)]({{ fig_loc }}Tokyo/Relative_Infectivity_Low_Extended/MainResults_Scenario_C_EN.png)|
+|[![gradual_Y]({{ fig_loc }}Tokyo/Not_Extended/MainResults_Scenario_C_EN.png)]({{ fig_loc }}Tokyo/Not_Extended/MainResults_Scenario_C_EN.png)|
 
 Source: Authors’ calculation.
 
